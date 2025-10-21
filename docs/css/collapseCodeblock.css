@@ -1,0 +1,35 @@
+/* Container styling */
+pre.collapsible {
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* Gradient fade effect at bottom */
+pre.collapsible:not(.expanded)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5em;
+  background: linear-gradient(transparent, white);
+}
+
+/* Toggle button styling */
+button.code-toggle {
+  display: inline-block;
+  margin-top: 4px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+button.code-toggle:hover {
+  background-color: #e0e0e0;
+}

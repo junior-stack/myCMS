@@ -1,0 +1,33 @@
+site_name: My Docs
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - content.code.annotate
+
+# Add the hook file
+hooks:
+  - hooks.py
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  # - pymdownx.highlight:
+  #     linenums: true
+  - codehilite
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - javascript/mathjax.js
+  - javascript/collapseCodeblock.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - css/collapseCodeblock.css
+# plugins:
+#   - pub-obsidian:
+#       obsidian_dir: .obsidian
