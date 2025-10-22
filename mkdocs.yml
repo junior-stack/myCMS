@@ -5,6 +5,10 @@ theme:
     - content.code.copy
     - content.code.annotate
 
+repo_url: https://github.com/junior-stack/myCMS
+
+repo_name: junior-stack/myCMS
+
 # Add the hook file
 hooks:
   - hooks.py

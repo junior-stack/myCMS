@@ -15,6 +15,8 @@ HEADER_PATTERN = re.compile(r'^(#+)', re.MULTILINE)
 
 BULLET_PATTERN = re.compile(r":\n-", re.DOTALL)
 
+PICTURE_PATTERN = re.compile(r"!\[\[(.*?)\]\]", re.DOTALL)
+
 def remove_fold_flags(content: str) -> str:
     """
     Removes ' fold' from code block opening lines.
@@ -60,12 +62,19 @@ def increase_header_level(content: str) -> str:
 def transform_Bullet_start(content: str) -> str:
     return BULLET_PATTERN.sub(r":\n\n-", content)
 
+def parse_picture(content: str) -> str:
+    def repl(match):
+        pic = match.group(1)
+        return f"![](images/{pic})"
+    return PICTURE_PATTERN.sub(repl, content)
+
 def on_page_markdown(markdown, page, config, files):
     # Runs on each page before conversion to HTML
     content = remove_fold_flags(markdown)
     content = transform_group_tabs(content)
     content = increase_header_level(content)
     content = transform_Bullet_start(content)
+    content = parse_picture(content)
     return content
 
 # if __name__ == "__main__":
