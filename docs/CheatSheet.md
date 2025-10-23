@@ -1,3 +1,6 @@
+---
+share: true
+---
 
 https://github.com/jsjtzyy/LeetCode/blob/master/Java%20cheat%20sheet%20for%20interview
 # 1. Basic
@@ -36,6 +39,16 @@ int main(void){
 }
 ```
 ```Javascript group:1.1
+// common js
+var x = 1
+var y = 1.0
+var s = "abc"
+
+// ES6
+let x = 1
+let y = 1.0
+let s = "abc"
+const b = 1  // cannot be assigned again and must be initialized
 x = 1
 ```
 
@@ -92,6 +105,12 @@ int main(void){
 std::cout <<< "Hello world";
 }
 ```
+```javascript group:1.2
+a = 1;
+obj = {a: 1}
+console.log(`a: ${a}`);
+console.log(`obj: ${JSON.stringify(obj)}`)
+```
 
 ## 1.3 Loop
 ```Python group:1.3
@@ -119,12 +138,72 @@ boolean flag = True;
 while(flag){
 	System.out.print(c_arr[i]);
 }
+```
+```Javascript group:1.3
+// for loop 1:
+for (let i = 0; i < 3; i++) {  
+	console.log("Iteration number: " + i);  
+}
+
+// for...in iterates over enumerable properties of an object
+const person = { name: "Alice", age: 30 };  
+for (const key in person) {  
+	console.log(key + ": " + person[key]);  
+}
+
+// for...of iterates values of iterable objects
+const colors = ["red", "green", "blue"];  
+for (const color of colors) {  
+	console.log(color);  
+}
+
+// while loop
+let count = 0;  
+while (count < 3) {  
+	console.log("Count is: " + count);  
+	count++;  
+}
+
+// do...while
+let x = 0;  
+do {  
+	console.log("Value of x: " + x);  
+	x++;  
+} while (x < 0);
 
 ```
 
 ## 1.4 Define function
+```Javascript group:1.4
+// normal declare
+function helloworld(name){
+	console.log(`Hello: ${name}`);
+}
+
+// arrow function
+const helloworld = (name) => {
+	console.log(`Hello: ${name}`);
+}
+```
+
+
 
 ## 1.5 define class
+```Javascript group:1.5
+class A {
+	constructor(a1, a2){
+		this.a1 = a1;
+		this.a2 = a2;
+	}
+}
+
+class AA extends A{
+	constructor(a1, a2, a3){
+		super(a1, a2);
+		this.a3 = a3;
+	}
+}
+```
 
 ## 1.6 if statement
 
@@ -135,13 +214,14 @@ while(flag){
 ## 2.1 List
 ```Python group:2.1
 arr = [1, 2, 3]
-
+arr[2]         # return 3
 arr.append(4)  # arr becomes [1, 2, 3, 4]
 arr.pop()      # arr becomes [1, 2, 3]
 
 arr.insert(2, 5) # arr becomes [1, 2, 5, 3, 4] 
 8 in arr         # return False
 arr.index(5)     # return 2
+len(arr)         # returns the arr's length: 5
 ```
 ```Java group:2.1
 import java.util.ArrayList;  
@@ -165,6 +245,30 @@ arr2.get(0);      // gives 4
 arr2.set(0, 2)    // arr: [2, 5]
 
 ```
+```Javascript group:2.1
+let arr = [1, 2, 3]
+arr[2]                 // return 3
+arr.push(4)            // arr becomes [1,2,3, 4]
+arr.pop(2)             // arr becomes [1, 2, 4]
+arr.length             // returns 3
+
+4 in arr               // returns True
+// splice(start, deleteCount, item1, item2, ...)
+// splice deletes number of elements equal to deleteCount from arr[start]
+// inclusively, then add item1, item2, ... before the original arr[start]
+// position, then return an array containing deleted items
+arr.splice(1, 1)             // arr becomes [1, 4]
+arr.splice(1, 0, 3, 4, 5, 6) // arr becomes [1, 3, 4, 5, 6, 4]
+arr.splice(1, 1, 5)         // arr becomes [1, 5, 4, 5, 6, 4]
+// find method
+// Map
+
+// Reduce
+
+// filter
+
+// forEach
+```
 
 ## 2.2 Set
 ```Python group:2.2
@@ -173,9 +277,30 @@ my_set.add("cherry") # mySet: {"apple", "banana", "cherry"}
 my_set.update(["orange", "mango", "apple"]) 
 # mySet: {"apple", "banana", "cherry", "orange", "mango"}
 ```
+```Javascript group:2.2
+let b = new Set()
+let a = new Set([2])    
+
+a.add(1)           // a becomes {1, 2}
+3 in a             // return False
+a.delete(2)        // a becomes {1}
+
+b.add(3)
+b.add(1)
+const unionSet = a.union(b)         //unionSet: {1, 3}
+const intersect = a.intersection(b) //intersect: {1}
+const diff = b.difference(a)        // diff: {3}
+```
 
 ## 2.3 Map
 
+```Javascript group:2.3
+const myMap = new Map()
+myMap.has("a")            // return False because key "a" does not exist
+myMap.set("a", 1)         // myMap becomes {"a": 1}
+myMap.get("a")            // return 1
+myMap.delete("a")         // myMap becomes
+```
 
 ## 2.4 String
 ```Python group:2.4
@@ -219,15 +344,56 @@ sb.reverse()           // sb becomes its reverse
 
 // CharSequence interface: implemented by String, StringBuffer, StringBuilder; seen in the parameter type of replace and some methods
 ```
+```Javascript group:2.4
+s = "abc"
+
+s.slice(0,2)        // returns[0:2] which is "ab"
+s.indexOf("bc", 0)  // return 1
+s.includes("ab", 0) // return True
+s + "bcd"           // return "abcbcd"
+```
 
 ## 2.5 Multi-set
 # 3. Files
+```Javascript group:3
+// ES syntax
+// asynchronous read & write
+import { readFile, writeFile } from 'node:fs/promises';  
+  
+async function asyncFileExample() {  
+	try {  
+		const data = await readFile('./myFile.txt', { encoding: 'utf8' });  
+		console.log('File content:', data); 
+		
+		const content = 'This is some content to write to the file.'; 
+		await writeFile('./myNewFile.txt', content, { encoding: 'utf8' });
+		console.log('File written successfully!');
+	} catch (error) {  
+		console.error('Error:', error);  
+	}  
+}
+
+// synchronous read & write
+import { readFileSync, writeFileSync } from 'node:fs';
+try{
+	const content = fs.readFileSync('myFile.txt', 'utf-8');  
+	console.log(content);
+	
+	await fs.writeFile(filePath, data);  
+	console.log('File written successfully!');
+} catch(err) {
+	console.error(err)
+}
+```
 
 # 4. Set up
 
 ## 4.1 Project files directory structure
 
 ## 4.2 How to debug
+
+
+## 4.3 Module import
 
 # 5. Concurrency
 
