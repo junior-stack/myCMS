@@ -186,9 +186,8 @@ const helloworld = (name) => {
 }
 ```
 
-
-
 ## 1.5 define class
+
 ```Javascript group:1.5
 class A {
 	constructor(a1, a2){
@@ -208,6 +207,9 @@ class AA extends A{
 ## 1.6 if statement
 
 ## 1.7 Operator
+arithmetic
+
+bitwise
 
 # 2. Collections
 
@@ -410,7 +412,63 @@ try{
 ## 6.2 Reflection
 
 ## 6.3 Closure
+In programming language like javascript, Java, Python, C, it uses lexical scope(static scope) meaning that the scope of a variable is determined by where it's defined in the code, not where it's called. On the other hand, dynamic scope means the scope of a variable is determined by where it's called.
+
+**How does lexical scope work:**
+Lexical scope is implemented by creating a scope chain that links a function to its parent scopes based on the physical structure of the code, allowing a variable lookup to begin in the innermost scope and repeat moving outward until a match is found. When a function is defined, a closure is created that holds a reference to its parent scope, establishing this chain.
+
+Use Cases: 
+- allow functions to maintain state between calls
+- create private variables that are only accessible by inner functions
+
+```Javascript group:6.3
+function createCounter() {  
+	let count = 0; // 'count' is in the outer scope  
+	// 'increment' is the inner function, forming a closure
+	function increment() {   
+		count++;  
+		console.log(count);  
+	}  
+	return increment; // Return the inner function  
+}  
+  
+const counter1 = createCounter(); 
+counter1(); // print 1   
+counter1(); // print 2
+```
 
 ## 6.4 Sync vs Async
 
+Promise API:
+Promise in javascript is used to wrap the calling of function that takes a lot of time to execute and return a result; the code inside promise is executed synchrounously, but the code in then or catch method is executed after all jobs in event queue are executed; Thus, inside promise we usually place a task at the end of the event queue and the then method will get the result of that task and process the result 
+```Javascript group:6.4
+// create customized promise
+let x = getRandomInt(0, 1)
+let myPromise = new Promise((resolve, reject) => {
+	// the function inside is executed synchronously
+	if(x == 0)
+		// resolve just passes "hello world" to parameter of 
+		// value in then method
+		// You can also pass another promise object into resolve
+		resolve("hello world") 
+	else
+		reject("destroy world")
+}).then(value => {
+	// the function inside then is executed asynchrounously
+	console.log(value)
+}).catch(err => {
+	// the function inside catch is executed asynchrounously
+	console.error(err)
+})
+
+const promise1 = fetch('https://api.example.com/data')
+const promise2 = readFile('./myFile.txt', { encoding: 'utf8' })
+Promise.all([promise1, promise2])
+	.then((results) => console.log(results))
+	.catch((err) => console.error(err))
+```
+
+async/await syntax: 
+- async wraps the function inside a promise object and pass the return value of that function into resolve in promise
+- 
 ## 6.5 Memory Model
