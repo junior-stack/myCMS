@@ -272,10 +272,17 @@ arr.splice(1, 1, 5)         // arr becomes [1, 5, 4, 5, 6, 4]
 
 ## 2.2 Set
 ```Python group:2.2
-my_set = {"apple", "banana"}  
+my_set = {"apple", "banana"} 
+my_set2 = {"apple", "grape"}
 my_set.add("cherry") # mySet: {"apple", "banana", "cherry"}
 my_set.update(["orange", "mango", "apple"]) 
 # mySet: {"apple", "banana", "cherry", "orange", "mango"}
+union_set = my_set.union({"pear"})
+# union_set: {"apple", "banana", "cherry", "orange", "mango", "pear"}
+intersect_set = my_set.intersection(my_set2)
+# intersect_set: {"apple"}
+diff_set = my_set2.difference(my_set)
+# diff_set: {"grape"}
 ```
 ```Javascript group:2.2
 let b = new Set()
