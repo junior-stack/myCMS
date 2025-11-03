@@ -1,3 +1,7 @@
+---
+share: true
+---
+
 # 0. Basis
 ## 0.1 Built-in module
 Python:
@@ -137,12 +141,12 @@ def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[Lis
         if len(intervals) == 1:
             if newInterval[0] >= intervals[0][0]:
                 if newInterval[0] <= intervals[0][1]:
-                    return [[intervals[0][0], max(intervals[0][1], newInterval[1])]]
+                    return [[intervals[0][0], max(intervals[0][1], newInterval[1])|intervals[0][0], max(intervals[0][1], newInterval[1])]]
                 else:
                     return [intervals[0], newInterval]
             else:
                 if newInterval[1] >= intervals[0][0]:
-                    return [[newInterval[0], max(newInterval[1], intervals[0][1])]]
+                    return [[newInterval[0], max(newInterval[1], intervals[0][1])|newInterval[0], max(newInterval[1], intervals[0][1])]]
                 else:
                     return [newInterval, intervals[0]]
         
@@ -152,21 +156,21 @@ def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[Lis
           if upper_end == None:
             return [newInterval]
           if newInterval[1] >= intervals[upper_end][0]:
-                return [[newInterval[0], max(newInterval[1], intervals[upper_end][1])]] + intervals[1:]
+                return [[newInterval[0], max(newInterval[1], intervals[upper_end][1])|newInterval[0], max(newInterval[1], intervals[upper_end][1])]] + intervals[1:]
           else:
               return [newInterval] + intervals[upper_end:]
         if newInterval[0] <= intervals[lower_start][1]:
             if upper_end == None:
-              return intervals[:lower_start] + [[intervals[lower_start][0], newInterval[1]]]
+              return intervals[:lower_start] + [[intervals[lower_start][0], newInterval[1|intervals[lower_start][0], newInterval[1]]]
             if newInterval[1] >= intervals[upper_end][0]:
-                return intervals[:lower_start] + [[intervals[lower_start][0], intervals[upper_end][1]]] + intervals[upper_end + 1:]
+                return intervals[:lower_start] + [[intervals[lower_start][0], intervals[upper_end][1|intervals[lower_start][0], intervals[upper_end][1]]] + intervals[upper_end + 1:]
             else:
-                return intervals[:lower_start] + [[intervals[lower_start][0], newInterval[1]]] + intervals[upper_end:]
+                return intervals[:lower_start] + [[intervals[lower_start][0], newInterval[1|intervals[lower_start][0], newInterval[1]]] + intervals[upper_end:]
         else:
             if upper_end == None:
               return intervals[:lower_start + 1] + [newInterval]
             if newInterval[1] >= intervals[upper_end][0]:
-                return intervals[:lower_start + 1] + [[newInterval[0], intervals[upper_end][1]]] + intervals[upper_end + 1:]
+                return intervals[:lower_start + 1] + [[newInterval[0], intervals[upper_end][1|newInterval[0], intervals[upper_end][1]]] + intervals[upper_end + 1:]
             else:
                 return intervals[:lower_start + 1] + [newInterval] + intervals[upper_end:]
         
@@ -1411,10 +1415,6 @@ def query(arr, start, end):
 
 
 # 17. Line sweep
-Intuition: https://www.youtube.com/watch?v=nNtiZM-j3Pk&list=PLubYOWSl9mItBLmB2WiFU0A_WINUSLtGH
-code reference: 
-- https://www.geeksforgeeks.org/dsa/given-a-set-of-line-segments-find-if-any-two-segments-intersect/
-- https://panda-man.medium.com/mastering-efficiency-exploring-line-sweep-algorithm-with-python-673e4522e979
 
 What is the problem:
 > Given a set of line segments(e.g: `[[x1, y1], [x2, y2]]`) which are represented by the x, y coordinates of their endpoints, we want to find the total set of intersection points
@@ -1487,23 +1487,50 @@ def intersection(P1P2, P3P4):
 ```
 
 
-Implementation(`O(n lg n)`)
+## 17.2 Line sweep algorithm
+Assumption(both assumptions can be relaxed by more advanced algor, these assumptions are just for standard line sweep):
+- there are no vertical segments
+- only two segments intersect at an intersection
+Runtime(`O(n lg n)`): 
 
 ```Python fold
-# segment: [[[x1, y1], [x2, y2]], [[x1', y1'], [x2', y2']]]
-# each segment is represented as a [[], []], where the first [] contains the
-# (x, y) of left endpoint p1 and the second [] has the right endpoint p2
-# example
-# return a above or lies on b at x0
+# segment: [[[x1, y1], [x2, y2|x1, y1], [x2, y2]], [[x1', y1'], [x2', y2'|x1', y1'], [x2', y2']]]
+# each segment is represented as a [[], [|], []], where the first [] 
+# contains the (x, y) of left endpoint p1 and the second [] has 
+# the right endpoint p2
+def lineSweep(lineSegments):
+    T = AVLTree(segmentOrder)  # need AVL tree from 9.2
+    events = sortEndpoints(lineSegments)
+    acc = []
+    for p in events:
+        segmentID = p[3]
+        s = lineSegments[segmentID]
+        up = above(T, s)
+        down = below(T, s)
+
+        if p[2] == 0:
+            T.insert(s)
+            if up and intersection(up, s):
+                acc.append([up, s])
+
+            if down and intersection(down, s):
+                acc.append([down, s])
+        else:
+            if up and down and intersection(up, down):
+                acc.append([up, down])
+            T.delete(s)
+    return acc
+
+
+# return 1 if a is above b, 0 if a is at b, -1 if a is below b
 def segmentOrder(a, b, x0):
     intersect = intersection(a, b)
     if not intersect:
-        leftSegment = a if a[0] < b[0] else b
-        rightSegment = b if leftSegment == a else a
-        if side(leftSegment, rightSegment[0]) > 0:
-            return leftSegment == b
-        else:
-            return leftSegment == a
+	    # a is the left segment
+        if a[0] <= b[0]:
+	        return side(a, b[0])
+	    else:
+		    return side(b, a[0]) * (-1)
     else:
         # x be the intersection point of a & b
         # x0 > x
@@ -1511,9 +1538,25 @@ def segmentOrder(a, b, x0):
 
         ((b[1][0] - b[0][0]) * (a[1][1] - a[0][1]) * x0  - (a[1][0] - a[0][0]) * (b[1][1] - b[0][1]) * x0)
         if Right_to_intersection:
-            return a[1][1] > b[1][1]
+            return a[1][1] - b[1][1]
         else:
-            return a[0][1] >= b[0][1]
+            return a[0][1] - b[0][1]
+
+def sortEndpoints(lineSegments):
+    acc = []
+    for i in range(len(lineSegments)):
+        # x-coord, y-coord, left/right, segmentID
+        acc.append((lineSegments[i][0][0], lineSegments[i][0][1], 0, i))
+        acc.append((lineSegments[i][1][0], lineSegments[i][1][1], 1, i))
+
+    n = len(acc)
+    for i in range(n // 2 - 1, -1, -1):
+        sift_down(acc, n, i)
+
+    for i in range(n - 1, 0, -1):
+        acc[0], acc[i] = acc[i], acc[0]
+        sift_down(acc, i, 0)
+    return acc
   
 
 def above(T: AVLTree, s):
@@ -1557,45 +1600,6 @@ def sift_down(h, n, i):
             break
   
 
-def sortEndpoints(lineSegments):
-    acc = []
-    for i in range(len(lineSegments)):
-        # x-coord, y-coord, left/right, segmentID
-        acc.append((lineSegments[i][0][0], lineSegments[i][0][1], 0, i))
-        acc.append((lineSegments[i][1][0], lineSegments[i][1][1], 1, i))
-
-    n = len(acc)
-    for i in range(n // 2 - 1, -1, -1):
-        sift_down(acc, n, i)
-
-    for i in range(n - 1, 0, -1):
-        acc[0], acc[i] = acc[i], acc[0]
-        sift_down(acc, i, 0)
-    return acc
-
-
-def lineSweep(lineSegments):
-    T = AVLTree(segmentOrder)
-    events = sortEndpoints(lineSegments)
-    acc = []
-    for p in events:
-        segmentID = p[3]
-        s = lineSegments[segmentID]
-        up = above(T, s)
-        down = below(T, s)
-
-        if p[2] == 0:
-            T.insert(s)
-            if up and intersection(up, s):
-                acc.append([up, s])
-
-            if down and intersection(down, s):
-                acc.append([down, s])
-        else:
-            if up and down and intersection(up, down):
-                acc.append([up, down])
-            T.delete(s)
-    return acc
 ```
 
 # 18. Bit operation

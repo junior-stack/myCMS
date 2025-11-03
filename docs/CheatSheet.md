@@ -253,7 +253,7 @@ class AA extends A{
 }
 ```
 
-## 1.6 if statement
+## 1.6 if/catch block
 
 ## 1.7 Operator
 arithmetic:
@@ -572,56 +572,65 @@ s + "bcd"           // return "abcbcd"
 # 3. Files, I/O
 
 ## 3.1 Read & Write API
-These APIs are commonly used to read from local persistence:
+type of read&write API:
+- Strings: some APIs deal with strings and output text file
+- Bytes: Some APIs deal with bytes and output binary file, but can also output text file if the bytes only contain ascii value
 ```Java group:3.1 fold
-// IO package: blocks in socket I/O and file I/O
-// Read:
-// 1. read text file character by character
-String filePath = "hello.txt"
-BufferedReader reader = new BufferedReader(new FileReader(filePath));
+// 1. IO package: blocks in socket I/O and file I/O
+// 1.1 BufferedWriter, BufferedRead(deal with string)
+Writer writer = new OutputStreamWriter(new FileOutputStream("output.txt"));
+BufferedWriter bw = new BufferedWriter(writer);
+String content = "Hello, Java File I/O!\nThis is a new line.";
+bw.write(content);
+// bw.flush is automatically called when bw is full, but you need to
+// mannually call if bw is not full
+bw.flush();
+
+Reader reader = new InputStreamReader(new FileInputStream("output.txt"), \
+	StandardCharsets.UTF_8);
+BufferedReader br = new BufferedReader(reader);
 reader.readline()     // returns either a string or null
-// 2. read binary file bytes by bytes
+
+// 1.2. deal with bytes
+FileOutputStream fos = new FileOutputStream("data.bin");
+DataOutputStream dos = new DataOutputStream(fos);
+dos.writeInt(12345);
+dos.writeDouble(3.14159);
+dos.writebytes("hello");
+dos.writeUTF("hello");  // different from above
+
 FileInputStream fis = new FileInputStream("data.bin");
 BufferedInputStream bis = new BufferedInputStream(fis); // improve perform
 DataInputStream dis = new DataInputStream(bis); // can read types
 int intValue = dis.readInt();  
 double doubleValue = dis.readDouble();  
 String stringValue = dis.readUTF();
-// 3. read entire contents of a file
-// readAllLines from NIO is a wrapper of BufferReader from IO package
-// and do not block, this is not the core of nio package
-Path path = Paths.get("myFile.txt");
-byte[] bytes = "Some contents".getBytes()
-List<String> lines = Files.readAllLines(path);
-// write:
-// 1. write text file 
-BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
-String content = "Hello, Java File I/O!\nThis is a new line.";
-writer.write(content);
-// 2. write binary file
-FileOutputStream fos = new FileOutputStream("data.bin");
-DataOutputStream dos = new DataOutputStream(fos);
-dos.writeInt(12345);
-dos.writeDouble(3.14159);
-// 3. write bytes using a method from nio package
-// truncate existing contents and append to existing content
+// 1.3. bytes
 Path path = Paths.get("myFile.txt");
 byte[] bytes = "Some contents".getBytes()
 Files.write(path, bytes, StandardOpenOption.CREATE, \
 						 StandardOpenOption.TRUNCATE_EXISTING);
 Files.write(filePath, bytes, StandardOpenOption.APPEND);
 
-// NIO: does not block in socket I/O but blocks in file I/O
+Path path = Paths.get("myFile.txt");
+byte[] bytes = "Some contents".getBytes()
+List<String> lines = Files.readAllLines(path);
+// 2. NIO(bytes): does not block in socket I/O but blocks in file I/O
 // FileChannel: operate on byte level and can read/write contents into 
 //              buffer, supporting direct memory access and reduce copying
 FileChannel readChannel = FileChannel.open("myFile.txt", \
 						StandardOpenOption.READ);
-FileChannel writeChannel = FileChannel.open("myFile.txt", StandardOpenOption.CREATE, StandardOpenOption.WRITE);
 ByteBuffer buffer = ByteBuffer.allocate(1024);
 int bytesRead = readChannel.read(buffer);
-writeChannel.write(buffer);
 
-// AIO: does not block in socket I/O or file I/O
+FileChannel writeChannel = FileChannel.open("myFile.txt", StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+// need to call flip/rewind before writing from buffer and after calling
+// buffer.put, unless the buffer is obtained through ByteBuffer.wrap
+buffer.flip();
+while(buffer.hasRemaining())
+	writeChannel.write(buffer);
+
+// 3. AIO(bytes): does not block in socket I/O or file I/O
 // using AIO typically means using java.nio.channels.AsynchronousFileChannel
 Path filePath = Paths.get("myFile.txt");
 AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(\
@@ -652,8 +661,7 @@ try {
 
 ```
 ```Javascript group:3.1 fold
-// ES syntax
-// asynchronous read & write
+// 1. asynchronous read & write bytes into memory
 import { readFile, writeFile } from 'node:fs/promises';  
   
 async function asyncFileExample() {  
@@ -669,7 +677,7 @@ async function asyncFileExample() {
 	}  
 }
 
-// synchronous read & write
+// 2. synchronous read & write bytes into memory
 import { readFileSync, writeFileSync } from 'node:fs';
 try{
 	const content = fs.readFileSync('myFile.txt', 'utf-8');  
@@ -681,9 +689,7 @@ try{
 	console.error(err)
 }
 
-// readStream, writeStream
-// Similar to read/write file line by line instead of their entire contents
-// into memory and is memory-eficient
+// 3. readStream, writeStream for bytes(memory efficient for large files)
 import { createReadStream, createWriteStream}
 const readstream = createReadStream('large_file.txt', 'utf8');
 readstream.on("data", chunk => {
@@ -691,44 +697,40 @@ readstream.on("data", chunk => {
 	// for example, console.log
 	fn(chunk)
 })
+
 const writeStream = createWriteStream('output.txt');
 writeStream.write('This is the first line of text.\n');  
 writeStream.write('This is the second line.\n');
-
 readstream.pipe(writeStream)
-
 writeStream.end('This is the final line.');
 ```
 
 ## 3.2 Network Stream
-Stream is commonly used to read something from network, while the above section is commonly used to read sth from local persistence
+how to download and upload contents using network stream
 ```Java group:3.2
-URL url = new URL("http://www.example.com/somefile.txt");
-// different from above FileInputStream
-InputStream inputStream = url.openStream();
-BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-reader.readline();  // return string or null
-
+// 1. download   (works with Java 11+)
+HttpClient client = HttpClient.newHttpClient();
+HttpRequest request = HttpRequest.newBuilder()
+	.uri(java.net.URI.create("https://www.google.com"))
+	.build();
+// ofFile internally uses AsynchronousFileChannel
+HttpResponse<Path> response = client.send(request,
+	HttpResponse.BodyHandlers.ofFile(Paths.get("response.txt")));
+	
+// 2. upload
+// ofFile uses AsynchronousFileChannel
+Path uploadPath = Paths.get("request.txt");
+HttpRequest request = HttpRequest.newBuilder()
+	.uri(URI.create("https://www.google.com"))
+	.POST(HttpRequest.BodyPublishers.ofFile(filePath)) // set file as body
+	.header("Content-Type", Files.probeContentType(filePath))
+	.build();
 ```
 ```Javascript group:3.2 fold
-// ReadableStream: different from readStream above
-
-//customized ReadableStream
-const myReadableStream = new ReadableStream({
-	// This function is called when the stream is first created  
-	// Enqueue data chunks to be read
-	start(controller) {  
-		controller.enqueue('Hello, ');  
-		controller.enqueue('world!');  
-		// Close the stream when all data has been enqueued  
-		controller.close();  
-	},   
-});
-
-// common way of obtaining readableStream
-const myReadableStream2 = (await fetch("www.example.com")).body
-
-// how to use readable Stream:
+// 1. ReadableStream(not ReadStream nor stream.Readable): 
+//     used for response and request body in fetch API
+// 1.1 download
+const myReadableStream = (await fetch("http://localhost:3000/upload")).body; 
 async function readStream(myReadableStream) {
 	const reader = myReadableStream.getReader();
 	let result;  
@@ -742,37 +744,27 @@ async function readStream(myReadableStream) {
 	}
 }
 
-// create WritableStream to send content to a destination
-const writableStream = new WritableStream({  
-	write(chunk, controller) {  
-	// we use the error function from the controller
-		try {  
-			// Simulate an operation that might fail  
-			if (Math.random() < 0.1) {  
-				throw new Error('Simulated write error!');  
-			}  
-			console.log('Successfully wrote:',chunk.toString());
-		} 
-		catch (err) {  
-			console.error('Error during write:',err.message); 
-			// Signal the error to the stream 
-			controller.error(err);   
-		}  
-	},  
-});  
-  
-async function writeData() { 
-	const writer = writableStream.getWriter();   
-	for (let i = 0; i < 5; i++) {  
-		try {  
-			await writer.write(`Data chunk ${i}`);  
-		} catch (err) {  
-			console.log('Stream encountered an error');  
-			break;  
-		}  
-	}  
-	writer.close();  
-}
+// 1.2 upload large file to an API endpoint
+const fileStream = fs.createReadStream('example.txt');
+const myReadableStream2 = new ReadableStream({
+	// This function is called when the stream is first created  
+	// Enqueue data chunks to be read
+	start(controller) {  
+		fileStream.on('data', (chunk) => {
+            controller.enqueue(chunk);
+        });
+        fileStream.on('end', () => {
+            controller.close();
+        });
+	},   
+});
+fetch("http://localhost:3000/upload", {
+    method: 'POST',
+    body: myReadableStream2,
+    duplex: 'half' // required when body is a readablestream
+  })
+// 2. WritableStream: not frequently used, it is inherently created by
+//  fetch from readableStream passed to request body of fetch
 
 ```
 
@@ -889,10 +881,8 @@ hello
 
 # 5. Concurrency
 
-## 5.1 Atomic class
-
-## 5.2 Thread & Thread pool
-```Java group:5.2
+## 5.1 Thread & Thread pool
+```Java group:5.1
 // 1. Thread-api: use this when want to cutomize behaviour of each thread
 //                the signal handler, wait object, or each thread needs to
 //                wait each other
@@ -956,14 +946,16 @@ try {
 }
 ```
 
-## 5.3 Lock
+## 5.2 Lock
 ```Java group:5.3
 // wrap non-concurrent collections
 List<Integer> list = Collections.synchronizedList( new ArrayList<>(Arrays.asList(4,3,52)));
+
+// Reentrantlock
 ```
-## 5.4 Synchronizer class
+## 5.3 Synchronizer class
 CountDownLatch: makes a thread wait for a number of threads, either child or parent; can only be used once
-```Java group:5.4.1 fold
+```Java group:5.3.1 fold
 // 1. wait for a set of threads instead of one thread; 
 int threadCount = 5;
 CountDownLatch latch = new CountDownLatch(threadCount);
@@ -1004,7 +996,7 @@ for(int i = 0;i < threadCount; i++){
 startGate.countDown();
 ```
 CyclicBarrier: make a set of threads to stop at a certain moment and then start at the same time
-```Java group:5.4.2
+```Java group:5.3.2
 int threadCount = 4;
 ExecutorService pool = Executors.newFixedThreadPool(threadCount);
 CyclicBarrier barrier = new CyclicBarrier(threadCount);
@@ -1026,20 +1018,112 @@ try{
 } catch (InterruptedException | BrokenBarrierException e) {
 	e.printStackTrace();
 }
+
+// reset the barrier so that it can be reused by threadCount threads
 barrier.reset();
 pool.shutdown();
 
 ```
-Phaser:
+Phaser: is a more general barrier that allows you to stop a set of threads and start them at multiple times. It keeps track of `Parties` and `Phrase` which increments each time when all registered parties arrive.
+- `new Phaser(int parties)` — create with an initial number of registered parties.
+- `register()` / `bulkRegister(n)` — add parties dynamically.
+- `arrive()` — indicate arrival at the current phase (does not wait).
+- `arriveAndAwaitAdvance()` — arrive and wait until all parties arrive — typical barrier usage.
+- `arriveAndDeregister()` — arrive and then remove this party (useful when a thread finishes and won't participate in later phases).
+- `awaitAdvance(int phase)` — wait (block) until phase > given phase. Useful for custom waiting but usually `arriveAndAwaitAdvance()` is simpler.
+- `onAdvance(int phase, int registeredParties)` — hook to override for action when phase completes; returning `true` causes the phaser to terminate.
+- `getPhase()` — current phase number.
+- `getRegisteredParties()` — how many parties currently registered.
+- `getArrivedParties()` — how many parties have arrived in the current phase.
+```Java group:5.3.3
+// 1. phaser with initialized parties
+int threadCount = 4;
+ExecutorService pool = new Executors.newFixedThreadPool(threadCount);
+Phaser phaser = new Phaser(threadCount);
+for(int i = 0; i < threadCount; i++){
+	pool.submit(()->{
+		try{
+			// phase 0:
+			phaser.arriveAndAwaitAdvance();
+			fn();
+			
+			// phase 1:
+			phaser.arriveAndAwaitAdvance();
+			fn();
+			
+			phaser.arriveAndDeregister();
+			} catch (InterruptedException e)
+				{Thread.currentThread().interrupt(); }
+	})
+}
+
+// 2. register the phaser
+Phaser phaser = new Phaser(0);
+pool.submit(()->{
+	phaser.register();
+	try{
+		phaser.arriveAndAwaitAdvance();
+		
+		phaser.arriveAndDeregister(); // leave after finishing
+	} catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+})
+
+```
 
 
 Semaphore:
+```Java group:5.3.4 fold
+// 1. restrict limited threads to execute code fn(), e.g: access resources,
+//     control API rate
+int threadCount = 10;
+Semaphore sem = new Semaphore(3);
+ExecutorService pool = new Executors.newFixedThreadPool(threadCount);
 
-## 5.5 Pipes
+for(int i = 0; i < threadCount; i++){
+	pool.submit(() -> {
+		try{
+			sem.acquire();
+			fn();
+		} catch(InterruptedException e){
+			e.printStackTrace();
+		} finally {
+			sem.release();
+		}
+	})
+}
+
+// 2. reuseable countdownLatch
+// equivalent to CountDownLatch(threadCount)
+Semaphore sem = new Semaphore((-1) * threadCount + 1);
+for(int i = 0; i < threadCount; i++){
+	pool.submit(()->{
+		fn();
+		sem.release();
+	})
+}
+sem.aquire(); // wait for the n threads to finish
+
+// 3. lock
+Semaphore mutex = new Semaphore(1);
+int sharedCounter = 1;
+for(int i = 0; i < threadsCount; i++){
+	pool.submit(()->{
+		mutex.acquire();
+		try{
+			// critical section
+			sharedCounter++;
+		} finally {
+			mutex.release();
+		}
+	})
+}
+```
+
+## 5.4 Pipes
 These classes can be used as pipes between threads or processes
 ~~~tabs
 ---tab Java
-ConcurrentLinkedQueue:
+ConcurrentQueue:
 - add: insert element at tail, throws exception when fail
 - offer: insert element at tail, return False when fail
 - peek: retrieve but do not remove the head of the queue; return null when empty
@@ -1049,14 +1133,14 @@ BlockingQueue:
 - put: insert element at tail, block the thread until queue is available(add/offer does not block)
 - take: Retrieves and removes the head of this queue, waiting if necessary until an element becomes available
 
-ConcurrentLinkedQueue vs BlockingLinkedQueue(2 distinctions):
-1. ConcurrentLinkedQueue spins and retries modification when multiple concurrent modifications happen. It does not switch thread, thus, does not block. On the other hand, BlockingLinkedQueue waits to grab the ReentrantLock inside the blockingqueue and switches thread when concurrent modifications happen. Thus, this blocks the thread when concurrent modifications happen
-2. BlockingLinkedQueue has 2 extra methods: put and take. These 2 methods additionally block thread when queue is full or empty
+ConcurrentQueue vs BlockingLinkedQueue(2 distinctions):
+1. ConcurrentQueue spins and retries modification when multiple concurrent modifications happen. It does not switch thread, thus, does not block. On the other hand, BlockingQueue waits to grab the ReentrantLock inside the blockingqueue and switches thread when concurrent modifications happen. Thus, this blocks the thread when concurrent modifications happen
+2. BlockingQueue has 2 extra methods: put and take. These 2 methods additionally block thread when queue is full or empty
 
 ~~~
 APIs:
-```Java group:2.6
-// ConcurrentLinkedQueue: thread-safe and lock-free, non blocking
+```Java group:5.4
+// ConcurrentQueue: thread-safe and lock-free, non blocking
 Queue<Integer> q = new ConcurrentLinkedQueue<>();
 q.add(10);     // q: [10]
 q.offer(20);   // q: [10, 20]
@@ -1065,35 +1149,33 @@ q.poll();      // return 10, q:[20]
 
 // ConcurrentLinkedDeque: 
 Queue<Integer> q2 = new ConcurrentLinkedDeque<>();
-q2.addFirst(10);   // q2: [10]
-q2.addLast(20);    // q2: [10, 20]
-q2.offerFirst(30); // q2: [30, 10, 20]
-q2.offerLast(40);  // q2: [30, 10, 20, 40]
-q2.peekFirst();    // 30, q2: [30, 10, 20, 40]
-q2.peekLast();     // 40, q2: [30, 10, 20, 40]
-q2.pollFirst();    // 30, q2: [10, 20,40]
-q2.pollLast();     // 40, q2: [10, 20]
+// methods: addFirst, addLast, offerFirst, offerLast, peekFirst, peekLast,
+// pollFirst, pollLast
 
-// LinkedBlockingQueue: thread-safe but uses lock, may block(park)
-BlockingQueue<Integer> bq = new LinkedBlockingQueue<>();
+// BlockingQueue: thread-safe but uses lock, may block(park)
+BlockingQueue<Integer> bq = new ArrayBlockingQueue<>();
 BlockingQueue<Integer> bq = new LinkedBlockingQueue<>(4); // with capacity:4
 bq.put(5);     // bq: [5]
 bq.take();     // return 5, bq: []
 
-// LinkedBlockingDeque:
+// BlockingDeque:
 BlockingDeque<Integer> bq2 = new LinkedBlockingDeque<>();
-bq2.putFirst(5);   // bq2: [5]
-bq2.putLast(6);    // bq2: [5, 6]
-bq2.takeFirst();   // return 5, bq2: [6]
-bq2.takeLast();    // return 6, bq2: []
+// methods: putFirst, putLast, takeFirst, takeLast
+
+// TransferQueue
 ```
 
 useCases:
 # 6. Feature
 ## 6.1 Reference
+~~~tabs
+---tab Java
+Java variable can be classified as 2 types
+- primitive type: primitive type variable stores value
+- Object type: object type variable stores reference of such object
+~~~
 
 ## 6.2 Reflection
-
 
 ```Java group:6.2
 // core classes related to reflection:
@@ -1120,8 +1202,7 @@ for (Method mtd: methods) {
 	System.out.println("Field: " + field.getName());
 }
 
-// 3
-// invoke method
+// 3. invoke method and get/set fields
 methods.get(0).invoke(myString, arg1)
 // get and set a field
 Field fieldA = fields.get(0);
@@ -1253,52 +1334,40 @@ Future<Integer> future3 = future2.whenComplete((result, ex) -> {
 
 ```
 ```Javascript group:6.4.1
-// 1. create customized promise
+// 1. Obtain Promise object
+// 1.1 Common API that gives promise object
+const promise1 = fetch('https://api.example.com/data')
+const promise2 = readFile('./myFile.txt', { encoding: 'utf8' })
+// 1.2 create customized promise
 let x = getRandomInt(0, 1)
 let myPromise = new Promise((resolve, reject) => {
-	// the function inside is executed synchronously
+	// the function inside is executed synchronously, unlike async then
 	if(x == 0)
-		// resolve just passes "hello world" to parameter of 
-		// value in then method
-		// You can also pass another promise object into resolve
+	// resolve just passes "hello world" as the value wrapped in myPromise
 		resolve("hello world") 
 	else
 		reject("destroy world")
-}).then(value => {
+})
+
+// 2. then & catch hook
+let thenPromise = myPromise
+.then(value => {
+	// value is the argument passed to resolve in myPromise
 	// the function inside then is executed asynchrounously
-	console.log(value)
+	console.log(value)	
 }).catch(err => {
 	// the function inside catch is executed asynchrounously
 	console.error(err)
 })
 
-// 2. Promise.all
-const promise1 = fetch('https://api.example.com/data')
-const promise2 = readFile('./myFile.txt', { encoding: 'utf8' })
+// 3. Promise.all
 Promise.all([promise1, promise2])
 	.then((results) => console.log(results))
 	.catch((err) => console.error(err))
 ```
 
-Common Asynchronous operations that can be wrapped in Promise:
-```Javascript group:6.4(2)
-// 1. setTimeout, setInterval
-new Promise((resolve) => {
-	setTimeout(()=>{
-		resolve(1)
-	}, 0)
-}).then((value) => console.log(value))
 
-// return result of asynchronous function that returns promise
-new Promise((resolve) =>{
-	resolve(readFile('./myFile.txt', { encoding: 'utf8' }))
-}).then((value) => console.log(value))
-// above is equivalent to:
-//readFile('./myFile.txt', { encoding: 'utf8' })
-//.then((value) => console.log(value))
-```
-
-async/await syntax: 
+async/await syntax:
 - async wraps the function inside a promise object and pass the return value of that function into resolve in promise
 - await must be used within an asyn function. It is placed before an expression that returns a promise object and is used to capture the resolved value of promise. When js executes the await line, it will executes the code inside the promise object after `await`, then it will jump outside to the parent stack to execute the rest of the code. After the promise object after await is resolved, it will continue to execute the lines after the await line in that async function
 ```Java group:6.4.3
