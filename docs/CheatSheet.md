@@ -575,6 +575,10 @@ s + "bcd"           // return "abcbcd"
 type of read&write API:
 - Strings: some APIs deal with strings and output text file
 - Bytes: Some APIs deal with bytes and output binary file, but can also output text file if the bytes only contain ascii value
+ByteBuffer methods: 
+- flip: set the buffer position to 0 and limit to previous buffer position
+- rewind: reset the buffer position to 0
+- hasRemaining, get, put
 ```Java group:3.1 fold
 // 1. IO package: blocks in socket I/O and file I/O
 // 1.1 BufferedWriter, BufferedRead(deal with string)
@@ -615,50 +619,83 @@ Files.write(filePath, bytes, StandardOpenOption.APPEND);
 Path path = Paths.get("myFile.txt");
 byte[] bytes = "Some contents".getBytes()
 List<String> lines = Files.readAllLines(path);
+
 // 2. NIO(bytes): does not block in socket I/O but blocks in file I/O
 // FileChannel: operate on byte level and can read/write contents into 
 //              buffer, supporting direct memory access and reduce copying
-FileChannel readChannel = FileChannel.open("myFile.txt", \
-						StandardOpenOption.READ);
+FileChannel fileChannel = FileChannel.open("myFile.txt", \
+						StandardOpenOption.READ, \
+						StandardOpenOption.WRITE, \
+						StandardOpenOption.CREATE);
 ByteBuffer buffer = ByteBuffer.allocate(1024);
-int bytesRead = readChannel.read(buffer);
+// // read at file position 0 to buffer
+int bytesRead = fileChannel.read(buffer, 0); 
+readChannel.close();
 
-FileChannel writeChannel = FileChannel.open("myFile.txt", StandardOpenOption.CREATE, StandardOpenOption.WRITE);
 // need to call flip/rewind before writing from buffer and after calling
 // buffer.put, unless the buffer is obtained through ByteBuffer.wrap
 buffer.flip();
 while(buffer.hasRemaining())
-	writeChannel.write(buffer);
+	fileChannel.write(buffer);
+fileChannel.close();
 
 // 3. AIO(bytes): does not block in socket I/O or file I/O
 // using AIO typically means using java.nio.channels.AsynchronousFileChannel
 Path filePath = Paths.get("myFile.txt");
+ByteBuffer buffer = ByteBuffer.allocate(1024);
 AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(\
  filePath, StandardOpenOption.READ, StandardOpenOption.WRITE);
-ByteBuffer buffer = ByteBuffer.allocate(1024);  
-Future<Integer> readResult = fileChannel.read(buffer, 0, buffer, new CompletionHandler<Integer, ByteBuffer>() {  
-	@Override  
-	public void completed(Integer bytesRead, ByteBuffer attachment) {  
-	// Handle successful read  
-	attachment.flip(); // Prepare for reading from the buffer  
-	// ... process data ...  
-	}  
-  
-	@Override  
-	public void failed(Throwable exc, ByteBuffer attachment) {  
-	// Handle error  
-	}  
-});
+ 
+ // 3.1 use the Future result
+Future<Integer> readResult = fileChannel.read(buffer, 0); 
+// read bytes (<= buffer size)into buffer from file position of 0
+try{
+	Integer bytesRead = readResult.get();
+	buffer.flip();
+	while (buffer.hasRemaining()) { System.out.print((char) buffer.get()); }
+} catch(InterruptedException | ExecutionException e) { e.printStackTrace();}
 
-try {
-	// get() blocks until read completes
-	Integer bytesRead = readResult.get();  
-	buffer.flip();  
-	// ... process data ...  
-} catch (InterruptedException | ExecutionException e) {  
-	// Handle error  
+buffer.rewind();
+Future<Integer> writeResult = fileChannel.write(buffer, bytesRead);
+// write bytes back to file at the end of the file 
+Integer bytesWrite = writeResult.get();
+
+fileChannel.close();
+  
+// 3.2 use CompletionHandler
+CompletionHandler<Integer, ByteBuffer> readHandler = new \
+	CompletionHandler<Integer, ByteBuffer>(){
+	// attachment is the attachment parameter passed to fileChannel.read()
+	@Override
+	public void completed(Integer bytesRead, ByteBuffer attachment){
+		System.out.println("bytes read: " + bytesRead);
+		buffer.flip();
+		while(buffer.hasRemaining()){
+			System.out.print((char) buffer.get());
+		}
+	}
+	
+	@Override  
+	public void failed(Throwable exc, Object attachment) {  
+		System.err.println("Read failed: " + exc.getMessage());  
+	}
+}
+CompletionHandler<Integer, ByteBuffer> writeHandler = new \
+	CompletionHandler<Integer, ByteBuffer>(){
+	@Override
+	public void completed(Integer bytesRead, ByteBuffer attachment){
+		System.out.println("bytes read: " + bytesRead);
+	}
+	
+	@Override  
+	public void failed(Throwable exc, Object attachment) {  
+		System.err.println("Read failed: " + exc.getMessage());  
+	}
 }
 
+fileChannel.read(buffer, 0, buffer, readHandler); // return null
+fileChannel.write(buffer, 0, buffer, writeHandler); // return null
+fileChannel.close();
 ```
 ```Javascript group:3.1 fold
 // 1. asynchronous read & write bytes into memory
@@ -769,6 +806,12 @@ fetch("http://localhost:3000/upload", {
 ```
 
 ## 3.3 Socket
+NIO vs AIO:
+https://topic.alibabacloud.com/a/font-classtopic-s-color00c1dejavafont-font-classtopic-s-color00c1deiofont-nio-aio-detailed_1_27_30235169.html
+https://liakh-aliaksandr.medium.com/java-sockets-i-o-blocking-non-blocking-and-asynchronous-fb7f066e4ede
+AIO mechanism:
+- io_uring on Linux / I/O Completion Ports (IOCP) on Windows
+- OS-native AIO API
 
 Server:
 ```Java group:3.3 fold
@@ -876,7 +919,9 @@ hello
 ## 4.2 How to debug
 
 
-## 4.3 Module import
+## 4.3 Relative import
+
+## 4.4 Build Library & App
 
 
 # 5. Concurrency
@@ -1024,7 +1069,7 @@ barrier.reset();
 pool.shutdown();
 
 ```
-Phaser: is a more general barrier that allows you to stop a set of threads and start them at multiple times. It keeps track of `Parties` and `Phrase` which increments each time when all registered parties arrive.
+Phaser: is a more general barrier that allows you to stop a set of threads and start them at multiple times. It keeps track of `Parties` and `Phrase` which increments each time when all registered parties arrive:
 - `new Phaser(int parties)` — create with an initial number of registered parties.
 - `register()` / `bulkRegister(n)` — add parties dynamically.
 - `arrive()` — indicate arrival at the current phase (does not wait).
