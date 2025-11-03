@@ -17,6 +17,10 @@ BULLET_PATTERN = re.compile(r":\n-", re.DOTALL)
 
 PICTURE_PATTERN = re.compile(r"!\[\[(.*?)\]\]", re.DOTALL)
 
+TABS_PATTERN = re.compile(r"~~~tabs\s*(.*?)~~~", re.DOTALL)
+
+TAB_PATTERN = r"---\s*tab\s*"
+
 def remove_fold_flags(content: str) -> str:
     """
     Removes ' fold' from code block opening lines.
@@ -42,8 +46,8 @@ def transform_group_tabs(content: str) -> str:
         lang = match.group(1).strip()
         # group = match.group(2).strip()
         code = match.group(3)
-        code = "\n".join("    " + line for line in code.splitlines())
-        return f'=== "{lang}"\n    ```{lang}\n{code}\n    ```\n'
+        code = "\n".join("\t" + line for line in code.splitlines())
+        return f'=== "{lang}"\n\t```{lang}\n{code}\n\t```\n'
 
     return GROUP_PATTERN.sub(repl, content)
 
@@ -58,6 +62,25 @@ def increase_header_level(content: str) -> str:
         return '#' + hashes  # add one more '#'
     return HEADER_PATTERN.sub(repl, content)
 
+def convert_tabs_block(content: str) -> str:
+    def replace_block(match):
+        block = match.group(1)
+        tabs = re.split(TAB_PATTERN, block)
+        converted = []
+        for tab in tabs:
+            tab = tab.strip()
+            if not tab:
+                continue
+            lines = tab.split("\n", 1)
+            if not lines:
+                continue
+            title = lines[0].strip()
+            content = lines[1].rstrip() if len(lines) > 1 else ""
+            indented = "\n\t" + content.replace("\n", "\n\t")
+            converted.append(f'=== "{title}"{indented}')
+        return "\n".join(converted)
+    return TABS_PATTERN.sub(replace_block, content)
+
 
 def transform_Bullet_start(content: str) -> str:
     return BULLET_PATTERN.sub(r":\n\n-", content)
@@ -70,19 +93,19 @@ def parse_picture(content: str) -> str:
 
 def on_page_markdown(markdown, page, config, files):
     # Runs on each page before conversion to HTML
-    content = remove_fold_flags(markdown)
+    content = transform_Bullet_start(markdown)
+    content = convert_tabs_block(content)
+    content = remove_fold_flags(content)
     content = transform_group_tabs(content)
     content = increase_header_level(content)
-    content = transform_Bullet_start(content)
     content = parse_picture(content)
     return content
 
 # if __name__ == "__main__":
-#     file_path ="./docs/Algorithm.md"
+#     file_path ="./docs/CheatSheet.md"
 #     with open(file_path, "r", encoding="utf-8") as f:
 #         file_content = f.read()
-#         my_string = remove_fold_flags(file_content)
-#         my_string = transform_group_tabs(my_string)
+#         my_string = convert_tabs_block(file_content)
 #         with open("my_file.md", "w", encoding="utf-8") as file_object:
 #             # Write the string to the file
 #             file_object.write(my_string)
