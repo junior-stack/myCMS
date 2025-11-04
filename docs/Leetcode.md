@@ -824,7 +824,7 @@ console.log()
 	- [Remove Nth Node From End of List, leetcode #19](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 - 第二种, 维护两个指针, 第二个指针的step为第一个指针移动step的两倍, 同时移动两指针, 当第二个指针到达末尾时, 第一个指针到达中点
 	- [Middle of the Linked List, leetcode #876](https://leetcode.com/problems/middle-of-the-linked-list/)
-	- 判断环起点([[Algorithm#11.3 寻找环起点]]), leetcode #141, leetcode #142
+	- 判断环起点([[Leetcode#11.3 寻找环起点]]), leetcode #141, leetcode #142
 - 第三种, 维护两个指针，快指针照常每个iteration前进一个元素, 满指针在每个iteration根据特定条件前进一个元素
 - 第四种, 滑动窗口
 - Others:

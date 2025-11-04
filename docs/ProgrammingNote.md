@@ -1,7 +1,6 @@
 ---
 share: true
 ---
-https://github.com/jsjtzyy/LeetCode/blob/master/Java%20cheat%20sheet%20for%20interview
 # 1. Basic
 ## 1.1 Declare variable
 
@@ -809,58 +808,97 @@ fetch("http://localhost:3000/upload", {
 NIO vs AIO:
 https://topic.alibabacloud.com/a/font-classtopic-s-color00c1dejavafont-font-classtopic-s-color00c1deiofont-nio-aio-detailed_1_27_30235169.html
 https://liakh-aliaksandr.medium.com/java-sockets-i-o-blocking-non-blocking-and-asynchronous-fb7f066e4ede
-AIO mechanism:
-- io_uring on Linux / I/O Completion Ports (IOCP) on Windows
-- OS-native AIO API
 
-Server:
+~~~tabs
+---tab Java
+Traditional IO:
+![[Pasted image 20251103182236.png]]
+NIO:
+- core classes:
+	- ByteBuffer
+	- Selector
+	- Selectable Channel:
+		- SocketChannel/ServerSocketChannel
+		- DatagramChannel
+		- Pipe.SourceChannel/Pipe.SinkChannel
+![[Pasted image 20251104010620.png]]
+AIO:
+- core classes:
+	- AsynchronousChannelGroup
+	- AsynchronousServerSocketChannel/AsynchronousSocketChannel
+	- Future/CompletionHandler
+
+![[Pasted image 20251104010913.png]]
+
+difference between BIO vs NIO vs AIO model:
+- BIO model creates a thread for each client connect. Each thread will block be blocked when it calls read, no matter whether the data is ready or not.
+- NIO model uses selector component(in linux, epoll server is the selector component) to coordinate new connection from client. NIO model does not need to create a thread for each client connect and can have only one thread, which reduced the overhead of switching thread. This thread will be notified whenever data from each connection is ready to be read in kernel space and the java thread can perform IO operation to copy data from kernel space to user space. In BIO model, you still have to wait when data is not ready in each client connection
+- AIO model uses the `io_uring` to handle client connection. AIO model doesn't need to create new thread for each client connection either. The difference is that java application does not need perform IO operation like read in AIO model in user space and the system kernel handles. After the IO operation is completed and data is copied into user space from kernel space by kernel, the system notifies the java thread and the java thread can directly use the data in user space. In addition, the read and write call returns Future object and does not block the thread, while the read and write call blocks the thread in NIO model to perform IO operation on ready data.
+~~~
+
 ```Java group:3.3 fold
-// NIO socket I/O:
-// SelectableChannel(not FileChannel) subclasses in NIO packages are non-
-// blocking and can be multiplexed by Selector class(epoll-based server).
-// SelectableChannel subclasses: SocketChannel, ServerSocketChannel, 
-// DatagramChannel, Pipe.SourceChannel, Pipe.SinkChannel
-// Selectors class
-// Buffers class
+// 1. NIO socket I/O:
+// 1.1 Server:
 Selector selector = Selector.open();
 ServerSocketChannel server = ServerSocketChannel.open();
+// configure the IO operation(read, write, accept, connect) to be non-
+// blocking; the IO operation could be blocking until it completes
 server.configureBlocking(false);
 server.bind(new InetSocketAddress(8080));
+// register the Accept event: server is ready to accept new connection
 server.register(selector, SelectionKey.OP_ACCEPT);
 
 while (true) {
-    selector.select(); // uses epoll internally on Linux
+	// select() blocks until one of the previous registered event occurs
+    selector.select();
+    // selectedKeys() return a set of occurred events at Selector
     for (SelectionKey key : selector.selectedKeys()) {
+	    //isAcceptable: return true if  Accept event occurs
         if (key.isAcceptable()) {
             SocketChannel client = server.accept();
             client.configureBlocking(false);
+            // register a read event to read data sent by client 
+            // read next time when selectedKeys() return this read event
             client.register(selector, SelectionKey.OP_READ);
-        } else if (key.isReadable()) {
-            SocketChannel client = (SocketChannel) key.channel();
-            ByteBuffer buffer = ByteBuffer.allocate(1024);
-            client.read(buffer);
+        } 
+        // isReadable: return true if the event is Read event
+        else if (key.isReadable()) {
+            SocketChannel client = (SocketChannel) key.channel();          
+            ByteBuffer buf = ByteBuffer.allocate(1024);
+            client.read(buf); // copy data from kernel to buf
+            buf.flip();
+            // register write event and write content to selector to send
+            // data next time
+            client.register(selector, SelectionKey.OP_WRITE, buffer);
+        }
+        else if(key.isWritable()){
+	        SocketChannel client = (SocketChannel) key.channel();
+	        // get the write contents when the write event is registered
+            ByteBuffer buf = (ByteBuffer) key.attachment();
+            client.write(buf);
+            client.close();
         }
     }
     selector.selectedKeys().clear();
 }
 
-// AIO socket I/O:
+// 2. AIO socket I/O:
 AsynchronousServerSocketChannel server = \
 AsynchronousServerSocketChannel.open().bind(new \
-InetSocketAddress("localhost", 5000));
-
+	InetSocketAddress("localhost", 5000));
 System.out.println("Server listening on port 5000...");
 
-// Start accepting clients asynchronously
+// submit the accept event
 server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() {
 	@Override
 	public void completed(AsynchronousSocketChannel client, Void att) {
-		// Accept next connection (important!)
+		// below line is a recursive call
 		server.accept(null, this);
 
 		System.out.println("New connection: " + client);
 
 		ByteBuffer buffer = ByteBuffer.allocate(1024);
+		// read contents from the client
 		client.read(buffer, buffer, new CompletionHandler<Integer, ByteBuffer>() {
 			@Override
 			public void completed(Integer bytesRead, ByteBuffer buf) {
@@ -870,6 +908,7 @@ server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() {
 
 				// Echo message back
 				ByteBuffer response = ByteBuffer.wrap(("Echo: " + msg).getBytes(StandardCharsets.UTF_8));
+				// send contents to the client
 				client.write(response, null, new CompletionHandler<Integer, Void>() {
 					@Override
 					public void completed(Integer result, Void att) {
@@ -895,10 +934,6 @@ server.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() {
 		exc.printStackTrace();
 	}
 });
-
-// Keep server alive
-Thread.currentThread().join();
-
 ```
 # 4. Set up
 
@@ -1469,3 +1504,7 @@ Collection<? extends E> c
 
 
 ## 6.8 Signal handler
+
+
+
+https://github.com/jsjtzyy/LeetCode/blob/master/Java%20cheat%20sheet%20for%20interview
