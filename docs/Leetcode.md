@@ -362,6 +362,11 @@ def dfs(graph, r):
 题:
 -  leetcode: #207
 
+## 3.1.2 Topological sort
+Q:
+- Course Schedule (Leetcode: #207)
+- Course Schedule II(Leetcode: #210)
+
 
 
 ## 3.2 BFS
@@ -1166,7 +1171,16 @@ def sort(nums):
 	+ [435 Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
 
 # 11. LinkedList
-- 合并LinkedList
+Template:
+- dummy node
+	- 合并LinkedList
+```python
+curr = ListNode()
+while ...:
+	curr.next = ...	
+	curr = curr.next
+```
+
 
 ## 11.1 合并LinkedList
 - 思路:
@@ -1617,7 +1631,6 @@ application:
 加减:
 
 # 19. MergeSort
-
 In-place template:
 ```Python fold
 def Merge(arr, l, m, r):
@@ -1649,7 +1662,7 @@ def Merge(arr, l, m, r):
 		curr += 1
 	
 	
-	
+
 
 def MergeSort(arr):
 	n = len(arr)
@@ -1667,3 +1680,44 @@ def MergeSort(arr):
 			l += 2 * subArraySize
 		subArraySize *= 2
 ```
+
+# 20. QuickSelect
+QuickSelect:
+- assumption: all elements in `arr` must be distinct
+- average runtime: O(n)
+- worst runtime: O($n^2$), when the `arr` is sorted
+```Python fold
+# transform arr[l..r] and moves elemenets <= pivot to left and 
+# elements > pivot to right, return pivot position
+def partition(arr, l, r):
+	pivot = arr[r]
+	i = l # i marks the progressing pivot position
+	for j in range(l, r):
+		# loop arr and moves elements that <= pivot to arr[1..i-1]
+		if arr[j] <= pivot:
+			arr[i], arr[j] = arr[j], arr[i]
+			i += 1
+	arr[i], arr[r] = arr[r], arr[i]
+	return i
+
+# select the kth smallest elements from arr[l..r], k starts with 1
+def quickSelect(arr, l, r, k):
+	pivot = partition(arr, l, r)
+	# pivot matches the pivot element position in the sorted array
+	# thus, if pivot is k -1, then the pivot element is the kth smallest
+	
+	if pivot - l == k - 1:
+		return arr[pivot]
+	elif pivot - l > k - 1:
+		return quickSelect(arr, l, pivot - 1, k)
+	else:
+		return quickSelect(arr, pivot + 1, r, k - (pivot - l + 1))	
+```
+
+QuickSort:
+
+
+Q:
+- Kth smallest element in a sorted matrix (leetcode #378)
+
+# 21. String Matching

@@ -27,13 +27,6 @@ class Main{
 	}
 }
 ```
-```Cpp group:1.1
-int main(void){
-	int x = 1;
-	double y = 2.0;
-	char z = 'a';
-}
-```
 ```Javascript group:1.1
 // common js
 var x = 1
@@ -47,6 +40,13 @@ let y = 1.0
 let s = "abc"
 
 const b = 1  // cannot be assigned again and must be initialized
+```
+```Cpp group:1.1
+int main(void){
+	int x = 1;
+	double y = 2.0;
+	char z = 'a';
+}
 ```
 
 ## 1.2 print
@@ -86,6 +86,12 @@ class Main{
 	}
 }
 ```
+```javascript group:1.2
+a = 1;
+obj = {a: 1}
+console.log(`a: ${a}`);
+console.log(`obj: ${JSON.stringify(obj)}`)
+```
 ```Cpp group:1.2
 # include <iostream>
 #include <stdio.h>
@@ -99,12 +105,6 @@ int main(void){
 	char *msg = "Hello world";
 	printf("a=%d, b=%f, %s\n", a, b, msg);
 }
-```
-```javascript group:1.2
-a = 1;
-obj = {a: 1}
-console.log(`a: ${a}`);
-console.log(`obj: ${JSON.stringify(obj)}`)
 ```
 
 ## 1.3 Loop
@@ -235,6 +235,9 @@ public class A2 extends A1 implements A {
 }
 
 final class B {}
+
+A2 a2 = new A2();
+B b = new B();
 ```
 ```Javascript group:1.5
 class A {
@@ -250,9 +253,32 @@ class AA extends A{
 		this.a3 = a3;
 	}
 }
+
+const a = new A(1, 2);
+const aa = new AA(1, 2, 3)
 ```
 
 ## 1.6 if/catch block
+```Python
+# if else blocks
+a = 1
+if a <= 1:
+	print("1")
+elif a < 2:
+	print("2)
+else:
+	print(a)
+
+# if else expression
+expr = True if a < 1 else False
+
+# try except
+try:
+	x = 1 / 0
+Except e:
+	print("exception")
+
+```
 
 ## 1.7 Operator
 arithmetic:
@@ -567,6 +593,22 @@ s + "bcd"           // return "abcbcd"
 ```
 
 ## 2.5 Multi-set
+Multi-set can contain duplicate items multiple times
+```Python
+c = Counter()
+```
+
+## 2.6 Priority Queue
+```Java
+PriorityQueue<Integer> pq = new PriorityQueue<>(); // min-heap
+// max-heap
+PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+pq.add(10); // add 10 to pq
+pq.peek();  // retrieve min/max of pq
+pq.poll();  // retrieve and remove min/max of pq
+pq.size();
+
+```
 
 # 3. Files, I/O
 
@@ -833,7 +875,7 @@ AIO:
 difference between BIO vs NIO vs AIO model:
 - BIO model creates a thread for each client connect. Each thread will block be blocked when it calls read, no matter whether the data is ready or not.
 - NIO model uses selector component(in linux, epoll server is the selector component) to coordinate new connection from client. NIO model does not need to create a thread for each client connect and can have only one thread, which reduced the overhead of switching thread. This thread will be notified whenever data from each connection is ready to be read in kernel space and the java thread can perform IO operation to copy data from kernel space to user space. In BIO model, you still have to wait when data is not ready in each client connection
-- AIO model uses the `io_uring` to handle client connection. AIO model doesn't need to create new thread for each client connection either. The difference is that java application does not need perform IO operation like read in AIO model in user space and the system kernel handles. After the IO operation is completed and data is copied into user space from kernel space by kernel, the system notifies the java thread and the java thread can directly use the data in user space. In addition, the read and write call returns Future object and does not block the thread, while the read and write call blocks the thread in NIO model to perform IO operation on ready data.
+- AIO model uses the `io_uring` to handle client connection. AIO model doesn't need to create new thread for each client connection either. The difference is that java thread is notified after IO is complete rather than ready in NIO. In AIO mode, `io_uring` makes data sharing between kernel and user space zero copy through completion queue after the data is ready.  In addition, the read and write call returns Future object and does not block the thread, while the read and write call blocks the thread in NIO model to perform IO operation on ready data.
 ~~~
 
 ```Java group:3.3 fold
@@ -948,17 +990,65 @@ Native:
 > 
 > requirements.txt
 ---tab Javascript
-hello
+- file folder directories
+> node_modules
+> package.json
 ~~~
 
-## 4.2 How to debug
+
+## 4.2 Relative import
+Relative import is generally the way of importing another file in various programming language
+~~~tabs
+---tab Python
+How does Python resolve the relative path:
+1. `import module_name`: search for `module_name.py` or a `module_name` directory (containing `__init__.py`) within the same directory as the importing module.
+2. search `sys.path`: list of directories Python look for modules. It includes directory of current script, directories specified in env variable `PYTHONPATH` and installation-dependent directories.
 
 
-## 4.3 Relative import
+~~~
 
-## 4.4 Build Library & App
+## 4.3 Build Library & App
+~~~tabs
+---tab Python
+my_lib/
+> src
+> > my_lib_name
+> > > `__init__.py`
+> > > `my_module.py`
+> 
+> pyproject.toml
 
+prproject.toml:
+```txt
+[project]
+name = "my_library_name"
+version = "0.1.0"
+authors = [
+  { name="Your Name", email="your.email@example.com" },
+]
+description = "A short description of your library."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 
+[build-system]
+requires = ["hatchling"]  # SetupTools, Flit
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.github",
+    "/tests",
+]
+```
+~~~
 # 5. Concurrency
 
 ## 5.1 Thread & Thread pool
@@ -1484,8 +1574,40 @@ https://blog.csdn.net/sjhcake/article/details/123856054
 
 ## 6.6 Generic
 ```Java group:6.6
-<? super E>
-Collection<? extends E> c
+// generic symbol can use: T, U, V, E(Any Uppercase symbol) and ?(wildcard)
+// 1. T, U, V, E(any uppercase) is used in declaration after class/interface/method
+// 1.1 class declaration
+class Test<T, U> {
+	T field1;
+	U field2;
+}
+
+// 1.2 mtd declaration
+public <T, U> List<T> methodA(U[] a) {};
+
+// 2. ?(wildcard) is used as the argument of an existing generic declaration
+//   List<E> generic has already been declared and we pass ? into List<E>
+// 2.1 seen in parameters type
+public void methodB(List<? extends Number> numbers){}
+// 2.2 seen in <>
+public <T extends Comparable<? supper Integer>> void methodB(List<T> x){}
+// 2.3 seen in single variable type declaration
+List<? extends Integer> l = new ArrayList<>();
+
+// 3. upper and lower bound
+// 3.1 <T extends ..>, <? extends ..>
+// T type interface must extend the interface of Comparable
+public <T extends Comparable<T>> void methodC(T[] arr){}
+// T type extends Number class and Comparable interface
+public <T extends Number & Comparable> void methodC(T[] arr){}
+// <? extends Number> list contain any class that is subclass of Number
+public void methodC(List<? extends Number> numbers){}
+
+// 3.2 <T super ..>, <? super ..>
+// T type is a super class for Number
+public <T extends Integer> void methodD(T[] arr){}
+// <? super Number> list contains any class that is superclass of Number
+public void methodC(List<? super Number> numbers){}
 ```
 
 ## 6.7 Iterator & Seq Generator
@@ -1507,4 +1629,5 @@ Collection<? extends E> c
 
 
 
+Reference:
 https://github.com/jsjtzyy/LeetCode/blob/master/Java%20cheat%20sheet%20for%20interview
