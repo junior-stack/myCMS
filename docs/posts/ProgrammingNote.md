@@ -1,6 +1,9 @@
 ---
-share: true
+date:
+    created: 2025-10-10
 ---
+<!-- more -->
+
 # 1. Basic
 ## 1.1 Declare variable
 
@@ -847,9 +850,6 @@ fetch("http://localhost:3000/upload", {
 ```
 
 ## 3.3 Socket
-NIO vs AIO:
-https://topic.alibabacloud.com/a/font-classtopic-s-color00c1dejavafont-font-classtopic-s-color00c1deiofont-nio-aio-detailed_1_27_30235169.html
-https://liakh-aliaksandr.medium.com/java-sockets-i-o-blocking-non-blocking-and-asynchronous-fb7f066e4ede
 
 ~~~tabs
 ---tab Java
@@ -1333,6 +1333,10 @@ BlockingDeque<Integer> bq2 = new LinkedBlockingDeque<>();
 // methods: putFirst, putLast, takeFirst, takeLast
 
 // TransferQueue
+
+// Pipe.SinkChannel & Pipe.SourceChannel
+
+// Exchanger
 ```
 
 useCases:

@@ -88,7 +88,7 @@ def transform_Bullet_start(content: str) -> str:
 def parse_picture(content: str) -> str:
     def repl(match):
         pic = match.group(1)
-        return f"![](images/{pic})"
+        return f"![](../images/{pic})"
     return PICTURE_PATTERN.sub(repl, content)
 
 def on_page_markdown(markdown, page, config, files):

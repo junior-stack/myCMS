@@ -2,6 +2,8 @@ site_name: My Docs
 site_url: https://juniorxyz.github.io/myCMS
 theme:
   name: material
+  palette:
+    primary: black
   features:
     - content.code.copy
     - content.code.annotate
@@ -26,6 +28,7 @@ markdown_extensions:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
+
 extra_javascript:
   - javascript/mathjax.js
   - javascript/collapseCodeblock.js
@@ -33,6 +36,7 @@ extra_javascript:
 
 extra_css:
   - css/collapseCodeblock.css
-# plugins:
-#   - pub-obsidian:
-#       obsidian_dir: .obsidian
+
+plugins:
+  - blog:
+      blog_dir: .

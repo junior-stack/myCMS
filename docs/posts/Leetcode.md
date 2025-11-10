@@ -1,7 +1,8 @@
 ---
-share: true
+date:
+    created: 2025-10-10
 ---
-
+<!-- more -->
 # 0. Basis
 ## 0.1 Built-in module
 Python:

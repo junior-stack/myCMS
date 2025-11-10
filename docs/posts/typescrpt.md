@@ -1,7 +1,9 @@
 ---
-share: true
+date:
+    created: 2025-10-10
+draft: true
 ---
-
+<!-- more -->
 [resource](http://ts.xcatliu.com/basics/union-types.html)
 
 # 一. 基本
