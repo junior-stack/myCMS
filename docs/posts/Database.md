@@ -2,6 +2,8 @@
 date:
     created: 2025-11-10
 draft: true
+tags:
+  - Programming
 ---
 <!-- more -->
 

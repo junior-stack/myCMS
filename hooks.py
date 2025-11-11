@@ -1,6 +1,11 @@
 # hooks.py
 import re
+from textwrap import dedent
+import urllib.parse
 from mkdocs.plugins import BasePlugin
+
+x_intent = "https://x.com/intent/tweet"
+fb_sharer = "https://www.facebook.com/sharer/sharer.php"
 
 # Pattern to match ```lang group:groupName ... ```
 GROUP_PATTERN = re.compile(
@@ -13,7 +18,7 @@ FOLD_PATTERN = re.compile(r"(```\w+)(\s+group:[^\n]+)?\s+fold")
 
 HEADER_PATTERN = re.compile(r'^(#+)', re.MULTILINE)
 
-BULLET_PATTERN = re.compile(r":\n-", re.DOTALL)
+BULLET_PATTERN = re.compile(r":\n([1-])", re.DOTALL)
 
 PICTURE_PATTERN = re.compile(r"!\[\[(.*?)\]\]", re.DOTALL)
 
@@ -83,7 +88,7 @@ def convert_tabs_block(content: str) -> str:
 
 
 def transform_Bullet_start(content: str) -> str:
-    return BULLET_PATTERN.sub(r":\n\n-", content)
+    return BULLET_PATTERN.sub(r":\n\n\1", content)
 
 def parse_picture(content: str) -> str:
     def repl(match):
@@ -91,15 +96,31 @@ def parse_picture(content: str) -> str:
         return f"![](../images/{pic})"
     return PICTURE_PATTERN.sub(repl, content)
 
-def on_page_markdown(markdown, page, config, files):
-    # Runs on each page before conversion to HTML
-    content = transform_Bullet_start(markdown)
+def transform(content: str) -> str:
+    content = transform_Bullet_start(content)
     content = convert_tabs_block(content)
     content = remove_fold_flags(content)
     content = transform_group_tabs(content)
     content = increase_header_level(content)
     content = parse_picture(content)
     return content
+
+def on_page_markdown(markdown, page, config, files):
+    # Runs on each page before conversion to HTML
+    
+    if page.title in ["Blog", "Tags"]:
+        return markdown
+    
+    page_url = config.site_url + page.url
+    page_title = urllib.parse.quote(page.title+'\n')
+    
+    return transform(markdown) + dedent(f"""
+    <div style="text-align: center; margin-top: 20px;">
+    <h2>Share this post:</h2>
+    </div>
+    [Share on :simple-x:]({x_intent}?text={page_title}&url={page_url}){{ .md-button }}
+    [Share on :simple-facebook:]({fb_sharer}?u={page_url}){{ .md-button }}
+    """)
 
 # if __name__ == "__main__":
 #     file_path ="./docs/CheatSheet.md"

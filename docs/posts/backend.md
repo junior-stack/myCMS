@@ -2,6 +2,8 @@
 date:
     created: 2025-10-10
 draft: true
+tags:
+  - Programming
 ---
 <!-- more -->
 Communication:

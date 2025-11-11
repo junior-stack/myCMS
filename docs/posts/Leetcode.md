@@ -1,7 +1,10 @@
 ---
 date:
     created: 2025-10-10
+tags:
+  - Programming
 ---
+This is my leetcode notes of algorithms and questions I have practiced
 <!-- more -->
 # 0. Basis
 ## 0.1 Built-in module

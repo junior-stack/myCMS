@@ -1,8 +1,10 @@
 ---
 date:
     created: 2025-10-10
-draft: true
+tags:
+  - Programming
 ---
+This is my typescript note.
 <!-- more -->
 [resource](http://ts.xcatliu.com/basics/union-types.html)
 

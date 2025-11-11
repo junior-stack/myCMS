@@ -1,7 +1,10 @@
 ---
 date:
     created: 2025-10-10
+tags:
+  - Programming
 ---
+This is my programming notes of python, javascript, Java, C++ that I can use to refresh memories.
 <!-- more -->
 
 # 1. Basic
@@ -239,8 +242,14 @@ public class A2 extends A1 implements A {
 
 final class B {}
 
+// Java 14: ensure class C's every field is final, save repeated constructor
+public record C (String cartId, List<Integer> items) {
+	public Integer addItem(Integer item){}
+}
+
 A2 a2 = new A2();
 B b = new B();
+C c = new C("1", new ArrayList());
 ```
 ```Javascript group:1.5
 class A {
@@ -300,6 +309,13 @@ a = {1: "helloworld"}
 b = {1: "helloworld"}
 a == b
 a is b
+```
+```Java group:1.7.2
+List arr = new ArrayList();
+List arr2 = new ArrayList();
+
+arr.equal(arr2);  // return if the value of two objects are true
+arr == arr2;      // return if two variables point to the same object
 ```
 ```Javascript group:1.7.2
 // == performs type coersion before comparison
