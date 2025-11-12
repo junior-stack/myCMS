@@ -107,8 +107,7 @@ def transform(content: str) -> str:
 
 def on_page_markdown(markdown, page, config, files):
     # Runs on each page before conversion to HTML
-    
-    if page.title in ["Blog", "Tags"]:
+    if not page.file.src_uri.startswith("posts/"):
         return markdown
     
     page_url = config.site_url + page.url

@@ -893,7 +893,7 @@ difference between BIO vs NIO vs AIO model:
 - NIO model uses selector component(in linux, epoll server is the selector component) to coordinate new connection from client. NIO model does not need to create a thread for each client connect and can have only one thread, which reduced the overhead of switching thread. This thread will be notified whenever data from each connection is ready to be read in kernel space and the java thread can perform IO operation to copy data from kernel space to user space. In BIO model, you still have to wait when data is not ready in each client connection
 - AIO model uses the `io_uring` to handle client connection. AIO model doesn't need to create new thread for each client connection either. The difference is that java thread is notified after IO is complete rather than ready in NIO. In AIO mode, `io_uring` makes data sharing between kernel and user space zero copy through completion queue after the data is ready.  In addition, the read and write call returns Future object and does not block the thread, while the read and write call blocks the thread in NIO model to perform IO operation on ready data.
 ~~~
-
+code:
 ```Java group:3.3 fold
 // 1. NIO socket I/O:
 // 1.1 Server:
