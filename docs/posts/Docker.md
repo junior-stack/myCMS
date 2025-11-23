@@ -58,10 +58,11 @@ docker volume prune                # delete all unused volumes
 ```
 
 ## 1.3 docker network
+**docker network:**
  When container is created without `--network` through `docker run`, they are default in the `docker0` network. Containers within this network can communicate with host and other containers within this network. They can also access the Internet. `docker0` is bridge type. Docker networks have following types: 
- - Bridge: containers communicate each other through the host gateway and can access Internet through NAT
+ - Bridge: containers communicate each other through the host gateway and can access Internet through NAT; containers of this network must be on same machine
  - Host: containers themselves won't have IPs or ports. No ports mapping. They share the IPs and ports with the host
- - Overlay: used in docker swarm to communicate containers within different docker daemons
+ - Overlay: used in docker swarm to communicate containers within different docker daemons; containers of this network can be located on different machines
  - None
 
 ```powershell
@@ -80,6 +81,7 @@ docker network connect <NETWORK_NAME> <containerID>
 docker network disconnect <NETWORK_NAME> <containerID>
 ```
 
+**docker hostname:** docker hostnames are used for inter-container communication within the same network. For example, if we want to ping container B from container A or send network request through programming languages, we need container B's hostname as the url. The default hostname for a container is its container ID or the container's name under user-defined bridge docker network(this happens when containers are created and launched by `docker-compose.yaml` since `docker-compose.yaml` automatically create new bridge network even not explicitly specified)
 # 2. Docker Context
 Docker context allows us to connect to different docker daemons either on local machines or on remote machines that install dockers. This allows us to build docker compose or docker file on remote docker engines. Remote machines that support docker include:
 - DigitalOcean(simplest + cheapest)
@@ -151,6 +153,7 @@ reference: https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/
 
 # 4. Docker Compose
 
+## 4.1 compose yaml
 `docker-compose.yaml` basic structure:
 ```yaml
 version: '3.8'
@@ -169,26 +172,37 @@ service configuration:
 - image/build: 
 	- image: specify docker image
 	- build: specify the directory path of `dockerfile`
-- ports: list of`<HOST_PORT>:<CONTAINER_PORT>`or `<CONTAINER_PORT>`, map host port to container port or map random port to container port
+- ports: list of`<HOST_PORT>:<CONTAINER_PORT>`or `<CONTAINER_PORT>
 - environment/env_file:
 	- environment: list of `<env_variable>: <values>`
 	- env_file: location of env file
-- volumes
+- volumes: list of `<HOST_PATH>:<CONTAINER_PATH>:[ro]`, `ro` represents read-only
 - networks
 - depends_on: list of other `<service_name>`, specify the order of launching container services
 - healthcheck:
-	- test
-	- interval
-	- timeout
-	- retries
+	- test: e.g(`[ "CMD", "bash", "-c", 'nc -z localhost 9092' ]`)
+	- interval: e.g(`30s`)
+	- timeout: e.g(`10s`)
+	- retries: e.g(`5`)
 
-start up container application: `docker compose up -d`
-stop applications: 
+create containers and start application: `docker compose up -d`
+stop applications: `docker compose stop`
+start stopped containers: `docker compose start`
+stop and restart applications: `docker compose restart`
+
+## 4.2 Check logs
+we check logs when the start up of a container fails:
+```powershell
+docker compose log <containerName>
+```
 
 # 5. Docker Swarm
 docker compose can only create containers on one server, while docker swarm can distribute containers among different servers.
 
-# 6. Clean the disk file
+# 6. Docker disk files(windows)
+
+On windows, Docker stores its containers and images in `ext4.vhdx` files. This file gets large easily.
+## 6.1 shrink ext4.vhdx
 When we no longer needs docker images/containers, we can clean it through following(windows):
 1. delete all images/containers: `docker system prune -a`
 2. `wsl --shutdown`
@@ -204,3 +218,31 @@ exi
 ```
 4. `optimize-vhd "D:\program\wsl\docker-desktop-data\ext4.vhdx" -mode full`
 
+## 6.2 change ext4.vhdx location
+
+1. Shutdown docker-desktop and its service
+2. List all `.vhdx` files and find their locations
+```powershell
+# list all distro and their names
+# there should be docker-desktop and docker-desktop-data
+wsl --list  --verbose
+
+# find the ext4.vhdx location given distro name
+# replace <DISTRO_NAME> with docker-desktop and docker-desktop-data
+(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq "<DISTRO_NAME>" }).GetValue("BasePath") + "\ext4.vhdx"
+
+```
+
+2.  migrate ext4.vhdx location:
+```powershell
+wsl --shutdown
+
+wsl --export docker-desktop D:\docker-desktop.tar
+wsl --export docker-desktop-data D:\docker-desktop-data.tar
+
+wsl --unregister docker-desktop
+wsl --unregister docker-desktop-data
+
+wsl --import docker-desktop D:\DockerWSL\docker-desktop D:\docker-desktop.tar --version 2
+wsl --import docker-desktop-data D:\DockerWSL\docker-desktop-data D:\docker-desktop-data.tar --version 2
+```
