@@ -59,7 +59,7 @@ docker volume prune                # delete all unused volumes
 
 ## 1.3 docker network
 **docker network:**
- When container is created without `--network` through `docker run`, they are default in the `docker0` network. Containers within this network can communicate with host and other containers within this network. They can also access the Internet. `docker0` is bridge type. Docker networks have following types: 
+ When container is created without `--network` through `docker run`, they are default in the `docker0` network. Containers within this network can communicate with host and other containers within this network. They can also access the Internet. `docker0` is bridge type. Docker networks have following types:
  - Bridge: containers communicate each other through the host gateway and can access Internet through NAT; containers of this network must be on same machine
  - Host: containers themselves won't have IPs or ports. No ports mapping. They share the IPs and ports with the host
  - Overlay: used in docker swarm to communicate containers within different docker daemons; containers of this network can be located on different machines
