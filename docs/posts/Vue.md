@@ -167,10 +167,13 @@ It should be used as following
 # 3. Vue Components
 
 ## 3.1 Option vs Composition
-Vue has 2 syntax styles(difference of the two styles: https://vuejs.org/guide/introduction.html#api-styles):
+To create vue components, Vue has 2 syntax styles(difference of the two styles: https://vuejs.org/guide/introduction.html#api-styles):
 - Option API
 - Composition API(used in this note)
-## 3.2 States management
+
+## 3.2 Components API
+
+### 3.2.1 States management
 Component maintain state variables for rendering. Whenever state variables are changed, Vue rerender the components. The state variables are usually set by events triggered by user interactions on the UI.
 
 Create states with `ref`:
@@ -195,7 +198,7 @@ function increment(){
 ```
 create states with `reactive`:
 
-## 3.3 computed method
+### 3.2.2 computed method
 Vue uses `computed` to create computed properties of the components. Whenever we have complicated expressions or call functions that rely on state variables or other variables, we can put them in computed properties. The benefit of this is that whenever the components render, computed properties cache these expressions and vue does not need to re-evaluate these expressions if their dependencies(i.e: state variables) does not change during this render.
 
 `Compute` example:
@@ -235,7 +238,7 @@ const publishedBooksMessage = computed({
 </template>
 ```
 
-## 3.4 watch method
+### 3.2.3 watch method
 `watch` creates callback behavior when a state variable changes. The callback behavior includes: manipulate DOM, change another state, perform async operations. The first argument of `watch` can be ref, reactive, getter function or an array of previous types, the second argument is a function or async function. `watch` callback by default happens  **after** parent component updates (if any), and **before** the owner component's DOM updates.
 
 ```vue
@@ -309,7 +312,7 @@ watchEffect(async () => {
 
 ```
 
-## 3.5 useTemplateRef
+### 3.2.4 useTemplateRef
 `useTemplateRef` allows us to reference a specific element within the current component in javascript. We can only use this reference variable after the component is mounted(i.e: we can use it in `onMount` or callbacks in `watch`)
 
 Reference element within current component:
@@ -333,8 +336,7 @@ onMounted(() => {
 ```
 
 Reference element within child component(use `defineExpose`):
-- child component:
-```vue
+```vue group:3.2.4 file:ChildComponent.vue
 <script setup>
 import { useTemplateRef } from 'vue'
 
@@ -352,8 +354,7 @@ defineExpose({
   <input ref="my-input" />
 </template>
 ```
-- parent component:
-```vue
+```vue group:3.2.4 file:ParentComponent.vue
 <script setup>
 import { useTemplateRef, onMounted } from 'vue'
 
@@ -375,235 +376,55 @@ onMounted(()=>{
 ```
 
 Reference element within parent component: impossible with `useTemplateRef`
-## 3.6 control parent component
-In order to control the parent component behavior from child component or set the state of parent component or let parent component execute something, we can create an event on child component and bind the event with a function from parent component. Then we control when to emit events inside child component to trigger.
+## 3.3 Special components
 
-Example: we want to create a toggle button that can control the theme of the layout
-- toggle button(child component):
-```vue
+### 3.3.1 Components with async setup
+We can await an async function in `<script setup>` before rendering a component. To ensure an async operation is waited before rendering, we need to ensure `<Suspense>` exists in the parent chain of this component. 
+
+Ex:
+```vue group:3.3.1 file:MyAsyncComponent.vue
 <script setup>
-const emit = defineEmits(['colorToggle'])
-
-function toggleColor(){
-	emit("colorToggle")
-}
+const data = ref("hello world")
+data.value = await fetch("")
 </script>
-<template>
-	<button @click="toggleColor">
-		Enable Night Mode
-	</button>
+<tenplate>
+	{{ data }}
 </template>
 ```
-- Layout(parent component):
-```vue
-<script setup>
-const isNightMode = ref(false)
-
-function enableNightMode(){
-	isNightMode.value = !isNightMode.value
-}
-</script>
+```vue group:3.3.1 file:App.vue
 <template>
-	<div>
-		{{ isNightMode ? "Night" : "Day" }}
-	</div>
-	<ToggleButton @colorToggle="enableNightMode" />
+	<MyAsyncComponent />
 </template>
 ```
-
-pass arguments to events:
-- child:
-```vue
-<script setup>
-const emit = defineEmits(['my-custom-event'])
-
-function emitEvent(){
-	const payload = { msg: "hello" }
-	emit("my-custom-event", payload )
-}
-</script>
-<template>
-	<button @click="emitEvent">Emit</button>
-</template>
-```
-- parent:
-```vue
-<script setup>
-
-function eventHandler(payload){
-	console.log(payload)
-}
-</script>
-<template>
-	<div>
-		{{ isNightMode ? "Night" : "Day" }}
-	</div>
-	<ChildComponent @my-custom-event="eventHandler" />
-</template>
-```
-## 3.7 Props & Expose
-When we pass parameters from parent to child:
-- parent:
-```vue
-<template>
-	<ChildComponent :foo="'hello world'" />
-</template>
-```
-- child:
-```vue
-<script setup>
-const props = defineProps(['foo'])
-watch(()=> props.foo, (newFoo) => console.log(newFoo))
-</script>
-```
-
-When we pass parameters from chilld to parent:
-- child:
-```vue
-<script setup>
-const msg = ref("hello world")
-defineExpose({ msg })
-</script>
-```
-- parent:
-```vue
-<script setup>
-import { useTemplateRef, onMounted } from 'vue'
-const childRef = useTemplateRef('child-ref')
-onMounted(()=>{
-	const msg = childRef.value.msg
-})
-
-</script>
-
-<template>
-  <ChildComponent ref="child-ref" />
-</template>
-```
-
-## 3.8 Life hook
-
-- onMounted: hook after the the vue component is mounted, can take sync/async hook, commonly used to fetch api for data when page is loading, add event listener to window
-- onUnmounted: hook after the vue component is unmounted
-- onUpdated: hook after state change but before DOM updates on page in browser
-- nextTick: hook after the DOM updates on page in browser
-
-order of hook:
-onMounted(parent) -> onMounted(children)
-
-## 3.9 Slot
-Parents can pass html elements into children components for rendering through slots.
-
-Basic:
-- childComponent:
-```vue
-<template>
-	<!-- slot pair will be replaced by html elements passed by parent-->
-	<button><slot>defalt content</slot></button>
-</template>
-```
-- parent component:
-```vue
-<template>
-	<!-- pass msg value-->
-	<ChildComponent>{{ msg }}</ChildComponent>
-	<!-- pass Html -->
-	<ChildComponent>
-		<span>Hello world</span>
-	<ChildCompnent>
-	<!-- when pass nothing, anything appears inside slot will appear-->
-	<ChildComponent />
-</template>
-```
-
-Multiple slots:
-- children:
-```vue
-<template>
-  <div class="card">
-    <div v-if="$slots.header" class="card-header">
-      <slot name="header" />
-    </div>
-    
-    <div v-if="$slots.default" class="card-content">
-      <slot />
-    </div>
-    
-    <div v-if="$slots.footer" class="card-footer">
-      <slot name="footer" />
-    </div>
-  </div>
-</template>
-```
-- parent:
-```vue
-<template>
-	<ChildrenComponent>
-		<template v-slot:header>
-			<!-- Content for header slot -->
-		</template>
-	</ChildrenComponent>
-	<ChildrenComponent>
-		<template #header>
-			<!-- Content for header slot -->
-		</template>
-	</ChildrenComponent>
-	<ChildrenComponent>
-	  <template #header>
-	    <h1>Here might be a page title</h1>
-	  </template>
-	
-	  <!-- implicit default slot -->
-	  <p>A paragraph for the main content.</p>
-	  <p>And another one.</p>
-	
-	  <template #footer>
-	    <p>Here's some contact info</p>
-	  </template>
-	</ChildrenComponent>
-</template>
-```
-
-## 3.10 provide/inject
-provide/inject is the way to set shared data for all of its descendant components(not just parent/child) to access. It saves the need to pass props when there is a long chain between an ancestor and descendant.
-
-- Ancestor Component(use `provide` to provide data to all its descendant)
-```vue
-<script setup>
-import { provide, ref } from 'vue'
-// first arg is key to retrieve in descendant, second arg is value
-provide('key1','hello!')
-
-const counter = ref(0)
-function updateCounter(){
-	counter.value += 1
-}
-// classic use
-provide('key2', { counter, updateCounter})
-</script>
-```
-- descendant(use `inject` to retrieve the keys from `provide`)
-```vue
-<script setup>
-import { inject } from 'vue'
-
-const { counter, updateCounter } = inject('key2')
-</script>
-
-<template>
-  <button @click="updateCounter">{{ counter }}</button>
-</template>
-```
-
-## 3.11 Components with async setup
-## 3.12 Async Component
+ 
+### 3.3.2 Async Component
 When we use `defineAsyncComponent`, we typically use it with `import()` function to lazy load heavy components. `import()`makes network request to retrieve the components' javascript bundle when the component is rendered combining with `v-if`(when condition of `v-if` is true). On the other hand, if we use `import ... from '...'` to load the component, we always load the heavy components eagerly when the page is loading. Some use cases of `AsyncComponent`:
 - heavy components with `v-if` condition to be false or not immediately visible when loading the page
 - router page that is not loaded.
 
 Use Case 1(defer loading heavy):
-- LoadingComponent:
-```vue fold
+```vue group:3.3.2.1 file:AsyncComponent.vue fold
+<script setup>
+import { ref } from "vue"
+import LoadingComponent from "./Components/LoadingComponent"
+
+const loadingStatus = ref(false)
+
+function updateloadingStatus(){
+	loadingStatus.value = !loadingStatus.value
+}
+
+const HeavyComponent = defineAsyncComponent({
+	loader: () => import("./Components/HeavyComponent"),
+	loadingComponent: LoadingComponent
+})
+</script>
+<template>
+	<HeavyComponent v-if="loadingStatus" />
+	<button @click="loadingStatus">Load</button>
+</template>
+```
+```vue group:3.3.2.1 file:LoadingComponent.vue fold
 <template>
   <div class="loading-overlay">
     <div class="loader"></div>
@@ -643,28 +464,7 @@ Use Case 1(defer loading heavy):
 }
 </style>
 ```
-- use asynComponent:
-```vue fold
-<script setup>
-import { ref } from "vue"
-import LoadingComponent from "./Components/LoadingComponent"
 
-const loadingStatus = ref(false)
-
-function updateloadingStatus(){
-	loadingStatus.value = !loadingStatus.value
-}
-
-const HeavyComponent = defineAsyncComponent({
-	loader: () => import("./Components/HeavyComponent"),
-	loadingComponent: LoadingComponent
-})
-</script>
-<template>
-	<HeavyComponent v-if="loadingStatus" />
-	<button @click="loadingStatus">Load</button>
-</template>
-```
 
 use case 2(router):
 ```vue fold
@@ -720,18 +520,228 @@ const HeavyComponent = defineAsyncComponent({
 	</Suspense>
 </template>
 ```
-# 4. Built-in Components
-## 4.1 `<Component>`
+### 3.3.3 `<Component>`
 
-## 4.2 `<Suspense>`
+### 3.3.4 `<Suspense>`
+## 3.4 Common patterns
+
+### 3.4.1 Props & Expose
+When we pass parameters from parent to child:
+```vue group:3.4.1.1 file:Parent.vue
+<template>
+	<ChildComponent :foo="'hello world'" />
+</template>
+```
+```vue group:3.4.1.1 file:Child.vue
+<script setup>
+const props = defineProps(['foo'])
+watch(()=> props.foo, (newFoo) => console.log(newFoo))
+</script>
+```
+
+When we pass parameters from chilld to parent:
+```vue group:3.4.1.2 file:Child.vue
+<script setup>
+const msg = ref("hello world")
+defineExpose({ msg })
+</script>
+```
+```vue group:3.4.1.2 file:Parent.vue
+<script setup>
+import { useTemplateRef, onMounted } from 'vue'
+const childRef = useTemplateRef('child-ref')
+onMounted(()=>{
+	const msg = childRef.value.msg
+})
+
+</script>
+
+<template>
+  <ChildComponent ref="child-ref" />
+</template>
+```
+
+### 3.4.2 Event emit
+In order to control the parent component behavior from child component or set the state of parent component or let parent component execute something, we can create an event on child component and bind the event with a function from parent component. Then we control when to emit events inside child component to trigger.
+
+Example: we want to create a toggle button that can control the theme of the layout
+```vue group:3.4.2.1 file:Child.vue
+<script setup>
+const emit = defineEmits(['colorToggle'])
+
+function toggleColor(){
+	emit("colorToggle")
+}
+</script>
+<template>
+	<button @click="toggleColor">
+		Enable Night Mode
+	</button>
+</template>
+```
+```vue group:3.4.2.1 file:Parent.vue
+<script setup>
+const isNightMode = ref(false)
+
+function enableNightMode(){
+	isNightMode.value = !isNightMode.value
+}
+</script>
+<template>
+	<div>
+		{{ isNightMode ? "Night" : "Day" }}
+	</div>
+	<ToggleButton @colorToggle="enableNightMode" />
+</template>
+```
+
+pass arguments to events:
+```vue group:3.4.2.2 file:Child.vue
+<script setup>
+const emit = defineEmits(['my-custom-event'])
+
+function emitEvent(){
+	const payload = { msg: "hello" }
+	emit("my-custom-event", payload )
+}
+</script>
+<template>
+	<button @click="emitEvent">Emit</button>
+</template>
+```
+```vue group:3.4.2.2 file:Parent.vue
+<script setup>
+
+function eventHandler(payload){
+	console.log(payload)
+}
+</script>
+<template>
+	<div>
+		{{ isNightMode ? "Night" : "Day" }}
+	</div>
+	<ChildComponent @my-custom-event="eventHandler" />
+</template>
+```
+
+### 3.4.3 provide/inject
+provide/inject is the way to set shared data for all of its descendant components(not just parent/child) to access. It saves the need to pass props when there is a long chain between an ancestor and descendant.
+
+```vue group:3.4.3 file:Ancestor.vue
+<script setup>
+import { provide, ref } from 'vue'
+// use provide() to provide data to all its descendant
+// first arg is key to retrieve in descendant, second arg is value
+provide('key1','hello!')
+
+const counter = ref(0)
+function updateCounter(){
+	counter.value += 1
+}
+// classic use
+provide('key2', { counter, updateCounter})
+</script>
+```
+```vue group:3.4.3 file:Descendant.vue
+<script setup>
+import { inject } from 'vue'
+
+// use inject to retrieve the keys from `provide`
+const { counter, updateCounter } = inject('key2')
+</script>
+
+<template>
+  <button @click="updateCounter">{{ counter }}</button>
+</template>
+```
+
+### 3.4.4 Slot
+Parents can pass html elements into children components for rendering through slots.
+
+Basic:
+```vue group:3.4.4.1 file:Child.vue
+<template>
+	<!-- slot pair will be replaced by html elements passed by parent-->
+	<button><slot>defalt content</slot></button>
+</template>
+```
+```vue group:3.4.4.1 file:Parent.vue fold
+<template>
+	<!-- pass msg value-->
+	<ChildComponent>{{ msg }}</ChildComponent>
+	<!-- pass Html -->
+	<ChildComponent>
+		<span>Hello world</span>
+	<ChildCompnent>
+	<!-- when pass nothing, anything appears inside slot will appear-->
+	<ChildComponent />
+</template>
+```
+
+Multiple slots:
+```vue group:3.4.4.2 file:Children.vue
+<template>
+  <div class="card">
+    <div v-if="$slots.header" class="card-header">
+      <slot name="header" />
+    </div>
+    
+    <div v-if="$slots.default" class="card-content">
+      <slot />
+    </div>
+    
+    <div v-if="$slots.footer" class="card-footer">
+      <slot name="footer" />
+    </div>
+  </div>
+</template>
+```
+```vue group:3.4.4.2 file:Parent.vue
+<template>
+	<ChildrenComponent>
+		<template v-slot:header>
+			<!-- Content for header slot -->
+		</template>
+	</ChildrenComponent>
+	<ChildrenComponent>
+		<template #header>
+			<!-- Content for header slot -->
+		</template>
+	</ChildrenComponent>
+	<ChildrenComponent>
+	  <template #header>
+	    <h1>Here might be a page title</h1>
+	  </template>
+	
+	  <!-- implicit default slot -->
+	  <p>A paragraph for the main content.</p>
+	  <p>And another one.</p>
+	
+	  <template #footer>
+	    <p>Here's some contact info</p>
+	  </template>
+	</ChildrenComponent>
+</template>
+```
+
+### 3.4.5 Life hook
+
+- onMounted: hook after the the vue component is mounted, can take sync/async hook, commonly used to fetch api for data when page is loading, add event listener to window
+- onUnmounted: hook after the vue component is unmounted
+- onUpdated: hook after state change but before DOM updates on page in browser
+- nextTick: hook after the DOM updates on page in browser
+
+order of hook:
+onMounted(parent) -> onMounted(children)
+
+# 4. Optimization
 
 # 5. Other classes
 ## 5.1 Composable function
 Composable functions can encapsulate anything you defined in vue `<script setup>`, including state variables, computed properties, ref elements, prop variable, lifecycle hook, watched callback, customized functions. And they can return state variables & customized functions.
 
 Commonly, we create composable functions to take a state variable as input and use watch method to watch that input variable. Examples like fetching data from a url below:
-- composable function:
-```vue
+```vue group:5.1 file:Composable.vue
 <script setup>
 import { ref, watchEffect, toValue } from 'vue'
 
@@ -757,8 +767,7 @@ export function useFetch(url) {
 }
 </script>
 ```
-- calling composable functions:
-```vue
+```vue group:5.1 file:App.vue
 <script setup>
 const url = ref('/initial-url')
 
@@ -774,6 +783,10 @@ We create custom directive when we want to manipulate a specific DOM directly. W
 
 More: https://vuejs.org/guide/reusability/custom-directives.html
 # 6. Vue Router
+## 6.1 Navigate to a URL
+
+
+## 6.2 Back and refresh
 
 
 # 7. Pinia
