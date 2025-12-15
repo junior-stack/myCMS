@@ -45,7 +45,7 @@ AuthorizedKeysFile .ssh/authorized_keys
 3. On client machine, `ssh-keygen -t rsa -b 4096` generates `id_rsa.pub` and `id_rsa`
 4. edit config:
 - remote: copy the contents of `id_rsa.pub` at the end of `~/.ssh/authorized_keys`
-- client: edit `.ssh\config`:
+- client: edit `%USERPROFILE%\.ssh\config`:s
 ```bash
 Host digitalocean
     HostName <REMOTE_HOST_IP>

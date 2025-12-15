@@ -827,7 +827,7 @@ HttpRequest request = HttpRequest.newBuilder()
 // 1. ReadableStream(not ReadStream nor stream.Readable): 
 //     used for response and request body in fetch API
 // 1.1 download
-const myReadableStream = (await fetch("http://localhost:3000/upload")).body; 
+const myReadableStream = (await fetch("http://localhost:3000/download")).body; 
 async function readStream(myReadableStream) {
 	const reader = myReadableStream.getReader();
 	let result;  
@@ -1363,6 +1363,8 @@ useCases:
 Java variable can be classified as 2 types
 - primitive type: primitive type variable stores value
 - Object type: object type variable stores reference of such object
+---tab C++
+https://medium.com/@sylvain.tiset/move-to-move-constructor-c-dd03f94005e0
 ~~~
 
 ## 6.2 Reflection
@@ -1642,6 +1644,24 @@ public void methodC(List<? super Number> numbers){}
 ```
 ```Javascript group:6.7
 // Generator function & yield
+
+// declare generator function:
+function *genFunc(){
+	console.log("phase 1")
+	// jump out of this function stack and return "phase 1"
+	yield "phase 1"
+	
+	console.log("phase 2")
+	yield "phase 2"
+}
+
+// create & call generator function
+let gen = genFunc()
+let phase1 = gen.next()
+console.log(phase1) // phase1: { value: "phase 1", done: false}
+
+let phase2 = gen.next() // resume execution from last yield
+console.log(phase2) // phase2: { value: "phase 2", done: true}
 ```
 
 
