@@ -85,7 +85,12 @@ Notes about kafka environment variables:
 	- we distribute listener_ports either to listen from internal docker network or external IPs/host from public net by specifying the associated `<HOSTNAME>` to be either this broker container name or `localhost`
 - KAFKA_INTER_BROKER_LISTENER_NAME: specify listeners from KAFKA_LISTENERS with this name listen for inter-broker communications
 - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: map `<LISTENER_NAME>` to real protocols
-- 
+
+| Var             | Role                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| KAFKA_LISTENERS | - defines all listeners needed for kafka containers. each listener may serve different purposes at the same, either for consumer/producer or inter-broker communication<br>- contain at least two listeners<br>- each listener format: `<LISTENER_NAME>://0.0.0.0:<LISTENER_PORT>`<br>- ports of below config must include subset ports of this KAFKA_LISTENERS;<br> |
+|                 |                                                                                                                                                                                                                                                                                                                                                                      |
+
 
 ##  1.3 Producer code
 ```python
@@ -122,5 +127,13 @@ for message in consumer:
 # 2. Flink
 
 # 3. OAuth
+
+# 5. Reddis
+## 5.1 Cache
+
+## 5.2 Distributed lock
+
+## 5.3 Share user's session
+When you config load balancer, the load balancer may distribute user's requests into different server IPs. For ex, load balancer first direct user to Server A, then the next request to server B. server B does not have session infor from server A. That's when we need to share user's session in redis.
 
 # 4. Payment
