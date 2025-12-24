@@ -663,5 +663,8 @@ CheckList:
 https://www.wiz.io/blog/nextjs-cve-2025-55182-react2shell-deep-dive
 exploit: https://www.youtube.com/watch?v=jlFwcB0Csbs
 
+# 8. Popular libraries
+- Material UI
+
 
 

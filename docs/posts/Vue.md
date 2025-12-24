@@ -793,6 +793,10 @@ More: https://vuejs.org/guide/reusability/custom-directives.html
 Pinia is the newest library that has replaced Vuex. Pinia can implement a global store across the entire application where every components can access. Without Pinia, we can still implement this global store, but it may not work in SSR environment.
 
 
-# 8. Passive attributes
+# 8. Default Config
 ## 8.1 Fallthrough attributes
+
+# 9. Popular libraries
+- element UI
+- Vuetify
 

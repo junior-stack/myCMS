@@ -828,12 +828,12 @@ console.log()
 ```
 
 ## 8.2 快慢指针
-思路: 有四种思路；
-- 第一种，维护两个指针，第二个指针在第一个指针k个位置之后作为快指针，同时移动两指针,快指针到达末尾后，满指针到达末尾第k个位置; 
+思路: 有四种思路:
+- 第一种，维护两个指针，第二个指针在第一个指针k个位置之后作为快指针，同时移动两指针,快指针到达末尾后，满指针到达末尾第k个位置:
 	- [Remove Nth Node From End of List, leetcode #19](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
-- 第二种, 维护两个指针, 第二个指针的step为第一个指针移动step的两倍, 同时移动两指针, 当第二个指针到达末尾时, 第一个指针到达中点
+- 第二种, 维护两个指针, 第二个指针的step为第一个指针移动step的两倍, 同时移动两指针, 当第二个指针到达末尾时, 第一个指针到达中点:
 	- [Middle of the Linked List, leetcode #876](https://leetcode.com/problems/middle-of-the-linked-list/)
-	- 判断环起点([[Leetcode#11.3 寻找环起点]]), leetcode #141, leetcode #142
+	- 判断环起点([[Leetcode#11.3 ring start]]), leetcode #141, leetcode #142
 - 第三种, 维护两个指针，快指针照常每个iteration前进一个元素, 满指针在每个iteration根据特定条件前进一个元素
 - 第四种, 滑动窗口
 - Others:
@@ -841,18 +841,17 @@ console.log()
 
 模板:
 - 第二张快慢:
-	-
-	```Python
-	class Solution:
-    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        p1 = head
-        p2 = p1
+```Python
+class Solution:
+def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+	p1 = head
+	p2 = p1
 
-        while p2 and p2.next:
-            p1 = p1.next
-            p2 = p2.next.next
-        return p1
-	```
+	while p2 and p2.next:
+		p1 = p1.next
+		p2 = p2.next.next
+	return p1
+```
 - 第三种:
 ```Python
 def fn(arr):
@@ -1169,7 +1168,7 @@ def sort(nums):
 
 - K items comparison(Min-heap):
 	- Merge K sorted List(Leetcode #23)
--  sort Interval
+-  sort Interval:
 	- 252 Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)
 	+ [253 Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 	+ [435 Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
@@ -1186,7 +1185,7 @@ while ...:
 ```
 
 
-## 11.1 合并LinkedList
+## 11.1 MergeLinkedList
 - 思路:
 ![[1.gif]]
 
@@ -1223,9 +1222,9 @@ class Solution:
 - [合并K个升序链表, leetcode #23](https://leetcode.cn/problems/merge-k-sorted-lists/)
 	- 思路: 有用到heap
 
-## 11.2 寻找LinkedList倒数位置或中点
+## 11.2 Last K position of mid point of linked list
 
-## 11.3 寻找环起点
+## 11.3 ring start
 ![[Pasted image 20250930192654.png]]
 
 # 12. Disjoint Set
