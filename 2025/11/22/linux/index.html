@@ -1,0 +1,1125 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://juniorxyz.github.io/myCMS/2025/11/22/linux/">
+      
+      
+        <link rel="prev" href="../../10/docker/">
+      
+      
+        <link rel="next" href="../../../12/01/vue/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Linux - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/collapseCodeblock.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-initialize-config" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-initialize-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Initialize config
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Initialize config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Firewall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 SSH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-passwordless-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 passwordless login
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-important-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Important config file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-package-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Package manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 User
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-common" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 common
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-schedule-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Schedule commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Schedule commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-schedule-one-time-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Schedule one time task
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-schedule-periodic-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Schedule periodic task
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Network
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-create-tls-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Create TLS certificate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-apache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Apache
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Bash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Bash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-declare-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Declare Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-if-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 if statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-11-22 00:00:00+00:00" class="md-ellipsis">November 22, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              5 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../../tags/#tag:devops" class="md-tag">DevOps</a>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Linux</h1>
+
+<p>My note about Linux(mostly Ubuntu 22.04 LTS)</p>
+<!-- more -->
+
+<h2 id="1-initialize-config">1. Initialize config<a class="headerlink" href="#1-initialize-config" title="Permanent link">&para;</a></h2>
+<h3 id="11-firewall">1.1 Firewall<a class="headerlink" href="#11-firewall" title="Permanent link">&para;</a></h3>
+<p>after provisioning a new linux instance, we set firewall rules as following:</p>
+<table>
+<thead>
+<tr>
+<th>inbound/outbound</th>
+<th>ip_address</th>
+<th>port</th>
+<th>rule</th>
+<th>protocol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inbound</td>
+<td>0.0.0.0/0</td>
+<td>22</td>
+<td>allowed</td>
+<td>SSH</td>
+</tr>
+<tr>
+<td>inbound</td>
+<td>0.0.0.0/0</td>
+<td>80</td>
+<td>allowed</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>inbound</td>
+<td>0.0.0.0/0</td>
+<td>443</td>
+<td>allowed</td>
+<td>TLS</td>
+</tr>
+<tr>
+<td>outbound</td>
+<td>0.0.0.0/0</td>
+<td>*</td>
+<td>allowed</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1">## iptables</span>
+
+<span class="c1">## ufw</span>
+<span class="c1">## ufw [allow/deny] [out]  &lt;port&gt;[:&lt;protocol&gt;]</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>default<span class="w"> </span>allow<span class="w"> </span>outgoing
+sudo<span class="w"> </span>ufw<span class="w"> </span>default<span class="w"> </span>deny<span class="w"> </span>incoming
+
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span>https
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span>ssh
+</code></pre></div>
+<h3 id="12-ssh">1.2 SSH<a class="headerlink" href="#12-ssh" title="Permanent link">&para;</a></h3>
+<h4 id="121-passwordless-login">1.2.1 passwordless login<a class="headerlink" href="#121-passwordless-login" title="Permanent link">&para;</a></h4>
+<ol>
+<li>edit <code>/etc/ssh/sshd_config</code> and ensure the following lines:
+<div class="highlight"><pre><span></span><code>PubkeyAuthentication<span class="w"> </span>yes
+PasswordAuthentication<span class="w"> </span>yes<span class="w">   </span><span class="c1"># optional during testing</span>
+AuthorizedKeysFile<span class="w"> </span>.ssh/authorized_keys
+</code></pre></div></li>
+<li>Launch the ssh with the above config: <code>sudo systemctl restart ssh</code></li>
+<li>On client machine, <code>ssh-keygen -t rsa -b 4096</code> generates <code>id_rsa.pub</code> and <code>id_rsa</code></li>
+<li>
+<p>edit config:</p>
+</li>
+<li>
+<p>remote: copy the contents of <code>id_rsa.pub</code> at the end of <code>~/.ssh/authorized_keys</code></p>
+</li>
+<li>client: edit <code>%USERPROFILE%\.ssh\config</code>:s
+<div class="highlight"><pre><span></span><code>Host<span class="w"> </span>digitalocean
+<span class="w">    </span>HostName<span class="w"> </span>&lt;REMOTE_HOST_IP&gt;
+<span class="w">    </span>User<span class="w"> </span>&lt;REMOTE_USER&gt;
+<span class="w">    </span>IdentityFile<span class="w"> </span>&lt;id_rsa_path&gt;
+</code></pre></div></li>
+</ol>
+<h3 id="13-important-config-file">1.3 Important config file<a class="headerlink" href="#13-important-config-file" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>/etc/profile</code>: config <code>PATH</code> variable</li>
+<li><code>/etc/ssh/sshd_config</code>: ssh server config</li>
+</ul>
+<h3 id="14-package-manager">1.4 Package manager<a class="headerlink" href="#14-package-manager" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>list<span class="w"> </span>--installed
+apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>&lt;PACKAGE_NAME&gt;
+apt<span class="w"> </span>download<span class="w"> </span>&lt;PACKAGE_NAME&gt;<span class="w">   </span><span class="c1"># only download but not install</span>
+</code></pre></div>
+<h3 id="15-user">1.5 User<a class="headerlink" href="#15-user" title="Permanent link">&para;</a></h3>
+<h2 id="2-commands">2. Commands<a class="headerlink" href="#2-commands" title="Permanent link">&para;</a></h2>
+<h3 id="21-common">2.1 common<a class="headerlink" href="#21-common" title="Permanent link">&para;</a></h3>
+<p>common:
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>a
+<span class="nb">cd</span><span class="w"> </span>/root
+ls<span class="w"> </span>~
+ls<span class="w"> </span>/etc<span class="w"> </span>-larth
+cat<span class="w"> </span>a.txt
+<span class="nb">pwd</span>
+cp<span class="w"> </span>a.txt<span class="w"> </span>b.txt
+mv<span class="w"> </span>b.txt<span class="w"> </span>../b.txt
+</code></pre></div>
+Files:
+<div class="highlight"><pre><span></span><code>touch<span class="w"> </span>a.txt
+
+<span class="c1">## chmod</span>
+<span class="c1">## owner     group    other</span>
+<span class="c1">## rwx       r-x       r-- (r:4, w: 2, x: 1)</span>
+chmod<span class="w"> </span><span class="m">764</span><span class="w"> </span>a.txt
+
+<span class="c1">## lsattr/chattr</span>
+
+<span class="c1">##chown:</span>
+<span class="c1">## change the owner group/user of file/directory to &lt;GROUP_NAME&gt; or &lt;OWNER&gt;</span>
+chown<span class="w"> </span>&lt;OWNER_NAME&gt;:&lt;GROUP_NAME&gt;<span class="w"> </span>&lt;FILE_NAME/DIRECTORY_NAME&gt;
+chown<span class="w"> </span>:&lt;GROUP_NAME&gt;<span class="w"> </span>&lt;FILE_NAME/DIRECTORY_NAME&gt;
+chown<span class="w"> </span>&lt;OWNER_NAME&gt;<span class="w"> </span>&lt;FILE_NAME/DIRECTORY_NAME&gt;
+
+<span class="c1">## stat</span>
+stat<span class="w"> </span>&lt;FILE_NAME&gt;
+
+<span class="c1">## ln</span>
+ln<span class="w"> </span>&lt;ORIGINAL_FILE_PATH&gt;<span class="w"> </span>&lt;HARD_LINK_NAME&gt;
+ln<span class="w"> </span>-s<span class="w"> </span>&lt;ORIGINAL_FILE_PATH/ORIGINAL_DIRECTORY_PATH&gt;<span class="w"> </span>&lt;SOFT_LINK_NAME&gt;
+
+<span class="c1">## mount storage device to file system</span>
+lsblk<span class="w"> </span><span class="c1"># list all storage device name</span>
+mount<span class="w"> </span>/dev/&lt;DEVICE_NAME&gt;<span class="w"> </span>/mnt/&lt;DEVICE_NAME&gt;
+unmount<span class="w"> </span>/dev/&lt;DEVICE_NAME&gt;
+</code></pre></div>
+Services:
+<div class="highlight"><pre><span></span><code><span class="c1">## systemctl</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>firewalld
+systemctl<span class="w"> </span>start<span class="w"> </span>firewalld
+systemctl<span class="w"> </span>stop<span class="w"> </span>firewalld
+<span class="c1">## onfigure to start the &lt;SERVICE&gt; when system boot up</span>
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>&lt;SERVICE&gt;
+<span class="c1">## List all services on this machine</span>
+systemctl<span class="w"> </span>list-units<span class="w"> </span>--type<span class="o">=</span>service
+<span class="c1">## check service log</span>
+journalctl<span class="w"> </span>-u<span class="w"> </span>&lt;SERVICE&gt;.service<span class="w"> </span>--no-pager
+
+<span class="c1">## service</span>
+service<span class="w"> </span>&lt;SERVICE&gt;<span class="w"> </span>status
+service<span class="w"> </span>&lt;SERVICE&gt;<span class="w"> </span>start
+service<span class="w"> </span>&lt;SERVICE&gt;<span class="w"> </span>stop
+</code></pre></div>
+Processes:
+<div class="highlight"><pre><span></span><code><span class="c1">## List running processes</span>
+ps<span class="w"> </span>-aux
+<span class="c1">## check processes created by a user</span>
+ps<span class="w"> </span>-u<span class="w"> </span>&lt;USER&gt;
+
+<span class="c1">## Terminate process(ctrl + C)</span>
+<span class="nb">kill</span><span class="w"> </span>-s<span class="w"> </span>SIGINT<span class="w"> </span>&lt;PROCESS_ID&gt;
+</code></pre></div>
+Port:
+<div class="highlight"><pre><span></span><code><span class="c1">## find the PID on a port</span>
+sudo<span class="w"> </span>netstat<span class="w"> </span>-nlp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>:&lt;PORT&gt;
+</code></pre></div></p>
+<p>ACL Control:
+<div class="highlight"><pre><span></span><code><span class="c1">## umask: set permission for newly created files/directories</span>
+</code></pre></div></p>
+<p>User:
+<div class="highlight"><pre><span></span><code><span class="c1">## add/remove user</span>
+sudo<span class="w"> </span>adduser<span class="w"> </span>&lt;USER&gt;
+sudo<span class="w"> </span>userdel<span class="w"> </span>-r<span class="w"> </span>&lt;USER&gt;
+
+<span class="c1">## add/remove group</span>
+sudo<span class="w"> </span>groupadd<span class="w"> </span>&lt;GROUPNAME&gt;
+sudo<span class="w"> </span>groupdel<span class="w"> </span>&lt;GROUPNAME&gt;
+
+<span class="c1">## add/remove a user to a group</span>
+sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>groupname<span class="w"> </span>username
+sudo<span class="w"> </span>deluser<span class="w"> </span>&lt;USER&gt;<span class="w"> </span>&lt;GROUPNAME&gt;
+
+<span class="c1">## list user&#39;s groups</span>
+groups<span class="w"> </span>&lt;USER&gt;
+
+<span class="c1">## switch user</span>
+su<span class="w"> </span>&lt;USER&gt;
+
+whoami
+</code></pre></div></p>
+<p>Other useful:
+<div class="highlight"><pre><span></span><code><span class="c1">## find</span>
+find<span class="w"> </span>/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;hi.txt&quot;</span>
+find<span class="w"> </span>/<span class="w"> </span>-type<span class="w"> </span><span class="s2">&quot;f&quot;</span>
+<span class="c1">## find files of size between 20kB and 25kB</span>
+find<span class="w"> </span>/<span class="w"> </span>-size<span class="w"> </span>+20k<span class="w"> </span>-size<span class="w"> </span>-25k
+find<span class="w"> </span>/<span class="w"> </span>-<span class="w"> </span>user<span class="w"> </span><span class="s2">&quot;&lt;USER&gt;&quot;</span>
+<span class="c1">## find files that has modification time after certain date</span>
+find<span class="w"> </span>/<span class="w"> </span>-newermt<span class="w"> </span><span class="s2">&quot;yyyy-mm-dd&quot;</span>
+<span class="c1">## find files that has modification time before certain date</span>
+find<span class="w"> </span>/<span class="w"> </span><span class="se">\!</span><span class="w"> </span>-newermt<span class="w"> </span><span class="s2">&quot;yyyy-mm-dd&quot;</span>
+<span class="c1">## not display error message of find command</span>
+find<span class="w"> </span>/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;hi.txt&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+
+
+<span class="c1">## curl</span>
+<span class="c1">## save contents of URL into filename</span>
+curl<span class="w"> </span>-o<span class="w"> </span>&lt;FILE_NAME&gt;<span class="w"> </span>&lt;URL&gt;
+<span class="c1">## follow redirection if URL redirect</span>
+curl<span class="w"> </span>-L<span class="w"> </span>&lt;URL&gt;
+curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer your_token_here&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;&lt;CUSTOM_HEADER_KEY&gt;:&lt;HEADER_KEY_VALUE&gt;&quot;</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;param1=value1&amp;param2=value2&quot;</span><span class="w"> </span>&lt;URL&gt;
+<span class="c1">## upload file.txt to URL</span>
+curl<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot;&lt;FILE_PATH&gt;/file.txt&quot;</span><span class="w"> </span>&lt;URL&gt;
+
+<span class="c1">## whereis</span>
+</code></pre></div></p>
+<h3 id="22-schedule-commands">2.2 Schedule commands<a class="headerlink" href="#22-schedule-commands" title="Permanent link">&para;</a></h3>
+<p>We schedule command using either <code>cron</code> or <code>at</code>:</p>
+<p>Cron: schedule periodic task
+- Create a crob job:
+    1. check cron service status: <code>systemctl status cron</code> or <code>service cron status</code>
+    2. <code>crontab -e</code> will open up a cron file in text editor, once file is saved, cron will execute. Cron file format:
+<div class="highlight"><pre><span></span><code>minute hour day_of_month month day_of_week command_to_run
+</code></pre></div>
+- List cron jobs: <code>crontab -l</code>
+- Delete all user's cron job: <code>crontab -r</code></p>
+<p><code>at</code>: schedule one-time task
+- create at job:
+    1. check service: <code>systemctl status atd</code> or <code>service atd status</code>
+    2. execute single command: <code>echo "&lt;COMMAND&gt;" | at [hour]:[minute] [AM/PM] [MM/DD/YYYY]</code>; executes file: <code>at -f &lt;SCRIPT&gt; [hour]:[minute] [AM/PM] [MM/DD/YYYY]</code>
+- list jobs: <code>at -l</code>
+- delete job: <code>at -r &lt;JOB_ID&gt;</code></p>
+<h4 id="221-schedule-one-time-task">2.2.1 Schedule one time task<a class="headerlink" href="#221-schedule-one-time-task" title="Permanent link">&para;</a></h4>
+<p>at: <code>at -f ~/myscript.sh 14:00</code></p>
+<h3 id="222-schedule-periodic-task">2.2.2 Schedule periodic task<a class="headerlink" href="#222-schedule-periodic-task" title="Permanent link">&para;</a></h3>
+<p>cron file:
+<div class="highlight"><pre><span></span><code>30 3 5 12 * &lt;COMMAND&gt;
+</code></pre></div>
+This will creates a job that runs at <code>12/05 3:30</code> <strong>every year</strong>. </p>
+<p><div class="highlight"><pre><span></span><code>0 3 * * * &lt;COMMAND&gt;
+</code></pre></div>
+This will creates task at <code>3:00</code> <strong>every day</strong>.</p>
+<h2 id="3-network">3. Network<a class="headerlink" href="#3-network" title="Permanent link">&para;</a></h2>
+<h3 id="31-create-tls-certificate">3.1 Create TLS certificate<a class="headerlink" href="#31-create-tls-certificate" title="Permanent link">&para;</a></h3>
+<ul>
+<li>self-signed certificate</li>
+<li>Letsencrypt</li>
+</ul>
+<p>self-signed certificate: This is generally used for self-hosting multiple host machines. Letsencrypt is suitable when you have only one domain for running one host
+<div class="highlight"><pre><span></span><code><span class="c1">## one command to generate the key and crt</span>
+sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-x509<span class="w"> </span>-nodes<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-newkey<span class="w"> </span>rsa:2048<span class="w"> </span>-keyout<span class="w"> </span>/etc/gitlab/trusted-certs/gitlab.key<span class="w"> </span>-out<span class="w"> </span>/etc/gitlab/trusted-certs/gitlab.crt<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=&lt;IP_ADDRESS&gt;&quot;</span>
+</code></pre></div></p>
+<p><strong>LetsEncrypt:</strong> LetsEncrypt is a CA service that can freely request and generate a trusted CA certificate. Users interact with  letsencrypt through certbot command. To use LetsEncrypt, you must have a domain name.</p>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>certbot
+<span class="c1">## 1. obtain CA certificate, enter email address and select yes</span>
+<span class="c1">##   generates: - /etc/letsencrypt/live/&lt;DOMAIN&gt;/fullchain.pem</span>
+<span class="c1">##              - /etc/letsencrypt/live/&lt;DOMAIN&gt;/privkey.pem</span>
+sudo<span class="w"> </span>certbot<span class="w"> </span>certonly<span class="w"> </span>--standalone<span class="w"> </span>--preferred_challenges<span class="w"> </span>http<span class="w"> </span>-d<span class="w"> </span>&lt;DOMAIN_NAME&gt;
+</code></pre></div>
+<h3 id="32-apache">3.2 Apache<a class="headerlink" href="#32-apache" title="Permanent link">&para;</a></h3>
+<h2 id="4-bash">4. Bash<a class="headerlink" href="#4-bash" title="Permanent link">&para;</a></h2>
+<h3 id="41-declare-variables">4.1 Declare Variables<a class="headerlink" href="#41-declare-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">##!/bin/bash</span>
+<span class="nv">greeting</span><span class="o">=</span><span class="s2">&quot;hello&quot;</span><span class="w">  </span><span class="c1"># ensure no space on both sides of =</span>
+<span class="nv">var</span><span class="o">=</span><span class="k">$(</span>ls<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="k">)</span>
+
+<span class="nb">let</span><span class="w"> </span><span class="nv">var</span><span class="o">=</span>var+1
+<span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span>expr<span class="w"> </span><span class="nv">$j</span><span class="w"> </span>+<span class="w"> </span><span class="nv">$i</span><span class="sb">`</span>
+
+<span class="c1">## common built-in variables:</span>
+<span class="c1">## $0: the invoked name of the bash script</span>
+<span class="c1">## $1 - $9: the first 9 arguments to the bash script</span>
+<span class="c1">## $#: number of arguments passed to this bash script</span>
+<span class="c1">## $?: The exit status of the most recent progress</span>
+
+
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">greeting</span><span class="si">}</span><span class="s2"> world&quot;</span>
+</code></pre></div>
+<h3 id="42-operators">4.2 Operators<a class="headerlink" href="#42-operators" title="Permanent link">&para;</a></h3>
+<p>redirect:</p>
+<ul>
+<li><code>&lt;COMMAND&gt; &gt; &lt;FILE&gt;</code>: redirect contents written to <code>/dev/stdin</code> to <code>&lt;FILE&gt;</code></li>
+<li><code>&lt;COMMAND&gt; &gt;&gt; &lt;FILE&gt;</code>: append output from <code>&lt;COMMAND&gt;</code> to the end of <code>&lt;FILE&gt;</code></li>
+<li><code>&lt;COMMAND&gt; m&gt;&amp; &lt;FILE&gt;</code>: point file descriptor of m to <code>FILE</code>, and redirect contents written to file descriptor m to <code>&lt;FILE&gt;</code></li>
+<li>
+<p><code>`&lt;COMMAND&gt; 2&gt;/dev/null</code>: do not display error messages:
+More:</p>
+</li>
+<li>
+<p>https://blog.csdn.net/weixin_29476595/article/details/112665057</p>
+</li>
+<li>https://blog.csdn.net/xyz_dream/article/details/89547687</li>
+</ul>
+<h3 id="43-if-statement">4.3 if statement<a class="headerlink" href="#43-if-statement" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">[</span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$WRITEDIR</span><span class="s2">&quot;</span><span class="o">]</span>
+<span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$WRITEDIR</span><span class="s2"> created&quot;</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">((</span><span class="m">2</span><span class="w"> </span>/<span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="o">))</span>
+<span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;</span><span class="nv">$value1</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$value2</span><span class="s2">&quot;</span><span class="o">]</span>
+<span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$value1</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">fi</span>
+</code></pre></div>
+<p>reference: https://www.jianshu.com/p/f3bb2468c7af</p>
+<div style="text-align: center; margin-top: 20px;">
+<h2>Share this post:</h2>
+</div>
+<p><a class="md-button" href="https://x.com/intent/tweet?text=Linux%0A&amp;url=https://juniorxyz.github.io/myCMS/2025/11/22/linux/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></span></a>
+<a class="md-button" href="https://www.facebook.com/sharer/sharer.php?u=https://juniorxyz.github.io/myCMS/2025/11/22/linux/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036 27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></span></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="junior-stack/myCMS"
+        data-repo-id="R_kgDOQG1r4Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOQG1r4c4Cxs-G"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant.preview"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascript/mathjax.js"></script>
+      
+        <script src="../../../../javascript/collapseCodeblock.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1816 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://juniorxyz.github.io/myCMS/2025/12/05/react/">
+      
+      
+        <link rel="prev" href="../../01/vue/">
+      
+      
+        <link rel="next" href="../../12/database/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>React - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/collapseCodeblock.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-set-up" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              React
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Set up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-scaffold-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Scaffold template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-migrate-from-react-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Migrate from react-scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-core-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Core components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-program-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Program entry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-config-csr-vs-ssr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Config CSR vs SSR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-react-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. React syntax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-react-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. React Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. React Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-how-to-declare-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 How to declare component
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-react-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 React Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 React Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-usestate-vs-usereducer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 useState vs useReducer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-usememo-usecallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 useMemo &amp; UseCallback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-useeffect-vs-uselayouteffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.3 useEffect vs useLayoutEffect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-useref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.4 useRef
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-special-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Special Component
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Special Component">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-rsc-in-ssr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 RSC in SSR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-common-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Common pattern
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Common pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-props-expose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.1 Props &amp; Expose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-emit-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.2 Emit events
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-usecontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.3 useContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.4 slot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#345-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.5 LifeCycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-react-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. React Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. React Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-memo-react-compiler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Memo() &amp; React compiler
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-react-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. React Router
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-redux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Redux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-cve-2025-55182" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 CVE-2025-55182
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-popular-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Popular libraries
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-12-05 00:00:00+00:00" class="md-ellipsis">December 5, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              12 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../../tags/#tag:programming" class="md-tag">Programming</a>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>React</h1>
+
+<p>My note about Reactjs 17+</p>
+<!-- more -->
+
+<h2 id="1-set-up">1. Set up<a class="headerlink" href="#1-set-up" title="Permanent link">&para;</a></h2>
+<h3 id="11-scaffold-template">1.1 Scaffold template<a class="headerlink" href="#11-scaffold-template" title="Permanent link">&para;</a></h3>
+<p>React templates can be created through the following commands(these commands do not require global dependencies installation):</p>
+<ul>
+<li><code>npx create-next-app@latest</code>: react template integrate with <code>next.js</code></li>
+<li><code>npx create-react-router@latest</code>: template paired with react router and vite</li>
+<li><code>npx create-expo-app@latest</code>: template that create Android, IOS &amp; web app. It provides SDK for React Native</li>
+<li><code>npm install --save-dev parcel &amp;&amp; npm create parcel react-client my-react-app</code></li>
+<li><code>npm create vite@latest my-app -- --template react-ts</code></li>
+<li><code>npx create-rsbuild --template react</code></li>
+</ul>
+<p><code>npx create-next-app@latest</code> dependencies: can choose js/ts
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="err"> </span><span class="w"> </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;next&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16.0.6&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;react&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;19.2.0&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;react-dom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;19.2.0&quot;</span>
+<span class="err"> </span><span class="w"> </span><span class="p">},</span>
+
+<span class="err"> </span><span class="w"> </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@types/node&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^20&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@types/react&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^19&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@types/react-dom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^19&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;babel-plugin-react-compiler&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;eslint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^9&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;eslint-config-next&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;16.0.6&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;typescript&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^5&quot;</span>
+<span class="err"> </span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>npx create-react-router@latest</code> dependencies: only ts options
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@react-router/node&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^7.9.2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@react-router/serve&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^7.9.2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;isbot&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^5.1.31&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;react&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^19.1.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;react-dom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^19.1.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;react-router&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^7.9.2&quot;</span>
+<span class="err"> </span><span class="w"> </span><span class="p">},</span>
+
+<span class="err"> </span><span class="w"> </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@react-router/dev&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^7.9.2&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@tailwindcss/vite&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.1.13&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@types/node&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^22&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@types/react&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^19.1.13&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@types/react-dom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^19.1.9&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;tailwindcss&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.1.13&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;typescript&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^5.9.2&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;vite&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^7.1.7&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;vite-tsconfig-paths&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^5.1.4&quot;</span>
+<span class="err"> </span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><code>npx create-expo-app@latest</code>:</p>
+<h3 id="12-migrate-from-react-scripts">1.2 Migrate from react-scripts<a class="headerlink" href="#12-migrate-from-react-scripts" title="Permanent link">&para;</a></h3>
+<p>Previous projects package config:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;react-scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.0.3&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;react-scripts start&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;react-scripts build&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Steps of migration:</p>
+<ol>
+<li><code>npm uninstall react-scripts &amp;&amp; npm install vite @vitejs/plugin-react --dev</code></li>
+<li>add <code>vite.config.js</code> to the folder of <code>package.json</code>:
+<div class="highlight"><span class="filename">vite.config.js</span><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vite&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">react</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@vitejs/plugin-react&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">defineConfig</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">react</span><span class="p">()],</span>
+<span class="w">  </span><span class="nx">server</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="mf">3000</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">open</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">proxy</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s1">&#39;/api&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">           </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:8082&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// backend url</span>
+<span class="w">           </span><span class="nx">changeOrigin</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">           </span><span class="c1">// rewrite: (path) =&gt; path.replace(/^\/api/, &#39;&#39;)</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">build</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">outDir</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;build&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">assetsDir</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;assets&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">sourcemap</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="c1">// resolve: {</span>
+<span class="w">  </span><span class="c1">//  alias: {</span>
+<span class="w">  </span><span class="c1">//    &#39;@&#39;: &#39;/src&#39;,</span>
+<span class="w">  </span><span class="c1">//  },</span>
+<span class="w">  </span><span class="c1">//}</span>
+<span class="p">});</span>
+
+<span class="w">    </span><span class="sb">```</span>
+
+<span class="sb">3. edit `</span><span class="kr">package</span><span class="p">.</span><span class="nx">json</span><span class="sb">`:</span>
+<span class="sb">```</span><span class="nx">json</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;start&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vite&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;build&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vite build&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;serve&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vite preview&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>Move <code>index.html</code> from <code>public/</code> to root folder, fix any import inside <code>index.html</code> and add this line: <code>&lt;script type="module" src="/src/index.jsx"&gt;&lt;/script&gt;</code> after <code>&lt;div id="root"&gt;</code></li>
+<li>rename all <code>.js</code> files to <code>.jsx</code></li>
+<li>Rename all env variables with prefix of <code>React_</code> to <code>Vite_</code></li>
+<li>replace <code>process.env</code> to <code>import.meta.env</code></li>
+</ol>
+<h3 id="13-core-components">1.3 Core components<a class="headerlink" href="#13-core-components" title="Permanent link">&para;</a></h3>
+<p>Core libraries:</p>
+<ul>
+<li>React</li>
+<li>React-dom</li>
+</ul>
+<p>Build Tools(any one of below can be used to bundle and build react code):</p>
+<ul>
+<li>Vite: fast for building</li>
+<li>Parcel: easy to use</li>
+<li>Rsbuild: suitable for performance</li>
+<li>Webpack: classic bundler in conjunction with Babel</li>
+</ul>
+<p>pipelines: ts compile &gt; react build &gt; js code</p>
+<p>build tool config:</p>
+<ul>
+<li>ts/js</li>
+<li>CSR support</li>
+<li>SSR Support</li>
+<li>SSG</li>
+<li>RSC</li>
+</ul>
+<h3 id="14-program-entry">1.4 Program entry<a class="headerlink" href="#14-program-entry" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">index.jsx</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./App.jsx&quot;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createRoot</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react-dom/client&quot;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="err">&quot;</span><span class="nx">root</span><span class="p">))</span>
+<span class="nx">root</span><span class="p">.</span><span class="nx">render</span><span class="p">(&lt;</span><span class="nt">App</span><span class="w"> </span><span class="p">/&gt;)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="15-config-csr-vs-ssr">1.5 Config CSR vs SSR<a class="headerlink" href="#15-config-csr-vs-ssr" title="Permanent link">&para;</a></h3>
+<p>CSR: React not using nextjs by default is CSR</p>
+<p>SSR(2 ways to config SSR):</p>
+<ul>
+<li>Scaffold the project using nextjs command from section 1.1</li>
+<li>Manual</li>
+</ul>
+<p>SSR has 2 ways to render component(either hydrate or use RSC architecture):</p>
+<ul>
+<li>hydration for manual setup: https://medium.com/simform-engineering/how-to-implement-ssr-server-side-rendering-in-react-18-e49bc43e9531</li>
+<li>RSC architecture for manual: https://thefrontenddev.medium.com/getting-started-with-react-server-components-rsc-react-19-and-next-js-in-action-7093448ee5f0</li>
+</ul>
+<h2 id="2-react-syntax">2. React syntax<a class="headerlink" href="#2-react-syntax" title="Permanent link">&para;</a></h2>
+<p>pass variable/expression to html part with <code>{}</code>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Profile</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w">  </span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">Avatar</span><span class="w">  </span>
+<span class="w">                </span><span class="na">person</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Lin Lanying&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">imageId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1bX5QH6&#39;</span><span class="w"> </span><span class="p">}}</span><span class="w">  </span>
+<span class="w">                </span><span class="na">size</span><span class="o">=</span><span class="p">{</span><span class="mf">100</span><span class="p">}</span><span class="w">  </span>
+<span class="w">            </span><span class="p">/&gt;</span><span class="w">  </span>
+<span class="w">        </span><span class="p">);</span><span class="w">  </span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>list render: use <code>filter</code> or <code>map</code>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">people</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s1">&#39;Creola Katherine Johnson: mathematician&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;Mario José Molina-Pasquel Henríquez: chemist&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;Mohammad Abdus Salam: physicist&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;Percy Lavon Julian: chemist&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">&#39;Subrahmanyan Chandrasekhar: astrophysicist&#39;</span>
+<span class="p">];</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">List</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">listItems</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">people</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">person</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;{</span><span class="nx">person</span><span class="p">}&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;{</span><span class="nx">listItems</span><span class="p">}&lt;/</span><span class="nt">ul</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>conditional render: use <code>&amp;&amp;</code>, <code>&lt;cond&gt; ? va1 : val2</code>, <code>if/else</code>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Item</span><span class="p">({</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">isPacked</span><span class="p">}){</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">li</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;item&quot;</span><span class="p">&gt;</span>
+<span class="w">          </span><span class="p">{</span><span class="nx">isPacked</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>
+<span class="w">              </span><span class="p">{</span><span class="nx">name</span><span class="p">}</span>
+<span class="w">            </span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+<span class="w">          </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="w"> </span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">          </span><span class="p">)}</span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h2 id="3-react-components">3. React Components<a class="headerlink" href="#3-react-components" title="Permanent link">&para;</a></h2>
+<h3 id="31-how-to-declare-component">3.1 How to declare component<a class="headerlink" href="#31-how-to-declare-component" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">myComponent</span><span class="p">(){</span>
+<span class="w">    </span><span class="c1">// javascript code</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(&lt;&gt;</span>
+<span class="w">        </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">content</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">myComponent</span><span class="w"> </span><span class="o">--&gt;</span>
+<span class="w">    </span><span class="p">&lt;/&gt;)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="32-react-hooks">3.2 React Hooks<a class="headerlink" href="#32-react-hooks" title="Permanent link">&para;</a></h3>
+<h4 id="321-usestate-vs-usereducer">3.2.1 useState vs useReducer<a class="headerlink" href="#321-usestate-vs-usereducer" title="Permanent link">&para;</a></h4>
+<p><strong>useState:</strong> <code>useState</code> creates a state variable and a simple setter for that variable. When the setter is called, it triggers rerender
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">myComponent</span><span class="p">(){</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">setIndex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(&lt;&gt;</span>
+<span class="w">        </span><span class="nx">index</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">index</span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/&gt;)</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Note:</p>
+<ul>
+<li><code>setState</code> from <code>useState</code> only changes the value after the next <code>render()</code> takes place, which means if you print out the value right after <code>setState</code> within a function/event handler(whether sync/async), the state value will still be the previous value before inputting in the <code>setState</code></li>
+</ul>
+<p><strong>useReducer:</strong> define more complicated logic of updating a state that <code>useState</code> for re-rendering. <code>useReducer</code> takes a regular variable as initial state and a function that can updates the state variable based on different action. When you call <code>dispatch</code>, it will trigger rerender.
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Visit Kafka Museum&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Watch a puppet show&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Lennon Wall pic&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">nextId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">tasksReducer</span><span class="p">(</span><span class="nx">tasks</span><span class="p">,</span><span class="w"> </span><span class="nx">action</span><span class="p">){</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;add&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">[...</span><span class="nx">tasks</span><span class="p">,</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">action</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">text</span><span class="o">:</span><span class="nx">action</span><span class="p">.</span><span class="nx">text</span>
+<span class="w">                    </span><span class="nx">done</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;change&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">tasks</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">t</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">action</span><span class="p">.</span><span class="nx">task</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">action</span><span class="p">.</span><span class="nx">task</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">t</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="s1">&#39;deleted&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">tasks</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">t</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">action</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">throw</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;Unknown action: &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">TaskApp</span><span class="p">(){</span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">handleAddTask</span><span class="p">(</span><span class="nx">text</span><span class="p">){</span>
+<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span>
+<span class="w">          </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;added&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">nextId</span><span class="o">++</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nx">text</span><span class="p">,</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">handleChangeTask</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span>
+<span class="w">          </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;changed&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">task</span><span class="o">:</span><span class="w"> </span><span class="nx">task</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">handleDeleteTask</span><span class="p">(</span><span class="nx">taskId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">dispatch</span><span class="p">({</span>
+<span class="w">          </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;deleted&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="nx">taskId</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Prague</span><span class="w"> </span><span class="nx">itinerary</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">AddTask</span>
+<span class="w">            </span><span class="na">onAddTask</span><span class="o">=</span><span class="p">{</span><span class="nx">handleAddTask</span><span class="p">}</span>
+<span class="w">        </span><span class="p">/&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">TaskList</span>
+<span class="w">            </span><span class="na">tasks</span><span class="o">=</span><span class="p">{</span><span class="nx">tasks</span><span class="p">}</span>
+<span class="w">            </span><span class="na">onChangeTask</span><span class="o">=</span><span class="p">{</span><span class="nx">handleChangeTask</span><span class="p">}</span>
+<span class="w">            </span><span class="na">onDeleteTask</span><span class="o">=</span><span class="p">{</span><span class="nx">handleDeleteTask</span><span class="p">}</span>
+<span class="w">        </span><span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/&gt;</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="322-usememo-usecallback">3.2.2 useMemo &amp; UseCallback<a class="headerlink" href="#322-usememo-usecallback" title="Permanent link">&para;</a></h4>
+<p><strong>UseMemo:</strong>
+<code>UseMemo</code> allows us to cache a value when components rerender. Components only recreated the values returned by <code>useMemo</code> when the variables inside dependency array change.  It can save heavy computation of certain values when the component rerender is triggered by parent component. The first arg is a callback that does not accept input(typically synchronous) and the second arg is dependency array that contains either state, props or variables from other <code>useMemo</code>
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">TaskList</span><span class="p">({</span><span class="w"> </span><span class="nx">taskList</span><span class="w"> </span><span class="p">}){</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nx">filter</span><span class="p">,</span><span class="w"> </span><span class="nx">setFilter</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">filteredTasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useMemo</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">taskList</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">t</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">            </span><span class="nx">t</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">filter</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">filter</span><span class="p">,</span><span class="w"> </span><span class="nx">taskList</span><span class="p">])</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>UseCallback:</strong>
+By default, methods defined inside a component are recreated on every render. To optimize this, we can first move the methods outside and make it public, but sometimes the methods may contain state variables of this component and need to perform actions. Therefore, we can use <code>useCallback</code> to optimize. <code>useCallback</code> caches the either sync or async methods to avoid recreating functions unless its specified dependencies changed. This can help if we pass the function to a child component because when parent component re-renders, it won't create new function and pass to the props of child component to make it re-render every time. 
+Use it when:</p>
+<ul>
+<li>pass the function to a child component</li>
+<li>the method is used in <code>useEffect</code></li>
+<li>your created function needs to create a lot of variables/resources</li>
+</ul>
+<p><strong>How to use:</strong> The first arg of <code>useCallback</code> can be either a function or async function that can return anything and the second is a dependencies array.
+<div class="highlight"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">ProductPage</span><span class="p">({</span><span class="nx">productId</span><span class="p">,</span><span class="w"> </span><span class="nx">referrer</span><span class="p">}){</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">((</span><span class="nx">orderDetails</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">baseUrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/product&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">productId</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="nx">referrer</span><span class="p">,</span><span class="w"> </span><span class="nx">orderDetails</span><span class="p">})</span>
+<span class="w">        </span><span class="p">})</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">productId</span><span class="p">,</span><span class="w"> </span><span class="nx">referrer</span><span class="p">])</span>
+
+<span class="w">    </span><span class="c1">// we can also create a method that only renders after initial render</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">((</span><span class="nx">orderDetails</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">baseUrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/product&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">productId</span><span class="p">)</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">[])</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h4 id="323-useeffect-vs-uselayouteffect">3.2.3 useEffect vs useLayoutEffect<a class="headerlink" href="#323-useeffect-vs-uselayouteffect" title="Permanent link">&para;</a></h4>
+<p><strong>useEffect:</strong> <code>useEffect()</code> is like <code>watch</code> method from Vue or commonly used to fetch and load data. The first argument is a function that returns nothing(cannot be async function but supports async operation, see the example of how to call async function below). The second arg can be either no argument, <code>[]</code>, <code>[dep]</code>:</p>
+<ul>
+<li>no arg: <code>useEffect</code> runs the callback each time the component renders</li>
+<li><code>[]</code>: runs only once after the initial render(mount), typically used to perform async ops</li>
+<li><code>[dep]</code>: runs after the initial render and whenever any variables inside <code>[dep]</code> change, <code>[dep]</code> stores props, state variables, returned variables from <code>useCompute</code> or <code>useCallback</code>functions. If you are using certain methods, you must pass that method into <code>[dep]</code>
+<div class="highlight"><pre><span></span><code><span class="c1">// 2 ways to perform asyn operations in useEffect:</span>
+
+<span class="c1">// 1. (1) define async in useEffect callback</span>
+<span class="c1">//    (2) use the await result inside the defined callback</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">setData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 1.1 define async func</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://yourapi.com&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+<span class="w">        </span><span class="nx">setData</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 1.2. call async func</span>
+<span class="w">    </span><span class="nx">fetchData</span><span class="p">().</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+<span class="p">},</span><span class="w"> </span><span class="p">[])</span>
+
+<span class="c1">// 2. we can move the async func outside into useCallback</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">setData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="c1">// 2.1</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">fetchData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://www.api.com&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">setData</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">},</span><span class="w"> </span><span class="p">[])</span>
+<span class="c1">// 2.2 call fetchData and pass fetchData into [dep] of useEffect</span>
+<span class="nx">useEffect</span><span class="p">(()=&gt;{</span>
+<span class="w">    </span><span class="nx">fetchData</span><span class="p">().</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">e</span><span class="p">))</span>
+<span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">fetchData</span><span class="p">])</span>
+</code></pre></div></li>
+</ul>
+<p><strong>useLayoutEffect:</strong><code>useLayoutEffect</code> first arg accepts synchronous function with synchronous operations. <code>useLayoutEffect</code> happens before browser paint the component, while <code>useEffect</code> happens after painting. </p>
+<p><strong>When to use:</strong> 
+Sometimes, a component's size and position is dynamic and not known until you render it because it has children props.With this hook, we can know the exact size and position before painting and rerender the component based on the exact size and location. </p>
+<p>In this example(https://react.dev/reference/react/useLayoutEffect), since <code>ToolTipContainer</code> has children props. We can only know the height of <code>ToolTipContainer</code> after we know what exactly is passed as children to render and we need to render <code>ToolTipContainer</code> based on its height. Thus, we need to use <code>useLayoutEffect</code> in this case.</p>
+<h4 id="324-useref">3.2.4 useRef<a class="headerlink" href="#324-useref" title="Permanent link">&para;</a></h4>
+<p><code>useRef(initialValue)</code> itself returns a mutable object with a single property called <code>current</code> whose initial value is set to <code>initialValue</code>. This object does not trigger re-render. It can be passed to <code>ref</code> attribute of an html element to track and access the dom element and use with browser APIs like <code>focus</code>, <code>scrollIntoVies</code>, <code>play</code>, <code>select</code> and so on.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useRef</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Form</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// step 1</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">inputRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useRef</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">handleClick</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">inputRef</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;&gt;</span>
+<span class="w">      </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">step</span><span class="w"> </span><span class="mf">2</span><span class="o">--&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">input</span><span class="w"> </span><span class="na">ref</span><span class="o">=</span><span class="p">{</span><span class="nx">inputRef</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span><span class="w"> </span><span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClick</span><span class="p">}&gt;</span>
+<span class="w">        </span><span class="nx">Focus</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">input</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="p">&lt;/&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="33-special-component">3.3 Special Component<a class="headerlink" href="#33-special-component" title="Permanent link">&para;</a></h3>
+<h4 id="331-rsc-in-ssr">3.3.1 RSC in SSR<a class="headerlink" href="#331-rsc-in-ssr" title="Permanent link">&para;</a></h4>
+<p>Note: When you enable SSR mode and choose <strong>RSC architecture</strong> in react, there are 2 types of components:</p>
+<ul>
+<li>Server Component(by default)</li>
+<li>Client Component(declared by <code>"use client"</code>)</li>
+</ul>
+<p>Server Component: Servers render Server Components into html on server side. Best used when the component needs to load or fetch static resources remotely or access the resources on the server locally(rather than have to fetch server resources from client) because the server can load the resources during the build process of server components.  Some notes about server components
+- cannot use hooks like <code>useState</code>
+- but can nest Client components inside to use react hooks
+- support <strong>async component</strong></p>
+<p>Client Component key notes: 
+- client components are like regular components in CSR mode
+- can use <strong>server functions</strong> to let server execute</p>
+<details class="warning" open="open">
+<summary>Nesting with each other</summary>
+<ul>
+<li>server component cannot be imported in a file declared with <code>"use Client"</code>, otherwise, it will be treated as client component</li>
+<li>solution is to pass server component in props</li>
+</ul>
+</details>
+<table>
+<thead>
+<tr>
+<th>pattern</th>
+<th>supported</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client inside server</td>
+<td>yes</td>
+<td>direct import</td>
+</tr>
+<tr>
+<td>Server inside client(import)</td>
+<td>no</td>
+<td>it forces server component to be client component</td>
+</tr>
+<tr>
+<td>Server inside client(props)</td>
+<td>yes</td>
+<td>Pass the Server Component as <code>children</code> or another prop from a parent Server Component.</td>
+</tr>
+</tbody>
+</table>
+<p>How to setup and create RSC components: https://thefrontenddev.medium.com/getting-started-with-react-server-components-rsc-react-19-and-next-js-in-action-7093448ee5f0</p>
+<h3 id="34-common-pattern">3.4 Common pattern<a class="headerlink" href="#34-common-pattern" title="Permanent link">&para;</a></h3>
+<h4 id="341-props-expose">3.4.1 Props &amp; Expose<a class="headerlink" href="#341-props-expose" title="Permanent link">&para;</a></h4>
+<p><strong>Props:</strong> In order for parent component to trigger children component's rerender through UI interactions of parent component, we lift the state into parent component and pass this state to children component to make children component re-render. This is called props down. Below is example of how to pass props from parent to children:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">ChildComponent.jsx</label><label for="__tabbed_2_2">ParentComponent.jsx</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">ChildComponent</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(&lt;&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">msg</span><span class="p">}</span><span class="w"> </span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/&gt;)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">ChildComponent</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./ChildComponent&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">ParentComponent</span><span class="p">(){</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">msg</span><span class="p">,</span><span class="w"> </span><span class="nx">setMsg</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">ChildComponent</span><span class="w"> </span><span class="na">msg</span><span class="o">=</span><span class="p">{</span><span class="nx">msg</span><span class="p">}</span><span class="w"> </span><span class="p">/&gt;</span>
+
+<span class="w">        </span><span class="c">&lt;!--</span><span class="w"> </span><span class="nx">users</span><span class="w"> </span><span class="nx">control</span><span class="w"> </span><span class="nx">ChildComponent</span><span class="w"> </span><span class="nx">through</span><span class="w"> </span><span class="nx">Input</span><span class="w"> </span><span class="nx">at</span><span class="w"> </span><span class="nx">parent</span><span class="o">--&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">Input</span><span class="w"> </span><span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)=&gt;</span><span class="w"> </span><span class="nx">setMsg</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>special props</p>
+<table>
+<thead>
+<tr>
+<th>properties</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>when new key is passed to a component's prop, the component will reset its states values</td>
+</tr>
+<tr>
+<td>children</td>
+<td>this prop receives slot elements for this component</td>
+</tr>
+<tr>
+<td>className</td>
+<td>assign css classes</td>
+</tr>
+<tr>
+<td>style</td>
+<td>assign inline style object</td>
+</tr>
+<tr>
+<td>ref</td>
+<td>assign return value of <code>useRef</code> to this property to access DOM</td>
+</tr>
+</tbody>
+</table>
+<p>style keys:</p>
+<table>
+<thead>
+<tr>
+<th>category</th>
+<th>key</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layout</td>
+<td>display</td>
+<td>Defines the rendering box type(ex: <code>'flex'</code>, <code>'grid'</code>, <code>'block'</code>, <code>'none'</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td>margin/padding</td>
+<td>Sets external and internal spacing</td>
+</tr>
+<tr>
+<td></td>
+<td>width/height</td>
+<td>Sets dimension</td>
+</tr>
+<tr>
+<td></td>
+<td>position</td>
+<td>position element(ex: <code>'absolute'</code>, <code>'relative'</code>, <code>'fixed'</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td>top,right,bottom,left</td>
+<td>Used with position</td>
+</tr>
+<tr>
+<td>Flexbox</td>
+<td>flexDirection</td>
+<td>Specifies the direction of flex items(ex: <code>'row'</code>, <code>'column'</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td>justifyContent</td>
+<td>Aligns items along the main axis(ex: <code>'center'</code>, <code>'space-between'</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td>alignItems</td>
+<td>Aligns items along the cross axis(ex: <code>'flex-start'</code>, <code>'stretch'</code>)</td>
+</tr>
+<tr>
+<td></td>
+<td>flex</td>
+<td>growth and shrinkage</td>
+</tr>
+<tr>
+<td>Visual</td>
+<td>Color</td>
+<td>Sets text color</td>
+</tr>
+<tr>
+<td></td>
+<td>backgroundColor</td>
+<td>Sets the background color of the element</td>
+</tr>
+<tr>
+<td></td>
+<td>borderRadius</td>
+<td>Rounds the corners of the element's outer border.</td>
+</tr>
+<tr>
+<td></td>
+<td>border</td>
+<td>Sets the width, style, and color of the border</td>
+</tr>
+<tr>
+<td></td>
+<td>opacity</td>
+<td>Sets the transparency level from 0 to 1</td>
+</tr>
+<tr>
+<td></td>
+<td>boxshadow</td>
+<td>add shadow effect</td>
+</tr>
+<tr>
+<td>Typography</td>
+<td>fontSize</td>
+<td>set the size of font</td>
+</tr>
+<tr>
+<td></td>
+<td>fontWeight</td>
+<td>set thickness of characters</td>
+</tr>
+<tr>
+<td></td>
+<td>fontFamily</td>
+<td>font family</td>
+</tr>
+<tr>
+<td></td>
+<td>textAlign</td>
+<td>horizontal alignment for text (e.g., <code>'center'</code>, <code>'right'</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expose:</strong> There is no expose method in react as defined in vue.</p>
+<h4 id="342-emit-events">3.4.2 Emit events<a class="headerlink" href="#342-emit-events" title="Permanent link">&para;</a></h4>
+<p>In order for child component to trigger parent component's re-render through UI interaction at Child component level, we define event at child component to be emitted and pass event handler from parent to children. This is called event up.
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. define event name &quot;onPlay&quot; through props</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">Button</span><span class="p">({</span><span class="w"> </span><span class="nx">onPlay</span><span class="p">,</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="c1">// emit the event through onClick</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">button</span><span class="w"> </span><span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">onPlay</span><span class="p">}&gt;</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">children</span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">PlayButton</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">isPlaying</span><span class="p">,</span><span class="w"> </span><span class="nx">setIsPlaying</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">Button</span><span class="w"> </span><span class="na">onClick</span><span class="o">=</span><span class="p">{()=&gt;</span><span class="w"> </span><span class="nx">setIsPlaying</span><span class="p">(</span><span class="o">!</span><span class="nx">isPlaying</span><span class="p">)}&gt;</span>
+<span class="w">      </span><span class="nx">Play</span><span class="w"> </span><span class="s2">&quot;{isPlaying}&quot;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>Common events:</p>
+<table>
+<thead>
+<tr>
+<th>categories</th>
+<th>Events</th>
+<th>element</th>
+<th>When is it fire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mouse</td>
+<td>onClick</td>
+<td>button, div, p</td>
+<td>mouse press down and release</td>
+</tr>
+<tr>
+<td></td>
+<td>onDoubleClick</td>
+<td>button, div, p</td>
+<td>double click</td>
+</tr>
+<tr>
+<td>Form</td>
+<td>onSubmit</td>
+<td>form</td>
+<td>when a submit type button is clicked</td>
+</tr>
+<tr>
+<td></td>
+<td>onInput</td>
+<td>input, select, textarea</td>
+<td>when there is change in input field</td>
+</tr>
+<tr>
+<td></td>
+<td>onChange</td>
+<td>input,textarea, select</td>
+<td>when contents of the element changes</td>
+</tr>
+<tr>
+<td></td>
+<td>onFocus</td>
+<td>input,textarea, select</td>
+<td>when user clicks the input element and the element becomes active for input</td>
+</tr>
+<tr>
+<td></td>
+<td>onBlur</td>
+<td>input,textarea, select</td>
+<td>when input element lose activeness</td>
+</tr>
+<tr>
+<td>Clipboard</td>
+<td>onCopy</td>
+<td>div, p</td>
+<td>when user copies data from it</td>
+</tr>
+<tr>
+<td></td>
+<td>onCut</td>
+<td>div, p</td>
+<td>when user cuts data from it</td>
+</tr>
+<tr>
+<td></td>
+<td>onPaste</td>
+<td>input, textarea</td>
+<td>when user pastes data into it</td>
+</tr>
+<tr>
+<td>Pointer</td>
+<td>onPointerDown</td>
+<td>button, div, p</td>
+<td>just press down from mouse, touch or pen</td>
+</tr>
+<tr>
+<td></td>
+<td>onPointerMove</td>
+<td>button, div, p</td>
+<td>mouse, touch or pen move on element</td>
+</tr>
+<tr>
+<td></td>
+<td>onPointerUp</td>
+<td>button, div, p</td>
+<td>mouse, touch or pen released on element</td>
+</tr>
+<tr>
+<td>generic</td>
+<td>onError</td>
+<td>video,img, iframe,script,link</td>
+<td>when element fails to load</td>
+</tr>
+<tr>
+<td></td>
+<td>onLoad</td>
+<td>video,img, iframe,script,link</td>
+<td>when element load resources</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>onScroll</td>
+<td>div</td>
+<td>when user scroll page</td>
+</tr>
+<tr>
+<td></td>
+<td>onResize</td>
+<td>div</td>
+<td>when size of browser window changes</td>
+</tr>
+<tr>
+<td>keyboard</td>
+<td>onKeyDown</td>
+<td>input</td>
+<td>when user presses a key from keyboard</td>
+</tr>
+<tr>
+<td></td>
+<td>onKeyPress</td>
+<td>input</td>
+<td>when user presses a key from keyboard</td>
+</tr>
+<tr>
+<td></td>
+<td>onKeyUp</td>
+<td>input</td>
+<td>when user presses and releases a key</td>
+</tr>
+</tbody>
+</table>
+<p>All supported events: https://legacy.reactjs.org/docs/events.html#animation-events
+Event handler cheatsheet: https://react.dev/reference/react-dom/components/common#react-event-object</p>
+<p>Events(parameter type in event handler) API you may use:</p>
+<ul>
+<li>preventDefault()</li>
+<li>stopPropagation()</li>
+</ul>
+<h4 id="343-usecontext">3.4.3 useContext<a class="headerlink" href="#343-usecontext" title="Permanent link">&para;</a></h4>
+<p><code>useContext</code> can also be a solution to trigger re-render from children to parent or from parent to children. In addition, it allows us to define states that can be shared between parent components and all of its descendant components
+1. We first define our context state and setter through <code>createContext</code>. <code>createContext</code> accepts a variable or a setter function to create a global context to be shared.
+2. Then you can access the context through <code>useContext</code> by passing the returned result from <code>createContext</code>. <code>useContext</code> will first find the value from the closest context provider value; if this cannot be found, it will look up the value from the <code>createContext</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">taskContext.jsx</label><label for="__tabbed_3_2">App.jsx</label><label for="__tabbed_3_3">ChildrenComponent.jsx</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createContext</span><span class="p">,</span><span class="w"> </span><span class="nx">useContext</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;react&quot;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">TasksContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createContext</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">TasksDispatchContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createContext</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">useTasks</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">useContext</span><span class="p">(</span><span class="nx">TasksContext</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">useTasksDispatch</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">useContext</span><span class="p">(</span><span class="nx">TasksDispatchContext</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">TasksProvider</span><span class="p">({</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">}){</span>
+<span class="w">    </span><span class="c1">// or we can also use useReduce to create state and setter</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">tasks</span><span class="p">,</span><span class="w"> </span><span class="nx">setTasks</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">([])</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">TasksContext</span><span class="w"> </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">tasks</span><span class="p">}&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">TasksDispatchContext</span><span class="w"> </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">setTasks</span><span class="p">}&gt;</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="p">&lt;/</span><span class="nt">TasksDispatchContext</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">TasksContext</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">TasksProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./TasksContext&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">TaskApp</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">TasksProvider</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">ChildrenComponent</span><span class="w"> </span><span class="p">/&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">TasksProvider</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useTasks</span><span class="p">,</span><span class="w"> </span><span class="nx">useTasksDispatch</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./TasksContext&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">ChildrenComponent</span><span class="p">(){</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useTasks</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dispatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useTasksDispatch</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="344-slot">3.4.4 slot<a class="headerlink" href="#344-slot" title="Permanent link">&para;</a></h4>
+<ul>
+<li>pass value to customized properties</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ChildComponent.jsx</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">ChildComponent</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(&lt;&gt;</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span><span class="w"> </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">msg</span><span class="p">}</span><span class="w"> </span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/&gt;)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="345-lifecycle">3.4.5 LifeCycle<a class="headerlink" href="#345-lifecycle" title="Permanent link">&para;</a></h4>
+<p>Loading a page(initial render):
+render(from root component) -&gt; mount(insert the components into the DOM through <code>appendChild</code>) -&gt; useLayoutEffect(perform only synchronous operations in its hook) -&gt; browser paint the screen -&gt;useEffect(can perform async operations)</p>
+<p>re-render:
+setstate from <code>useState</code> buffer update -&gt; render(from components that call setState to leaf components) -&gt; useLayoutEffect -&gt; browser paint -&gt; useEffect</p>
+<h2 id="4-react-optimization">4. React Optimization<a class="headerlink" href="#4-react-optimization" title="Permanent link">&para;</a></h2>
+<p>CheckList:</p>
+<ul>
+<li>if a function is passed from parent to child, try to use <code>useCallback</code> to optimize</li>
+</ul>
+<h3 id="41-memo-react-compiler">4.1 Memo() &amp; React compiler<a class="headerlink" href="#41-memo-react-compiler" title="Permanent link">&para;</a></h3>
+<p><code>React.Memo()</code> is used for optimizing <em>child</em> components when their <em>parent</em> re-renders but passes the <em>same props</em> down, stopping unnecessary rendering in the component tree.</p>
+<h2 id="5-react-router">5. React Router<a class="headerlink" href="#5-react-router" title="Permanent link">&para;</a></h2>
+<h2 id="6-redux">6. Redux<a class="headerlink" href="#6-redux" title="Permanent link">&para;</a></h2>
+<h2 id="7-security">7. Security<a class="headerlink" href="#7-security" title="Permanent link">&para;</a></h2>
+<h3 id="71-cve-2025-55182">7.1 CVE-2025-55182<a class="headerlink" href="#71-cve-2025-55182" title="Permanent link">&para;</a></h3>
+<p>https://www.wiz.io/blog/nextjs-cve-2025-55182-react2shell-deep-dive
+exploit: https://www.youtube.com/watch?v=jlFwcB0Csbs</p>
+<h2 id="8-popular-libraries">8. Popular libraries<a class="headerlink" href="#8-popular-libraries" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Material UI</li>
+</ul>
+<div style="text-align: center; margin-top: 20px;">
+<h2>Share this post:</h2>
+</div>
+<p><a class="md-button" href="https://x.com/intent/tweet?text=React%0A&amp;url=https://juniorxyz.github.io/myCMS/2025/12/05/react/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></span></a>
+<a class="md-button" href="https://www.facebook.com/sharer/sharer.php?u=https://juniorxyz.github.io/myCMS/2025/12/05/react/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036 27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></span></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="junior-stack/myCMS"
+        data-repo-id="R_kgDOQG1r4Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOQG1r4c4Cxs-G"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant.preview"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascript/mathjax.js"></script>
+      
+        <script src="../../../../javascript/collapseCodeblock.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

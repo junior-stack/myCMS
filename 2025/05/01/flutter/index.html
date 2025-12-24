@@ -1,0 +1,1077 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://juniorxyz.github.io/myCMS/2025/05/01/flutter/">
+      
+      
+        <link rel="prev" href="../../../02/01/vscode/">
+      
+      
+        <link rel="next" href="../../../10/10/typescrpt/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Flutter - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/collapseCodeblock.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#0-setup" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Flutter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0. SetUp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. SetUp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-flutter-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Flutter sdk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-android-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Android Studio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-concept-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Concept Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Dart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-demo-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Demo code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-widget-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Widget Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-stateful-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Stateful Widget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-define-route-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Define Route rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-navigate-route-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Navigate route button
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-the-behind-routing-mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. The behind routing mechanism
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-widget-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Widget Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-async-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Async code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Config
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-05-01 00:00:00+00:00" class="md-ellipsis">May 1, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              3 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../../tags/#tag:programming" class="md-tag">Programming</a>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Flutter</h1>
+
+<p>This is my flutter note.</p>
+<!-- more -->
+
+<h2 id="0-setup">0. SetUp<a class="headerlink" href="#0-setup" title="Permanent link">&para;</a></h2>
+<h3 id="1-flutter-sdk">1. Flutter sdk<a class="headerlink" href="#1-flutter-sdk" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>config environment var in PATH: <code>&lt;Flutter_Directory&gt;/bin</code></p>
+</li>
+<li>
+<p>After installing flutter, execute: <code>flutter doctor</code> to verify</p>
+</li>
+</ol>
+<h3 id="2-android-studio">2. Android Studio<a class="headerlink" href="#2-android-studio" title="Permanent link">&para;</a></h3>
+<p>阶段一: 创建模拟器设备</p>
+<ol>
+<li>
+<p>Create device:</p>
+</li>
+<li>
+<p>Choose system:</p>
+</li>
+<li>
+<p>Use graphic card:</p>
+</li>
+<li>
+<p>advanced setting里要设置cold boot</p>
+</li>
+</ol>
+<p>阶段二: 安装插件</p>
+<ol>
+<li>market搜索flutter</li>
+</ol>
+<p>阶段三: 在emulator里打开项目</p>
+<ol>
+<li>
+<p>选择项目:</p>
+</li>
+<li>
+<p>第一次打开时，会让你配置dart路径</p>
+</li>
+<li></li>
+<li>
+<p>再启动</p>
+</li>
+</ol>
+<h2 id="1-concept-overview">1. Concept Overview<a class="headerlink" href="#1-concept-overview" title="Permanent link">&para;</a></h2>
+<p>Mobile UI Layout(widget tree)</p>
+<ul>
+<li>root widget</li>
+<li>App bar widget</li>
+<li>Container widget</li>
+</ul>
+<p>Other widgets:</p>
+<ul>
+<li>text widget</li>
+<li>button widget</li>
+<li>row widget</li>
+<li>column widget</li>
+<li>Image Widget</li>
+</ul>
+<h2 id="2-dart">2. Dart<a class="headerlink" href="#2-dart" title="Permanent link">&para;</a></h2>
+<h3 id="1-data-type">1. Data type<a class="headerlink" href="#1-data-type" title="Permanent link">&para;</a></h3>
+<p>Dart is a statically language, once we assign the type, we cannot assign a value of different type to it but u can change the type through keyword <code>dynamic</code>, basic types:</p>
+<ul>
+<li>
+<p><code>String</code></p>
+</li>
+<li>
+<p><code>int</code></p>
+</li>
+<li>
+<p><code>bool</code></p>
+</li>
+<li>
+<p><code>List</code></p>
+</li>
+<li>
+<p><code>class</code></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">List</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;chun-li&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;yoshi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mario&quot;</span><span class="p">];</span>
+
+<span class="n">name</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;luigi&quot;</span><span class="p">);</span>
+<span class="n">names</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;yoshi&quot;</span><span class="p">)</span>
+<span class="c1">// Pure List can add different data type, so we can specify the content type by following lines</span>
+<span class="n">names</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="m">30</span><span class="p">)</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Sting</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stringList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+</code></pre></div>
+<h3 id="2-demo-code">2. Demo code<a class="headerlink" href="#2-demo-code" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Create a class object:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">String</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hi&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">User</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">){</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">login</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;logged in&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">User</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">User</span><span class="p">(</span><span class="s2">&quot;jack&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// the apprpriate way to call constructor is: User u = User(s: &quot;jack&quot;, a: 2);</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">username</span><span class="p">);</span>
+<span class="w">    </span><span class="n">u</span><span class="p">.</span><span class="n">login</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Inheritance:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">SuperUser</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// calls the constructor from the super class</span>
+<span class="w">    </span><span class="n">SuperUser</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="k">super</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">publish</span><span class="p">(){</span>
+<span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;published&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">SuperUser</span><span class="w"> </span><span class="n">su</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SuperUser</span><span class="p">(</span><span class="s2">&quot;jack&quot;</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">su</span><span class="p">.</span><span class="n">publish</span><span class="p">();</span>
+<span class="w">    </span><span class="n">su</span><span class="p">.</span><span class="n">login</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>function:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">String</span><span class="w"> </span><span class="n">greeting</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>use of <code>dynamic</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="kt">dynamic</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;chun-li&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">;</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>for loop:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;hello </span><span class="si">${</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="3-widget-concepts">3. Widget Concepts<a class="headerlink" href="#3-widget-concepts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Stateless Widget vs Stateful widget:</li>
+<li>Stateless: the state of the widget cannot change over time</li>
+<li>Stateful: the state of the widget can change over time</li>
+</ul>
+<p>Widget hierachy:</p>
+<blockquote>
+<p>MaterialApp</p>
+<blockquote>
+<p>Scaffold</p>
+<blockquote>
+<p>AppBar</p>
+<p>Body</p>
+<blockquote>
+<p>Container</p>
+<p>Padding</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>Container widget: </li>
+</ul>
+<blockquote>
+<p>It's a box. When it has no child, it will occupy the whole parent widget. When it has a child, it will occupy the same size as its child(such as text widget if its child is Text widget)</p>
+<ul>
+<li>padding(property): example below</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">Container</span><span class="p">(</span>
+<span class="w">    </span><span class="nl">padding:</span><span class="w"> </span><span class="n">EdgeInsets</span><span class="p">.</span><span class="n">symmetric</span><span class="p">(</span><span class="nl">horizontal:</span><span class="w"> </span><span class="m">30.0</span><span class="p">,</span><span class="w"> </span><span class="nl">vertical:</span><span class="w"> </span><span class="m">10.0</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// padding: EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0)</span>
+<span class="p">)</span>
+</code></pre></div>
+</blockquote>
+<ul>
+<li>Scaffold</li>
+<li>Padding</li>
+<li>AppBar</li>
+<li>MaterialApp</li>
+<li>StatelessWidget</li>
+<li>StatefulWidget</li>
+<li>Row</li>
+<li>Column</li>
+</ul>
+<p>method of Widget class:</p>
+<ul>
+<li>build:(This function helps hot reload)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">Home</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">){}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Property of Widget class:</p>
+<ul>
+<li>child: <code>&lt;Widget&gt;</code> type</li>
+</ul>
+<h3 id="4-stateful-widget">4. Stateful Widget<a class="headerlink" href="#4-stateful-widget" title="Permanent link">&para;</a></h3>
+<p>Demo:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// step2: create the factory class for that widget</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">Test</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatefulWidget</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@override</span>
+<span class="w">    </span><span class="n">_TestState</span><span class="w"> </span><span class="n">createState</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_TestState</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// step1: create the stateful widget class and let it extends State</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">_TestState</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">State</span><span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">state1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">String</span><span class="w"> </span><span class="n">state2</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// .. any other states, and then use setState((){...}) to change state inside </span>
+<span class="w">    </span><span class="c1">// build function</span>
+<span class="w">    </span><span class="nd">@override</span>
+<span class="w">    </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Container</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// return how you define the Test Widget</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="5-define-route-rules">5. Define Route rules<a class="headerlink" href="#5-define-route-rules" title="Permanent link">&para;</a></h3>
+<p>Route demo:</p>
+<p>Suppose the file folder is as following:</p>
+<blockquote>
+<p>world_time</p>
+<blockquote>
+<p>android</p>
+<p>ios</p>
+<p>lib</p>
+<blockquote>
+<p>pages</p>
+<blockquote>
+<p>Home.dart</p>
+<p>ChooseLocation.dart</p>
+<p>Loading.dart</p>
+</blockquote>
+<p>main.dart</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>how to define routes in main.dart:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="s2">&quot;package:flutter/material.dart&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;package:world_time/pages/home.dart&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;package:world_time/pages/Loading.dart&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="s2">&quot;package:world_time/pages/ChooseLocation.dart&quot;</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">runApp</span><span class="p">(</span><span class="n">MaterialApp</span><span class="p">(</span>
+<span class="w">    </span><span class="nl">home:</span><span class="w"> </span><span class="n">Home</span><span class="p">();</span>
+<span class="w">    </span><span class="nl">routes:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;/&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Loading</span><span class="p">(),</span>
+<span class="w">        </span><span class="s2">&quot;/home&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Home</span><span class="p">(),</span>
+<span class="w">        </span><span class="s2">&quot;/location&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ChooseLocation</span><span class="p">()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">))</span>
+</code></pre></div>
+<h3 id="6-navigate-route-button">6. Navigate route button<a class="headerlink" href="#6-navigate-route-button" title="Permanent link">&para;</a></h3>
+<p>use the function<code>Navigator.pushNamed</code></p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nc">_HomeState</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">State</span><span class="o">&lt;</span><span class="n">Home</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@override</span>
+<span class="w">    </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Scaffold</span><span class="p">(</span>
+<span class="w">            </span><span class="nl">body:</span><span class="w"> </span><span class="n">SafeArea</span><span class="p">(</span>
+<span class="w">                </span><span class="nl">child:</span><span class="w"> </span><span class="n">Column</span><span class="p">(</span>
+<span class="w">                    </span><span class="nl">children:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
+<span class="w">                        </span><span class="n">FlatButton</span><span class="p">.</span><span class="n">icon</span><span class="p">(</span>
+<span class="w">                            </span><span class="nl">onPressed:</span><span class="w"> </span><span class="p">(){</span>
+<span class="w">                                </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pushNamed</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/location&quot;</span><span class="p">)</span>
+<span class="w">                            </span><span class="p">},</span>
+<span class="w">                            </span><span class="nl">icon:</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">edit_location</span><span class="p">),</span>
+<span class="w">                            </span><span class="nl">label:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s2">&quot;edit location&quot;</span><span class="p">)</span>
+<span class="w">                        </span><span class="p">)</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="7-the-behind-routing-mechanism">7. The behind routing mechanism<a class="headerlink" href="#7-the-behind-routing-mechanism" title="Permanent link">&para;</a></h3>
+<p>https://www.youtube.com/watch?v=WG5tJIAq5b0&amp;list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ&amp;index=23</p>
+<h3 id="8-widget-lifecycle">8. Widget Lifecycle<a class="headerlink" href="#8-widget-lifecycle" title="Permanent link">&para;</a></h3>
+<p>Stateless:</p>
+<ul>
+<li>State does not change over time</li>
+<li>build function only runs once</li>
+</ul>
+<p>Stateful:</p>
+<ul>
+<li>State can change over time</li>
+<li>setState() triggers the build function</li>
+</ul>
+<p><strong>Stateful:</strong></p>
+<p>initState -&gt; Build -&gt; setState -&gt; Build -&gt; dispose</p>
+<h3 id="9-async-code">9. Async code<a class="headerlink" href="#9-async-code" title="Permanent link">&para;</a></h3>
+<p>https://www.jianshu.com/p/cec4e117fce4</p>
+<p>demo:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="n">getData</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">String</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">Future</span><span class="p">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="nl">seconds:</span><span class="w"> </span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;hi&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="kt">String</span><span class="w"> </span><span class="n">bio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">Future</span><span class="p">.</span><span class="n">delayed</span><span class="p">(</span><span class="n">Duration</span><span class="p">(</span><span class="nl">seconds:</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="p">(){</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">${</span><span class="n">username</span><span class="si">}</span><span class="s1"> - </span><span class="si">${</span><span class="n">bio</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="3-config">3. Config<a class="headerlink" href="#3-config" title="Permanent link">&para;</a></h2>
+<ul>
+<li>./publicspec.yaml</li>
+</ul>
+<div style="text-align: center; margin-top: 20px;">
+<h2>Share this post:</h2>
+</div>
+<p><a class="md-button" href="https://x.com/intent/tweet?text=Flutter%0A&amp;url=https://juniorxyz.github.io/myCMS/2025/05/01/flutter/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></span></a>
+<a class="md-button" href="https://www.facebook.com/sharer/sharer.php?u=https://juniorxyz.github.io/myCMS/2025/05/01/flutter/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036 27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></span></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="junior-stack/myCMS"
+        data-repo-id="R_kgDOQG1r4Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOQG1r4c4Cxs-G"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant.preview"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascript/mathjax.js"></script>
+      
+        <script src="../../../../javascript/collapseCodeblock.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

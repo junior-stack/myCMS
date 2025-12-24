@@ -1,0 +1,1594 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://juniorxyz.github.io/myCMS/2025/12/12/database/">
+      
+      
+        <link rel="prev" href="../../05/react/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Database - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/collapseCodeblock.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-sql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Database
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. SQL
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. SQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-connect-to-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Connect to DB
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-create-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Create tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-select-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Select Query
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-join-table-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Join table queries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-insertupdatedelete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 INSERT/UPDATE/DELETE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-alter-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Alter table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-import-and-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 import and export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-other-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 Other syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Index
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-full-text-search-gin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Full-Text Search (GIN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-storing-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Storing JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-b-tree-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 b-tree index
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-policy-constraint-tigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Policy, Constraint &amp; Tigger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Policy, Constraint &amp; Tigger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Trigger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Constraint
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Transaction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sql-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. SQL Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. SQL Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 EXPLAIN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-non-relational-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Non-relational type
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-12-12 00:00:00+00:00" class="md-ellipsis">December 12, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              12 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../../tags/#tag:programming" class="md-tag">Programming</a>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Database</h1>
+
+<p>My note regarding relational database(Mostly PostgreSQL 14+)</p>
+<!-- more -->
+
+<h2 id="1-sql">1. SQL<a class="headerlink" href="#1-sql" title="Permanent link">&para;</a></h2>
+<h3 id="11-connect-to-db">1.1 Connect to DB<a class="headerlink" href="#11-connect-to-db" title="Permanent link">&para;</a></h3>
+<ol>
+<li>start postgresql server(windows): <code>net start "postgresql-x64-14"</code></li>
+<li>connect with client: <code>psql -h &lt;hostname&gt; -p &lt;port&gt; -U &lt;user&gt;</code>(user default: <code>postgres</code>) or use pgadmin</li>
+</ol>
+<p>useful commands</p>
+<table>
+<thead>
+<tr>
+<th>command</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\l</td>
+<td>lists all databases</td>
+</tr>
+<tr>
+<td>\conninfo</td>
+<td>show current user and database</td>
+</tr>
+<tr>
+<td><code>\c &lt;target_db&gt;</code></td>
+<td>switch current db to <code>&lt;target_db&gt;</code></td>
+</tr>
+<tr>
+<td>\dn</td>
+<td>list all schema names of current database</td>
+</tr>
+<tr>
+<td>SELECT current_schema;</td>
+<td>show current schema name</td>
+</tr>
+<tr>
+<td><code>set search_path to &lt;schema_name&gt;</code></td>
+<td>switch current schema to <code>&lt;schema_name&gt;</code></td>
+</tr>
+<tr>
+<td>\dt</td>
+<td>list all tables under current schema</td>
+</tr>
+<tr>
+<td><code>\dt &lt;schema_name&gt;.*</code></td>
+<td>list all tables under <code>&lt;schema_name&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-create-tables">1.2 Create tables<a class="headerlink" href="#12-create-tables" title="Permanent link">&para;</a></h3>
+<p>regular table with primary key:
+<div class="highlight"><pre><span></span><code><span class="k">DROP</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">Projects</span><span class="p">;</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">Projects</span><span class="p">;</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Projects</span><span class="mf">.</span><span class="n">ContractorInfo</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ContractorId</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="k">Name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mf">100</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mf">255</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></p>
+<p>table with foreign key:
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Projects</span><span class="mf">.</span><span class="n">ProjectInfo</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ProjectId</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="k">Name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mf">100</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mf">255</span><span class="p">),</span>
+<span class="w">    </span><span class="n">ContractorId</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ContractorId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Projects</span><span class="mf">.</span><span class="n">ContractorInfo</span><span class="p">(</span><span class="n">ContractorId</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Projects</span><span class="mf">.</span><span class="n">Invoices</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">InvoiceId</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ProjectId</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">JobNumber</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mf">50</span><span class="p">),</span>
+<span class="w">    </span><span class="n">InvoiceValue</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ProjectId</span><span class="p">)</span>
+<span class="w">        </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Projects</span><span class="mf">.</span><span class="n">ProjectInfo</span><span class="p">(</span><span class="n">ProjectId</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></p>
+<h3 id="13-select-query">1.3 Select Query<a class="headerlink" href="#13-select-query" title="Permanent link">&para;</a></h3>
+<p>use the table schema from above section
+<div class="highlight"><pre><span></span><code><span class="c1">-- basic query structure</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="k">DISTINCT</span><span class="w"> </span><span class="p">]</span><span class="o">&lt;</span><span class="n">table1</span><span class="o">&gt;</span><span class="mf">.</span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">table2</span><span class="o">&gt;</span><span class="mf">.</span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">aggregate_function</span><span class="p">(</span><span class="o">&lt;</span><span class="n">table3</span><span class="o">&gt;</span><span class="mf">.</span><span class="o">&lt;</span><span class="n">col3</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total</span>
+<span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablex</span><span class="o">&gt;</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tabley</span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablex</span><span class="o">&gt;</span><span class="mf">.</span><span class="o">&lt;</span><span class="n">colx</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tabley</span><span class="o">&gt;</span><span class="mf">.</span><span class="o">&lt;</span><span class="n">coly</span><span class="o">&gt;</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="mf">...</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="mf">...</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablea</span><span class="o">&gt;</span><span class="mf">.</span><span class="o">&lt;</span><span class="n">cola</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tableb</span><span class="o">&gt;</span><span class="mf">.</span><span class="o">&lt;</span><span class="n">colb</span><span class="o">&gt;</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span>
+<span class="k">WINDOW</span><span class="w"> </span><span class="o">&lt;</span><span class="n">window_name</span><span class="o">&gt;</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="w"> </span><span class="k">UNION</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">INTERSECT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">EXCEPT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="o">&lt;</span><span class="k">ALL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="o">&gt;</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_query</span><span class="o">&gt;</span><span class="w"> </span><span class="p">]</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tablexx</span><span class="o">&gt;</span><span class="mf">.</span><span class="o">&lt;</span><span class="n">colxx</span><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="k">ASC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DESC</span><span class="p">]</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">row_num</span><span class="o">&gt;</span>
+<span class="k">OFFSET</span><span class="w"> </span><span class="o">&lt;</span><span class="n">pos</span><span class="o">&gt;</span>
+<span class="k">FOR</span><span class="w"> </span><span class="o">&lt;</span><span class="k">UPDATE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">NO</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">SHARE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="k">SHARE</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- lock selected rows</span>
+
+<span class="c1">-- example</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">ProjectInfo</span><span class="mf">.</span><span class="k">Name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">projectname</span><span class="p">,</span><span class="w"> </span><span class="n">ContractorInfo</span><span class="mf">.</span><span class="k">Name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">contractorname</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">Invoices</span><span class="mf">.</span><span class="n">InvoiceValue</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ProjectInfo</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">ContractorInfo</span><span class="w"> </span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">ProjectInfo</span><span class="mf">.</span><span class="n">ContractorId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContractorInfo</span><span class="mf">.</span><span class="n">ContractorId</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">Invoices</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">ProjectInfo</span><span class="mf">.</span><span class="n">ProjectId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Invoices</span><span class="mf">.</span><span class="n">ProjectId</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ProjectInfo</span><span class="mf">.</span><span class="k">Name</span><span class="p">,</span><span class="w"> </span><span class="n">ContractorInfo</span><span class="mf">.</span><span class="k">Name</span><span class="p">;</span>
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Having</td>
+<td>filter groups based on condition; if this group has multiple rows, the condition after having needs to employ aggregate functions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-join-table-queries">1.4 Join table queries<a class="headerlink" href="#14-join-table-queries" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- inner join(default): output contains the intersection of two tables rows </span>
+<span class="c1">-- left join: output contains all left table rows, combined right table columns will be empty</span>
+<span class="c1">-- right join: output contains all right table rows, combined left table columns will be empty</span>
+<span class="c1">-- full join: returns rows from a table that do not have the corresponding rows in the other table</span>
+<span class="c1">-- full outer join: contains all rows from both left and right tables</span>
+<span class="c1">-- cross: combining every row from the first table with every row from the second, no join condition</span>
+</code></pre></div>
+<h3 id="15-insertupdatedelete">1.5 INSERT/UPDATE/DELETE<a class="headerlink" href="#15-insertupdatedelete" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Insert</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col3</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mf">...</span><span class="p">)</span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">val1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">val2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">val3</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mf">...</span><span class="p">);</span>
+
+<span class="c1">-- Update</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">SET</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">val1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">val2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mf">...</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span>
+
+<span class="c1">-- delete</span>
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span><span class="w"> </span>
+</code></pre></div>
+<h3 id="16-alter-table">1.6 Alter table<a class="headerlink" href="#16-alter-table" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- add column</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">ADD</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_type</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- modify column</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">new_col_type</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- drop column</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_name</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- add/drop constraint</span>
+<span class="c1">-- add primary key</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_name</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="c1">-- drop constraint</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">constraints_name</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- Rename</span>
+<span class="c1">-- rename a table</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="n">new_table_name</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="c1">-- rename column</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">RENAME</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="n">new_col_name</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="17-import-and-export">1.7 import and export<a class="headerlink" href="#17-import-and-export" title="Permanent link">&para;</a></h3>
+<details class="note">
+<summary>export</summary>
+<ul>
+<li>database:
+ <div class="highlight"><pre><span></span><code><span class="c"># entire database</span>
+<span class="n">pgdump</span> <span class="n">-U</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-d</span> <span class="p">&lt;</span><span class="n">db_name</span><span class="p">&gt;</span> <span class="p">&gt;</span> <span class="n">output</span><span class="p">.</span><span class="n">sql</span>
+<span class="c"># export only the schema</span>
+<span class="n">pgdump</span> <span class="n">-U</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-d</span> <span class="p">&lt;</span><span class="n">db_name</span><span class="p">&gt;</span> <span class="p">-</span><span class="n">-schema-only</span> <span class="p">&gt;</span> <span class="n">output</span><span class="p">.</span><span class="n">sql</span>
+<span class="c"># export only the data</span>
+<span class="n">pgdump</span> <span class="n">-U</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-d</span> <span class="p">&lt;</span><span class="n">db_name</span><span class="p">&gt;</span> <span class="p">-</span><span class="n">-data-only</span> <span class="p">&gt;</span> <span class="n">output</span><span class="p">.</span><span class="n">sql</span>
+</code></pre></div></li>
+<li>schema:
+ <div class="highlight"><pre><span></span><code><span class="c"># dump only the schema, no data through -s</span>
+<span class="n">pgdump</span> <span class="n">-U</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-n</span> <span class="p">&lt;</span><span class="n">schema_name</span><span class="p">&gt;</span> <span class="n">-s</span> <span class="p">&lt;</span><span class="n">db_name</span><span class="p">&gt;</span> <span class="p">&gt;</span> <span class="n">output</span><span class="p">.</span><span class="n">sql</span>
+</code></pre></div></li>
+<li>table:
+ <div class="highlight"><pre><span></span><code><span class="c"># entire table</span>
+<span class="n">pg_dump</span> <span class="n">-U</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-d</span> <span class="p">&lt;</span><span class="n">db_name</span><span class="p">&gt;</span> <span class="n">-n</span> <span class="p">&lt;</span><span class="n">schema_name</span><span class="p">&gt;</span> <span class="n">-t</span> <span class="p">&lt;</span><span class="n">table_name</span><span class="p">&gt;</span> <span class="p">&gt;</span> <span class="n">output</span><span class="p">.</span><span class="n">sql</span>
+<span class="c"># schema only</span>
+<span class="n">pg_dump</span> <span class="n">-U</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-d</span> <span class="p">&lt;</span><span class="n">db_name</span><span class="p">&gt;</span> <span class="n">-n</span> <span class="p">&lt;</span><span class="n">schema_name</span><span class="p">&gt;</span> <span class="n">-t</span> <span class="p">&lt;</span><span class="n">table</span><span class="p">&gt;</span> <span class="p">-</span><span class="n">-schema-only</span> <span class="p">&gt;</span> <span class="n">table_schema</span><span class="p">.</span><span class="n">sql</span>
+<span class="c"># data only</span>
+<span class="n">pg_dump</span> <span class="n">-U</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-d</span> <span class="p">&lt;</span><span class="n">db_name</span><span class="p">&gt;</span> <span class="n">-n</span> <span class="p">&lt;</span><span class="n">schema_name</span><span class="p">&gt;</span> <span class="n">-t</span> <span class="p">&lt;</span><span class="n">table</span><span class="p">&gt;</span> <span class="p">-</span><span class="n">-data-only</span> <span class="p">&gt;</span> <span class="n">table_data</span><span class="p">.</span><span class="n">sql</span>
+</code></pre></div></li>
+</ul>
+</details>
+<details class="note">
+<summary>import</summary>
+<ol>
+<li>create db in psql: <code>createdb -T template0 &lt;db_name&gt;</code></li>
+<li>import .sql: <code>psql -U &lt;username&gt; -d &lt;db_name&gt; -f &lt;sql_file_name&gt;</code></li>
+</ol>
+</details>
+<h3 id="18-other-syntax">1.8 Other syntax<a class="headerlink" href="#18-other-syntax" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- WITH</span>
+
+<span class="c1">-- IF</span>
+
+<span class="c1">-- operator(::)</span>
+</code></pre></div>
+<h2 id="2-index">2. Index<a class="headerlink" href="#2-index" title="Permanent link">&para;</a></h2>
+<h3 id="21-overview">2.1 Overview<a class="headerlink" href="#21-overview" title="Permanent link">&para;</a></h3>
+<p>Types of indices:</p>
+<ul>
+<li>B+ tree(default): for  single or range query with condition that contains<code>=</code>, <code>&gt;</code>, <code>&lt;</code> </li>
+<li>hash: for condition that contains <code>=</code></li>
+<li>GIN(Generalized Inverted Index): for arrays, JSONB data, TEXT</li>
+<li>GiST(Generalized Search Tree): geometric, spatial, full-text</li>
+<li>SP-Gist(Space-partitioned GiST): data that can be partitioned into non-overlapping regions</li>
+<li>BRIN(Block Range Index): data with natural physical order(e.g: timestamp column in an append-only log table)</li>
+</ul>
+<p>When index scan(explain query plan) is used(or when to use index):</p>
+<ul>
+<li>when indexed column combined with indexable operators appears in <code>select...where...</code></li>
+<li>indexed columns used in <code>JOIN...ON</code> conditions</li>
+<li>indexed columns appear in <code>ORDER BY</code> or <code>GROUP BY</code></li>
+<li>when there is primary key column, unique column or distinct keyword in select query(note: primary key column/unique column creates b-tree index which is the only supported index type)</li>
+</ul>
+<p>create regular index sql for different types:
+<div class="highlight"><pre><span></span><code><span class="c1">-- btree index</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="c1">-- hash index</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">HASH</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="c1">-- gist:point, box, polygon, tsrange, tsvector, tsquery type ...</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">GIST</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">geometric_col</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="c1">-- gin</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">GIN</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">jsonb_col</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="c1">-- brin</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">BRIN</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">timestamp_cols</span><span class="o">&gt;</span><span class="p">);</span>
+</code></pre></div></p>
+<p>advanced usage of index:
+<div class="highlight"><pre><span></span><code><span class="c1">-- index on expr: will store index on expression result and called when these expressions appear in SELECT WHERE, ORDER BY statements...</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">expr</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="c1">-- partial index: only inserts rows that satisfy &lt;cond&gt; into the index, then in select query, if the same &lt;cond&gt; appears in SELECT WHERE, this index will be used</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span>
+<span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- multi-column index: index sequence of multiple columns</span>
+<span class="c1">-- - support 32 col at max by default, can be adjusted in pg_config_manual.h</span>
+<span class="c1">-- - index type that support this: btree, GIST, GIN and BRIN</span>
+<span class="c1">-- - used when the WHERE statement appears subsequence of index sequence joined by AND, such as &quot;col1=v1&quot;, &quot;col1=v1 AND col2=v2&quot;, ...; if you omit &quot;col1=v1&quot; and just use &quot;col2=v2&quot; in WHERE, index use is not guranteed</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span>
+<span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col3</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mf">...</span><span class="p">);</span>
+</code></pre></div></p>
+<p>create index in production environment:
+<div class="highlight"><pre><span></span><code><span class="c1">-- avoid blocking write and reading during index build to avoid downtime;</span>
+<span class="c1">-- if not used, db creates mutual lock during index build</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">CONCURRENTLY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">idx</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col</span><span class="o">&gt;</span><span class="p">);</span>
+</code></pre></div></p>
+<h3 id="22-full-text-search-gin">2.2 Full-Text Search (GIN)<a class="headerlink" href="#22-full-text-search-gin" title="Permanent link">&para;</a></h3>
+<p>Beside elastic search, we can also use <code>tsvector</code>, <code>tsquery</code> combined with GIN index to perform FTS in DB.</p>
+<p>Relevant data type:</p>
+<ul>
+<li><code>to_tsvector()</code>: takes a string, preprocess it into lexeme tokens, returns a sorted list of tokens and their positions and weight within the string</li>
+<li><code>to_tsquery()</code>: takes some keywords joined by search operators and return a search query</li>
+</ul>
+<p>GIN indexable operator:</p>
+<table>
+<thead>
+<tr>
+<th>operator class</th>
+<th>indexable operator</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tsvector_ops</td>
+<td>@@ (tsvector, tsquery)</td>
+<td>evaluate similarity between tsvector and tsquey and return true if match</td>
+</tr>
+</tbody>
+</table>
+<p>Set up FTS:</p>
+<ol>
+<li>Create database to store text and tsvector:
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Articles</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">article</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">search_vectors</span><span class="w"> </span><span class="nb">TSVECTOR</span><span class="w"> </span><span class="k">GENERATED</span><span class="w"> </span><span class="k">ALWAYS</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span>
+<span class="w">        </span><span class="p">(</span><span class="n">to_tsvector</span><span class="p">(</span><span class="s1">&#39;English&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">article</span><span class="p">))</span><span class="w"> </span><span class="k">STORED</span>
+<span class="p">);</span>
+</code></pre></div></li>
+<li>Create GIN index on tsvector column type:
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">article_fts</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">Articles</span>
+<span class="k">USING</span><span class="w"> </span><span class="n">GIN</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">search_vectors</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div></li>
+</ol>
+<p>Perform basic FTS Query on databases:
+<div class="highlight"><pre><span></span><code><span class="c1">-- use ts_vector @@ ts_query in where to match</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Articles</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">search_vectors</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">to_tsquery</span><span class="p">(</span><span class="s1">&#39;&lt;keyword1&gt;&#39;</span><span class="p">);</span>
+
+<span class="c1">-- FTS with AND: articles contain both &lt;keyword1&gt; and &lt;keyword2&gt;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Articles</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">search_vectors</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">to_tsquery</span><span class="p">(</span><span class="s1">&#39;&lt;keyword1&gt; &amp; &lt;keyword2&gt;&#39;</span><span class="p">);</span>
+
+<span class="c1">-- FTS with OR: articles contain either &lt;keyword1&gt; or &lt;keyword2&gt;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Articles</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">search_vectors</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">to_tsquery</span><span class="p">(</span><span class="s1">&#39;&lt;keyword1&gt; | &lt;keyword2&gt;&#39;</span><span class="p">);</span>
+
+<span class="c1">-- FTS with phrases: phrase must be enclosed by double quotes</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Articles</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">search_vectors</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">to_tsquery</span><span class="p">(</span><span class="s1">&#39;&quot;&lt;keyword1&gt; &lt;keyword2&gt;&quot;&#39;</span><span class="p">);</span>
+</code></pre></div></p>
+<p>Advanced FTS query: https://iniakunhuda.medium.com/postgresql-full-text-search-a-powerful-alternative-to-elasticsearch-for-small-to-medium-d9524e001fe0</p>
+<p>FTS functions and operators: https://www.postgresql.org/docs/current/functions-textsearch.html</p>
+<h3 id="23-storing-json">2.3 Storing JSON<a class="headerlink" href="#23-storing-json" title="Permanent link">&para;</a></h3>
+<p>We can use postgresql to store and index json documents like using MongoDB. The corresponding data type in postgresql is <code>jsonb</code>(binary json). We can check key existence and retrieve key value on json documents stored in psql.</p>
+<details class="example">
+<summary>Relevant data type: jsonpath, jsonb, array</summary>
+<p>jsonpath are a kind of expression on jsonb value. There are 2 types:  SQL-standard JSON path expressions and json path predicate check expressions. The first one return a jsonb data type, while the second one return <code>true/false/unknown</code>:
+ - SQL-standard json path: has <code>? ( &lt;cond&gt; )</code> as filter condition, used with <code>@?</code>, example: <code>'{"a":[1,2,3,4,5]}' @? '$ ?(@.a[*] &gt; 2)'</code>
+ - predicate check json path:  has no <code>?()</code> as filter condition, used with <code>@@</code>, example: <code>'{"a":[1,2,3,4,5]}' @@ '$.a[*] &gt; 2'</code></p>
+<p>jsonpath symbols:
+ - <code>$</code>: denote the root value of json value
+ - <code>.*</code>: returns the values of all members at the top level of current object
+ - <code>.**</code>: return all member values at all levels
+ - <code>[&lt;index&gt;]</code>: return the single array element specified by the index
+ - <code>[*]</code>: return all array elements
+ - <code>?(&lt;cond&gt;)</code>: filter expression
+ - <code>@</code>: represent the result of path evaluation, json path are of forms: <code>&lt;path&gt; ?(&lt;cond&gt;)</code>, examples of<code>&lt;path&gt;</code> include: <code>$</code>, <code>$.&lt;field_name&gt;</code></p>
+<p>jsonb are binary json column type. The literal values of such types are json strings with keys and values enclosed by double quotes. Its operators include:
+ - <code>-&gt;&gt;</code>: access a field of json object and return the field as text type
+ - <code>-&gt;</code>: access a field of json object and return the field as jsonb type
+ - <code>#&gt;&gt;</code>: takes an array of text as the field path and return the field as text type, example: result of <code>'{"a":[1,2,3],"b":[4,5,6]}'::json#&gt;&gt;'{a,2}'</code> is 3
+ - <code>#&gt;</code>: takes an array of text as the field path and return the field as jsonb type, example: result of <code>'{"a": {"b":{"c": "foo"}}}'::json#&gt;'{a,b}'</code> is <code>{"c": "foo"}</code></p>
+</details>
+<p>GIN indexable operators:</p>
+<table>
+<thead>
+<tr>
+<th>operator class</th>
+<th>indexable operators</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>array_ops</td>
+<td>&amp;&amp; (anyarray, anyarray)</td>
+<td>check if 2 arrays share at least 1 element</td>
+</tr>
+<tr>
+<td></td>
+<td>@&gt; (anyarray, anyarray)</td>
+<td>check if left array fully contains right array</td>
+</tr>
+<tr>
+<td></td>
+<td>&lt;@ (anyarray, anyarray)</td>
+<td>check if right array full contains left array</td>
+</tr>
+<tr>
+<td></td>
+<td>= (anyarray, anyarray)</td>
+<td>check if 2 arrays are equal</td>
+</tr>
+<tr>
+<td>jsonb_ops</td>
+<td>@&gt; (jsonb, jsonb)</td>
+<td>check if the left json document contains the key/value entries from the right json document at top level</td>
+</tr>
+<tr>
+<td></td>
+<td>@? (jsonb, jsonpath)</td>
+<td>used with SQL-standard json path, check if the json path return any item from the json document</td>
+</tr>
+<tr>
+<td></td>
+<td>@@ (jsonb, jsonpath)</td>
+<td>used with predicate check json path, behavior N/A</td>
+</tr>
+<tr>
+<td></td>
+<td>? (jsonb, text)</td>
+<td>key exists in jsonb document at top level</td>
+</tr>
+<tr>
+<td></td>
+<td>?| <code>(jsonb, text[])</code></td>
+<td>any key from the array exists in jsonb document at top level</td>
+</tr>
+<tr>
+<td></td>
+<td>?&amp; <code>(jsonb, text[])</code></td>
+<td>all keys from the array exist in jsonb document at top level</td>
+</tr>
+<tr>
+<td>jsonb_path_ops</td>
+<td>@&gt; (jsonb, jsonb)</td>
+<td>same as jsonb_ops @&gt;</td>
+</tr>
+<tr>
+<td></td>
+<td>@? (jsonb, jsonpath)</td>
+<td>same as jsonb_ops @?</td>
+</tr>
+<tr>
+<td></td>
+<td>@@ (jsonb, jsonpath)</td>
+<td>same as jsonb_ops @@</td>
+</tr>
+<tr>
+<td>jsonb_ops vs jsonb_path_ops:</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>jsonb_ops is the default jsonb operator class in gin index and support a wide range of operators as above</li>
+<li>jsonb_path_ops uses an even more optimized GIN Index structure but supports a smaller set of operations as above</li>
+</ul>
+<p>Set up database:</p>
+<ol>
+<li>Create database with <code>JSONB</code> type column:
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">data_json</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="nb">JSONB</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">data_arr</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">[]</span>
+<span class="p">);</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">data_json</span><span class="w"> </span><span class="p">(</span><span class="k">data</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Laptop&quot;, &quot;specs&quot;: {&quot;RAM&quot;: &quot;16GB&quot;, &quot;storage&quot;: &quot;512GB SSD&quot;}, &quot;in_stock&quot;: true}&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;{&quot;name&quot;: &quot;Phone&quot;, &quot;specs&quot;: {&quot;RAM&quot;: &quot;8GB&quot;, &quot;storage&quot;: &quot;256GB&quot;}, &quot;in_stock&quot;: false}&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="w"> </span><span class="n">jsonb_build_object</span><span class="p">(</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;papa&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;last_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;john&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;address&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">jsonb_build_object</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;New York&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;CA&#39;</span><span class="p">))</span><span class="w"> </span><span class="p">),</span>
+<span class="p">(</span><span class="n">jsonb_build_object</span><span class="p">(</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;harry&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;last_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;potter&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;address&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">jsonb_build_object</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;London&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;UK&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;email&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;abc@123&#39;</span><span class="p">));</span>
+</code></pre></div></li>
+<li>Create index on <code>JSONB</code> column or its field:
+<div class="highlight"><pre><span></span><code><span class="c1">-- index JSONB column with jsonb_ops class operator</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_json</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">data_json</span>
+<span class="k">USING</span><span class="w"> </span><span class="n">GIN</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="p">);</span>
+
+<span class="c1">-- or index on specific field that we are interested of JSONB col with jsonb_path_ops class operator for even more optimization</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_json</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">data_json</span>
+<span class="k">USING</span><span class="w"> </span><span class="n">GIN</span><span class="w"> </span><span class="p">(</span><span class="k">data</span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="s1">&#39;last_name&#39;</span><span class="w"> </span><span class="n">jsonb_path_ops</span><span class="p">);</span>
+
+<span class="c1">-- index on array column</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">index_arr</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">data_arr</span>
+<span class="k">USING</span><span class="w"> </span><span class="n">GIN</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div></li>
+</ol>
+<p>Perform index query:
+<div class="highlight"><pre><span></span><code><span class="c1">-- -&gt;&gt; return a field as jsonb type, -&gt; return a field as text type</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="s1">&#39;first_name&#39;</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="s1">&#39;last_name&#39;</span><span class="w"> </span><span class="n">last_name</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">data_json</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="o">@&gt;</span><span class="w"> </span><span class="s1">&#39;{&quot;last_name&quot;: &quot;john&quot;}&#39;</span><span class="p">;</span>
+
+<span class="c1">-- equivalent to above query</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="s1">&#39;first_name&#39;</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="s1">&#39;last_name&#39;</span><span class="w"> </span><span class="n">last_name</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">data_json</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;</span><span class="s1">&#39;last_name&#39;</span><span class="w"> </span><span class="o">@&gt;</span><span class="w"> </span><span class="s1">&#39;&quot;john&quot;&#39;</span><span class="p">;</span>
+
+<span class="c1">-- for nonexistent field, query return null value</span>
+<span class="c1">-- return [&#39;papa&#39;, &#39;john&#39;, null, &#39;CA&#39;]</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="s1">&#39;first_name&#39;</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="s1">&#39;last_name&#39;</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="w"> </span><span class="s1">&#39;email&#39;</span><span class="w"> </span><span class="n">email</span><span class="p">,</span>
+<span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="o">-&gt;</span><span class="s1">&#39;address&#39;</span><span class="w"> </span><span class="o">-&gt;&gt;</span><span class="s1">&#39;country&#39;</span><span class="w"> </span><span class="n">county</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">data_json</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="k">data</span><span class="o">-&gt;</span><span class="s1">&#39;address&#39;</span><span class="w"> </span><span class="o">@&gt;</span><span class="w"> </span><span class="s1">&#39;{&quot;city&quot;: &quot;New York&quot;}&#39;</span><span class="p">;</span>
+</code></pre></div></p>
+<h3 id="24-b-tree-index">2.4 b-tree index<a class="headerlink" href="#24-b-tree-index" title="Permanent link">&para;</a></h3>
+<p>indexable operators: =, &lt;, &lt;=, &gt;, &gt;=</p>
+<h2 id="3-policy-constraint-tigger">3. Policy, Constraint &amp; Tigger<a class="headerlink" href="#3-policy-constraint-tigger" title="Permanent link">&para;</a></h2>
+<h3 id="31-policy">3.1 Policy<a class="headerlink" href="#31-policy" title="Permanent link">&para;</a></h3>
+<p>For each table, we define policies to control specific rows permission to certain users</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">POLICY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">policy_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="p">[</span><span class="k">AS</span><span class="w"> </span><span class="o">&lt;</span><span class="n">PERMISSIVE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">RESTRICTIVE</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">FOR</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DELETE</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">role_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">PUBLIC</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">CURRENT_ROLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">CURRENT_USER</span><span class="w"> </span><span class="o">&gt;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">USING</span><span class="w"> </span><span class="o">&lt;</span><span class="n">using_cond</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="o">&lt;</span><span class="n">check_cond</span><span class="o">&gt;</span><span class="p">]</span>
+</code></pre></div>
+<p>example:
+<div class="highlight"><pre><span></span><code><span class="c1">-- required step to create policies</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">ENABLE</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">SECURITY</span><span class="p">;</span>
+
+<span class="c1">-- create policy that allows user to do any operation on rows with username</span>
+<span class="c1">-- equal to postgres, the expression after USING is similar to where condition in select</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">POLICY</span><span class="w"> </span><span class="n">user_policy</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">users</span>
+<span class="k">FOR</span><span class="w"> </span><span class="k">ALL</span>
+<span class="k">USING</span><span class="w"> </span><span class="n">users</span><span class="mf">.</span><span class="n">user_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;postgres&#39;</span><span class="p">;</span>
+</code></pre></div></p>
+<h3 id="32-trigger">3.2 Trigger<a class="headerlink" href="#32-trigger" title="Permanent link">&para;</a></h3>
+<p>triggers are functions that automatically execute in response to INSERT, UPDATE， DELETE or TRUNCATE on a table. Trigger functions are comprise of sql and the response is triggered before/after/instead of the event of insert/update/delete/truncate</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- define trigger function</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="o">&lt;</span><span class="n">trigger_function</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">RETURNS</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">$$</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="c1">-- trigger logic here, e.g., logging changes or modifying NEW/OLD rows</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="k">NEW</span><span class="p">;</span><span class="w"> </span><span class="c1">-- or OLD, or NULL depending on trigger type and timing</span>
+<span class="k">END</span><span class="p">;</span>
+<span class="s">$$</span><span class="w"> </span><span class="k">LANGUAGE</span><span class="w"> </span><span class="n">plpgsql</span><span class="p">;</span>
+
+<span class="c1">-- define when trigger is triggered</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">trigger_name</span>
+<span class="o">&lt;</span><span class="k">BEFORE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">AFTER</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">INSTEAD</span><span class="w"> </span><span class="k">OF</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="k">INSERT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">TRUNCATE</span><span class="o">&gt;</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">table_name</span>
+<span class="p">[</span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="o">&lt;</span><span class="k">ROW</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">STATEMENT</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="p">[</span><span class="k">WHEN</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)]</span>
+<span class="k">EXECUTE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">trigger_function</span><span class="p">();</span>
+</code></pre></div>
+<p>example:
+<div class="highlight"><pre><span></span><code><span class="c1">-- define trigger function</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">audit_log</span><span class="p">()</span><span class="w"> </span><span class="k">RETURNS</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">$$</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">Audit</span><span class="p">(</span><span class="n">emp_ID</span><span class="p">,</span><span class="w"> </span><span class="n">entry_date</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="k">NEW</span><span class="mf">.</span><span class="n">ID</span><span class="p">,</span><span class="w"> </span><span class="k">current_timestamp</span><span class="p">)</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="k">NEW</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
+<span class="s">$$</span><span class="w"> </span><span class="k">LANGUAGE</span><span class="w"> </span><span class="n">plpgsql</span><span class="p">;</span>
+
+<span class="c1">-- trigger</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">audit_trigger</span>
+<span class="k">AFTER</span><span class="w"> </span><span class="k">INSERT</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">Company</span>
+<span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+<span class="k">EXECUTE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="n">audit_log</span><span class="p">();</span>
+</code></pre></div></p>
+<h3 id="33-constraint">3.3 Constraint<a class="headerlink" href="#33-constraint" title="Permanent link">&para;</a></h3>
+<p>types:</p>
+<ul>
+<li>check constraint</li>
+<li>not null constraint</li>
+<li>unique constraint</li>
+<li>primary keys</li>
+<li>foreign keys</li>
+<li>exclusive constraint</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">-- price, discountedPrice are 2 cols of table product</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">product</span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">valid_discount</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">price</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">discountedPrice</span><span class="p">);</span>
+
+<span class="c1">-- not null constraint</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">product</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+
+<span class="c1">-- unique constriant: create unique index using b+tree and only b+tree type index supports unique index</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">product</span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">unique_constraint</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="mf">...</span><span class="p">);</span>
+
+<span class="c1">-- primary key constraint: create b+tree index which is the only index type that supports primary key constraint</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">product</span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">constrain_name</span><span class="o">&gt;</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="mf">...</span><span class="p">);</span>
+
+<span class="c1">-- foreign constraint, available action includes: NO ACTION(default), RESTRICT, CASCADE, SET NULL, SET DEFAULT</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">child_table</span><span class="o">&gt;</span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">constrain_name</span><span class="o">&gt;</span>
+<span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mf">...</span><span class="p">)</span>
+<span class="k">REFERENCES</span><span class="w"> </span><span class="o">&lt;</span><span class="n">parent_table</span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">parent_col1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">parent_col2</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mf">...</span><span class="p">)</span>
+<span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="n">available_action</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- exclude constraint specifies 2 rows cannot exist at the same time if they meet certain conditions, this constraint automatically creates index like gist/b-tree/hash</span>
+<span class="c1">-- syntax:</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">EXTENSION</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">btree_gist</span><span class="p">;</span><span class="w"> </span><span class="c1">-- required step</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">tables_name</span><span class="o">&gt;</span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">constrain_name</span><span class="o">&gt;</span>
+<span class="k">EXCLUDE</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">gist</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="c1">-- common operator includes tsrange(timestamp_col1, timestamp_col2) with &amp;&amp;, regular column with =</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">col1</span><span class="o">&gt;</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="o">&lt;</span><span class="n">operator1</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="n">col2</span><span class="o">&gt;</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">&lt;</span><span class="n">operator2</span><span class="o">&gt;</span>
+<span class="p">)</span>
+<span class="c1">-- we first apply WHERE condition to filter out the rows we apply exclude</span>
+<span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span><span class="p">)];</span>
+
+<span class="c1">-- example: same room cannot be booked if the time interval overlaps, </span>
+<span class="c1">--          only applies to rooms that are not canceled</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">EXTENSION</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">btree_gist</span><span class="p">;</span><span class="w"> </span><span class="c1">-- required step</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">reservation</span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">constrain_name</span><span class="o">&gt;</span>
+<span class="k">EXCLUDE</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="n">GIST</span><span class="w"> </span><span class="p">(</span><span class="n">room_id</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="o">=</span><span class="p">,</span><span class="w"> </span><span class="n">TSRANGE</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span><span class="w"> </span><span class="n">end_date</span><span class="p">)</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="n">booking_status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;CANCELED&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="4-transaction">4. Transaction<a class="headerlink" href="#4-transaction" title="Permanent link">&para;</a></h2>
+<p>transaction: a sequence of sql operations executed as a single unit.</p>
+<p>Principles implemenetd by transactions(ACID):</p>
+<ul>
+<li>Atomicity: all sqls within the transaction block either executed entirely or either not executed at all</li>
+<li>Consistency: all tables data must follow the defined rules/constraints before or after transactions</li>
+<li>Isolation: multiple transactions should not interfere with each other at the same when access the same resources, isolation level can be adjusted in <code>BEGIN</code> command below</li>
+<li>Durability: once a txn is committed, changes are permanent.</li>
+</ul>
+<p>Database anomaly resulted by diff levels of transaction isolation:</p>
+<ul>
+<li>Dirty read: read uncommitted data by another transaction, usually don't happen in postgresql because every query is wrapped in <code>READ COMMITTED</code> transaction.</li>
+<li>non-repeatable read: a transaction reads the same row multiple times but gets different values because another concurrent transactions modification, can be solved by setting the read transaction level to be <code>REPEATABLE READ</code> </li>
+<li>phantom read: a transaction executes a query and then again, but get different set of rows because another concurrent transactions insert/delete the tables, can be solved by setting read transaction</li>
+</ul>
+<p>transaction related command:</p>
+<table>
+<thead>
+<tr>
+<th>COMMAND</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BEGIN [ISOLATION LEVEL &lt; READ COMMITED \| REPEATABLE READ \| SERIALIZABLE &gt; ]</code></td>
+<td>Marks the beginning of a transaction block with following increasing isolation level:<br>- READ COMMITED: A query only sees data committed before the query began. Two consecutive queries within the same transaction can see different data if another transaction commits changes in between.<br>- REPEATABLE READ: all queries within a single transaction see a stable snapshot of the data as it was at the <em>start</em> of the transaction<br>- SERIALIZABLE: all queries within a single can not just see the row values as it was at the start of the transaction but also the row set is fixed.</td>
+</tr>
+<tr>
+<td>COMMIT</td>
+<td>submit the transaction to datab</td>
+</tr>
+<tr>
+<td>ROLLBACK</td>
+<td>cancel all changes of the current transaction b</td>
+</tr>
+<tr>
+<td><code>SAVEPOINT &lt;name&gt;</code></td>
+<td>Create a savepoint within the transaction to rollback</td>
+</tr>
+<tr>
+<td><code>ROLLBACK TO &lt;savepoint_name&gt;</code></td>
+<td>rollback to the previously defined sav</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-sql-optimization">5. SQL Optimization<a class="headerlink" href="#5-sql-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="51-explain">5.1 EXPLAIN<a class="headerlink" href="#51-explain" title="Permanent link">&para;</a></h3>
+<p>EXPLAIN is a command that can return the query plan of a given query but does not execute the query. <code>EXPLAIN ANALYZE</code> can not just return the query plan but also return the real execution time of the query plan.</p>
+<p>How to use <code>EXPLAIN</code>:
+<div class="highlight"><pre><span></span><code><span class="c1">-- syntax</span>
+<span class="k">EXPLAIN</span><span class="w"> </span><span class="o">&lt;</span><span class="n">query</span><span class="o">&gt;</span>
+<span class="k">EXPLAIN</span><span class="w"> </span><span class="k">ANALYZE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">query</span><span class="o">&gt;</span>
+
+<span class="c1">-- example:</span>
+<span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">Token</span><span class="mf">.</span><span class="k">name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">public</span><span class="mf">.</span><span class="n">Token</span><span class="p">;</span>
+</code></pre></div></p>
+<p>Output:
+<div class="highlight"><pre><span></span><code>QUERY PLAN
+---
+Seq Scan on &quot;Token&quot;  (cost=0.00..394.91 rows=13591 width=11)
+</code></pre></div>
+The result of query plan is executed from inner to outermost. Each step of query plan is represented by<code>&lt;STEP&gt;(cost=&lt;initial_cost&gt;..&lt;total_cost&gt; rows=&lt;row_num&gt; width=&lt;col_size&gt;)</code></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initial_cost</td>
+<td>How many milli seconds does it take to fetch the first page of the table, factors that influence this metric include order by, aggregate function</td>
+</tr>
+<tr>
+<td>total_cost</td>
+<td>Total amount of time sql_server thinks will take(EXPLAIN does not really execute the sql)</td>
+</tr>
+<tr>
+<td>row_num</td>
+<td>an estimate of number of rows of the table</td>
+</tr>
+<tr>
+<td>col_size</td>
+<td>estimate avg sum of all the bytes of the columns</td>
+</tr>
+<tr>
+<td>query plan steps(<code>&lt;Step&gt;</code>):</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Bitmap Index Scan on &lt;table&gt;</code></td>
+<td>where condition on indexed column</td>
+</tr>
+<tr>
+<td><code>Bitmap Heap Scan on &lt;table&gt;</code></td>
+<td>non-indexed column of index scan rows</td>
+</tr>
+<tr>
+<td><code>Seq Scan on &lt;table&gt; [Filter:]</code></td>
+<td>select based on non indexed where condition</td>
+</tr>
+<tr>
+<td>Hash(cost=...)</td>
+<td>temporary store the scan results in hashtable</td>
+</tr>
+<tr>
+<td><code>Hash Join(cost=...) Hash Cond: &lt;join_cond&gt;</code></td>
+<td>Join 2 tables based on the sql join condition</td>
+</tr>
+<tr>
+<td><code>Sort (cost=...) Sort Key:&lt;orderby_column&gt;</code></td>
+<td>order the result based on the column after <code>order by</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-extensions">7. Extensions<a class="headerlink" href="#7-extensions" title="Permanent link">&para;</a></h2>
+<p>Extensions are just like libraries that provide additional functions.</p>
+<p>How to check extensions:
+<div class="highlight"><pre><span></span><code><span class="c1">-- list of all available extensions that can be enabled</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_available_extensions</span><span class="p">;</span>
+
+<span class="c1">-- list of enabled extensions in your database</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_extension</span><span class="p">;</span>
+</code></pre></div></p>
+<p>Enable an extension:
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">EXTENSION</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="o">&lt;</span><span class="n">extensions_name</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div></p>
+<h2 id="6-non-relational-type">6. Non-relational type<a class="headerlink" href="#6-non-relational-type" title="Permanent link">&para;</a></h2>
+<p>other database types:</p>
+<ul>
+<li>hashtable: Reddis</li>
+<li>documents: MongoDB</li>
+<li>column: Cassandra, Hbase</li>
+<li>graph: Neo4j</li>
+</ul>
+<div style="text-align: center; margin-top: 20px;">
+<h2>Share this post:</h2>
+</div>
+<p><a class="md-button" href="https://x.com/intent/tweet?text=Database%0A&amp;url=https://juniorxyz.github.io/myCMS/2025/12/12/database/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></span></a>
+<a class="md-button" href="https://www.facebook.com/sharer/sharer.php?u=https://juniorxyz.github.io/myCMS/2025/12/12/database/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036 27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></span></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="junior-stack/myCMS"
+        data-repo-id="R_kgDOQG1r4Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOQG1r4c4Cxs-G"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant.preview"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascript/mathjax.js"></script>
+      
+        <script src="../../../../javascript/collapseCodeblock.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

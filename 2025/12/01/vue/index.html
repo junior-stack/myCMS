@@ -1,0 +1,1823 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://juniorxyz.github.io/myCMS/2025/12/01/vue/">
+      
+      
+        <link rel="prev" href="../../../11/22/linux/">
+      
+      
+        <link rel="next" href="../../05/react/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Vue - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/collapseCodeblock.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-set-up" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vue
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Set up
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Set up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-scaffold-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Scaffold project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-program-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Program entry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-config-ssr-csr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Config: SSR, CSR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-vue-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Vue Syntax
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-vue-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Vue Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Vue Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-option-vs-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Option vs Composition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-components-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Components API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Components API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-states-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 States management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-computed-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 computed method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-watch-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.3 watch method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324-usetemplateref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.4 useTemplateRef
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-special-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Special components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Special components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-components-with-async-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 Components with async setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-async-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 Async Component
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.3 &lt;Component&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-suspense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.4 &lt;Suspense&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-common-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Common patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Common patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-props-expose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.1 Props &amp; Expose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#342-event-emit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.2 Event emit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343-provideinject" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.3 provide/inject
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344-slot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.4 Slot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#345-life-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4.5 Life hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Optimization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-other-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Other classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Other classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-composable-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Composable function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-custom-directive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Custom directive
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-vue-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Vue Router
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Vue Router">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-navigate-to-a-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Navigate to a URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-back-and-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Back and refresh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-pinia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Pinia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-default-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Default Config
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Default Config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-fallthrough-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Fallthrough attributes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-popular-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Popular libraries
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-12-01 00:00:00+00:00" class="md-ellipsis">December 1, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              12 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../../tags/#tag:programming" class="md-tag">Programming</a>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Vue</h1>
+
+<p>My note about Vue 3</p>
+<!-- more -->
+
+<h2 id="1-set-up">1. Set up<a class="headerlink" href="#1-set-up" title="Permanent link">&para;</a></h2>
+<h3 id="11-scaffold-project">1.1 Scaffold project<a class="headerlink" href="#11-scaffold-project" title="Permanent link">&para;</a></h3>
+<p>Create template code: <code>npm create vue@latest</code>(does not require global dependency)
+package dependencies:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;vue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.5.25&quot;</span>
+<span class="err"> </span><span class="w"> </span><span class="p">},</span>
+
+<span class="err"> </span><span class="w"> </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;@vitejs/plugin-vue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^6.0.2&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;vite&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^7.2.4&quot;</span><span class="p">,</span>
+<span class="err"> </span><span class="w"> </span><span class="err"> </span><span class="w"> </span><span class="nt">&quot;vite-plugin-vue-devtools&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^8.0.5&quot;</span>
+<span class="err"> </span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="12-program-entry">1.2 Program entry<a class="headerlink" href="#12-program-entry" title="Permanent link">&para;</a></h3>
+<p>Program entry files(calling order from top to below):</p>
+<ul>
+<li>index.html</li>
+<li>main.js</li>
+<li>App.Vue</li>
+</ul>
+<p>App level APIs:</p>
+<ul>
+<li><code>createApp</code>:  return <code>app</code> instance</li>
+<li><code>app.mount</code>: mount the <code>app</code>to a div element</li>
+<li><code>app.component</code>: makes a component available for use anywhere</li>
+<li>
+<p><code>app.use</code>:</p>
+</li>
+<li>
+<p><code>app.config.errorhandler</code></p>
+</li>
+</ul>
+<h3 id="13-config-ssr-csr">1.3 Config: SSR, CSR<a class="headerlink" href="#13-config-ssr-csr" title="Permanent link">&para;</a></h3>
+<ul>
+<li>CSR: Vue by default is CSR, if not configured intentionally</li>
+<li>SSR<ul>
+<li>How to config(project template: https://github.com/vitejs/vite-plugin-vue/blob/main/playground/ssr-vue/index.html):</li>
+<li>we maintain <code>App.vue</code>. We change the one <code>main.js</code> to <code>server.js</code> and <code>client.js</code>. </li>
+<li>Hydration step: <ul>
+<li><code>server.js</code>: call <code>createSSRApp</code> instead of <code>createApp</code> from CSR mode, then call <code>renderToString</code> on return result of <code>createSSRApp</code></li>
+<li><code>Client.js</code>: edit <code>createSSRApp(app).mount('#app')</code></li>
+</ul>
+</li>
+<li>Inside <code>index.html</code>, add <code>&lt;script type="module" src="/src/entry-client.js"&gt;&lt;/script&gt;</code></li>
+<li>extra support:<ul>
+<li>Nuxt</li>
+<li>Quarsar</li>
+<li>Vite SSR</li>
+</ul>
+</li>
+<li>Note:<ul>
+<li>Avoid using <code>window</code>, <code>document</code> API</li>
+<li>certain lifecycle hooks won't execute: <code>beforeMount</code>, <code>onMount</code>, <code>beforeUpdate</code>, <code>updated</code></li>
+<li>Put async IO in the hook of <code>onServerPrefetch</code> for security when performing them in setup</li>
+<li>global state: use Pinia. Don't export or share state variables</li>
+<li>router: use SSR router</li>
+<li>avoid using <code>provide/inject</code> on component. Use <code>app.provide</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-vue-syntax">2. Vue Syntax<a class="headerlink" href="#2-vue-syntax" title="Permanent link">&para;</a></h2>
+<p><code>.vue</code> file general structure:
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="c1">// define functions</span>
+<span class="w">    </span><span class="c1">// register components method</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Define html components --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="c">/* customize css for above html */</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<ol>
+<li>
+<p>Mustache(double curly braces)
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">rawHtml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;span style=&quot;color: red&quot;&gt;This should be red.&lt;/span&gt;&#39;</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Mustache parses real-time value of variables/expression</span>
+<span class="cm">    into plain text in html</span>
+<span class="cm"> --&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Message: <span class="cp">{{</span><span class="w"> </span><span class="nx">msg</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Ok: <span class="cp">{{</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;YES&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;NO&#39;</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">rawHtml</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Directives: v-html, v-bind, v-if, v-for, v-on, v-model, v-slot:
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- </span>
+<span class="cm">1. v-bind: assign variable/expression values to an element&#39;s attribute</span>
+<span class="cm">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">v-bind</span><span class="p">:</span><span class="na">disabled</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">isButtonDisabled</span><span class="s">&quot;</span><span class="p">&gt;</span>Button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="p">:</span><span class="na">disabled</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">isButtonDisabled</span><span class="s">&quot;</span><span class="p">&gt;</span>Button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- dynamic attribute, attr value should be in lower case--&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="p">:</span><span class="cp">[</span><span class="nx">attr</span><span class="cp">]</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">isButtonDisabled</span><span class="s">&quot;</span><span class="p">&gt;</span>Button<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- bind multiple attributes at one time, </span>
+<span class="cm">    const objectOfAttrs = {id: &#39;container&#39;, class: &#39;wrapper&#39;, style: &#39;background-color:green&#39;}</span>
+<span class="cm">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-bind</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">objectOfAttrs</span><span class="s">&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- calling function values--&gt;</span>
+<span class="p">&lt;</span><span class="nt">time</span> <span class="p">:</span><span class="na">title</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">toTitleDate</span><span class="p">(</span><span class="nx">date</span><span class="p">)</span><span class="s">&quot;</span><span class="p">&gt;</span> <span class="cp">{{</span><span class="w"> </span><span class="nx">formatDate</span><span class="p">(</span><span class="nx">date</span><span class="p">)</span><span class="w"> </span><span class="cp">}}</span> <span class="p">&lt;/</span><span class="nt">time</span><span class="p">&gt;</span>
+
+<span class="cm">&lt;!--</span>
+<span class="cm">2. v-on: binds a function to an event or event&#39;s modifier,</span>
+<span class="cm">   syntax: v-on:&lt;Event_Name&gt;[.&lt;Modifier_Name&gt;]=&quot;&lt;Function_Name&gt;&quot;</span>
+<span class="cm">   Event_Name(common): click, mouseover/mouseenter, mouseout/mouseleave, </span>
+<span class="cm">                       keydown/keyup/keypress, change, submit, fous/blur, </span>
+<span class="cm">                       load/error, scroll</span>
+<span class="cm">   Mofifier: https://vuejs.org/guide/essentials/event-handling.html</span>
+<span class="cm">--&gt;</span> 
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">v-on</span><span class="p">:</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">doSomething</span><span class="s">&quot;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">doSomething</span><span class="s">&quot;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- dynamic event, eventName is a variable, its value should be lowercase </span>
+<span class="cm">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="p">@</span><span class="cp">[</span><span class="nx">eventName</span><span class="cp">]</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">doSomething</span><span class="s">&quot;</span><span class="p">&gt;</span>Click<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- modifier --&gt;</span>
+<span class="p">&lt;</span><span class="nt">form</span> <span class="p">@</span><span class="na">submit</span><span class="p">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">onSubmit</span><span class="s">&quot;</span><span class="p">&gt;&lt;</span><span class="nt">input</span> <span class="p">/&gt;&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+
+<span class="cm">&lt;!-- </span>
+<span class="cm">3. v-if: render components based on condition</span>
+<span class="cm">   v-show: render component but toggle display CSS property based on condition, suitable if you need to toggle to show sth very often</span>
+<span class="cm">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&#39;</span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="s">&#39;</span><span class="p">&gt;</span>A<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-else-if</span><span class="o">=</span><span class="s">&#39;</span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="s">&#39;</span><span class="p">&gt;</span>B<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-else</span><span class="p">&gt;</span>C<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">v-show</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">message</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="s">&quot;</span><span class="p">&gt;</span>You can see me<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="cm">&lt;!--</span>
+<span class="cm">4. v-for: render item based on array or object</span>
+<span class="cm"> --&gt;</span>
+ <span class="cm">&lt;!-- array: const items = ref([{ message: &#39;Foo&#39; }, { message: &#39;Bar&#39; }]) --&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">items</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">item</span><span class="p">.</span><span class="nx">message</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- object: const myObject = reactive({ title: &#39;How to do lists in Vue&#39;, author: &#39;Jane Doe&#39;, publishedAt: &#39;2016-04-10&#39; }) </span>
+<span class="cm">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">myObject</span><span class="s">&quot;</span><span class="p">&gt;</span>
+  <span class="cp">{{</span><span class="w"> </span><span class="nx">index</span><span class="w"> </span><span class="cp">}}</span>. <span class="cp">{{</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="cp">}}</span>: <span class="cp">{{</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="cp">}}</span>
+<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- for range --&gt;</span>
+<span class="p">&lt;</span><span class="nt">span</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">n</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mf">10</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- Note: v-for and v-if cannot be used on same element like this:</span>
+<span class="cm">    &lt;li v-for=&quot;todo in todos&quot; v-if=&quot;todo.enable&quot;&gt;{{ todo }}&lt;/li&gt;</span>
+<span class="cm">It should be used as following</span>
+<span class="cm"> --&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">todo</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">todos</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">todo</span><span class="p">.</span><span class="nx">enable</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">todo</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="cm">&lt;!--</span>
+<span class="cm">5. v-model: bind the value of input html elements to a variable, can be used for &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;, more can be found: https://vuejs.org/guide/essentials/forms.html</span>
+<span class="cm"> --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">message</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">message</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;</span><span class="nt">select</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">selected</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">option</span> <span class="p">:</span><span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="p">{</span><span class="w"> </span><span class="nx">number</span><span class="o">:</span><span class="w"> </span><span class="mf">123</span><span class="w"> </span><span class="p">}</span><span class="s">&quot;</span><span class="p">&gt;</span>123<span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="3-vue-components">3. Vue Components<a class="headerlink" href="#3-vue-components" title="Permanent link">&para;</a></h2>
+<h3 id="31-option-vs-composition">3.1 Option vs Composition<a class="headerlink" href="#31-option-vs-composition" title="Permanent link">&para;</a></h3>
+<p>To create vue components, Vue has 2 syntax styles(difference of the two styles: https://vuejs.org/guide/introduction.html#api-styles):</p>
+<ul>
+<li>Option API</li>
+<li>Composition API(used in this note)</li>
+</ul>
+<h3 id="32-components-api">3.2 Components API<a class="headerlink" href="#32-components-api" title="Permanent link">&para;</a></h3>
+<h4 id="321-states-management">3.2.1 States management<a class="headerlink" href="#321-states-management" title="Permanent link">&para;</a></h4>
+<p>Component maintain state variables for rendering. Whenever state variables are changed, Vue rerender the components. The state variables are usually set by events triggered by user interactions on the UI.</p>
+<p>Create states with <code>ref</code>:
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="c1">// declare state variable and set state hooks</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;vue&quot;</span>
+
+<span class="c1">// declare state variable</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
+
+<span class="c1">// set state</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">increment</span><span class="p">(){</span>
+<span class="w">    </span><span class="nx">count</span><span class="p">.</span><span class="nx">value</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Note: use count instead of count.value below --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">increment</span><span class="s">&quot;</span><span class="p">&gt;</span> <span class="cp">{{</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+create states with <code>reactive</code>:</p>
+<h4 id="322-computed-method">3.2.2 computed method<a class="headerlink" href="#322-computed-method" title="Permanent link">&para;</a></h4>
+<p>Vue uses <code>computed</code> to create computed properties of the components. Whenever we have complicated expressions or call functions that rely on state variables or other variables, we can put them in computed properties. The benefit of this is that whenever the components render, computed properties cache these expressions and vue does not need to re-evaluate these expressions if their dependencies(i.e: state variables) does not change during this render.</p>
+<p><code>Compute</code> example:
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">reactive</span><span class="p">,</span><span class="w"> </span><span class="nx">computed</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reactive</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">books</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s1">&#39;Vue 2 - Advanced Guide&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Vue 3 - Basic Guide&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">&#39;Vue 4 - The Mystery&#39;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1">// use1: publishedBooksMessage is cached if author is not changed</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">publishedBooksMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">computed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">author</span><span class="p">.</span><span class="nx">books</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Yes&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;No&#39;</span>
+<span class="p">})</span>
+
+<span class="c1">// use2: compute properties can reuse previous value</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">publishedBooksMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">computed</span><span class="p">({</span>
+<span class="w">    </span><span class="c1">// be aware: don&#39;t make get return previous the first time to load</span>
+<span class="w">    </span><span class="c1">//           publishedBooksMessage</span>
+<span class="w">    </span><span class="nx">get</span><span class="p">(</span><span class="nx">previous</span><span class="p">){</span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="nx">author</span><span class="p">.</span><span class="nx">books</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">author</span><span class="p">.</span><span class="nx">books</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Yes&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;No&#39;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">previous</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Has published books:<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">publishedBooksMessage</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h4 id="323-watch-method">3.2.3 watch method<a class="headerlink" href="#323-watch-method" title="Permanent link">&para;</a></h4>
+<p><code>watch</code> creates callback behavior when a state variable changes. The callback behavior includes: manipulate DOM, change another state, perform async operations. The first argument of <code>watch</code> can be ref, reactive, getter function or an array of previous types, the second argument is a function or async function. <code>watch</code> callback by default happens  <strong>after</strong> parent component updates (if any), and <strong>before</strong> the owner component's DOM updates.</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">reactive</span><span class="p">({</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">})</span>
+
+<span class="c1">// 1. single ref</span>
+<span class="nx">watch</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">newX</span><span class="p">,</span><span class="w"> </span><span class="nx">oldX</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`newX: </span><span class="si">${</span><span class="nx">newX</span><span class="si">}</span><span class="sb">, oldX: </span><span class="si">${</span><span class="nx">oldX</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">// 2. reactive object</span>
+<span class="nx">watch</span><span class="p">(</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">newY</span><span class="p">,</span><span class="w"> </span><span class="nx">oldY</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`newY: </span><span class="si">${</span><span class="nx">newY</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="c1">// only watch a specific field of y, trigger if y.y is replaced</span>
+<span class="nx">watch</span><span class="p">(()=&gt;</span><span class="nx">y</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">newY</span><span class="p">,</span><span class="w"> </span><span class="nx">oldY</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newY</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="c1">// say y.y is an object, this triggers if y.y mutates and not just replaced</span>
+<span class="nx">watch</span><span class="p">(()=&gt;</span><span class="nx">y</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">newY</span><span class="p">,</span><span class="w"> </span><span class="nx">oldY</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newY</span><span class="p">)</span>
+<span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">deep</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">})</span>
+
+<span class="c1">// 3. getter method, can contain state/props/computed variables</span>
+<span class="nx">watch</span><span class="p">(</span>
+<span class="w">    </span><span class="p">()=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">.</span><span class="nx">y</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span>
+<span class="w">    </span><span class="p">(</span><span class="nx">curr</span><span class="p">,</span><span class="w"> </span><span class="nx">prev</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">curr</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1">// 4. array of sources</span>
+<span class="nx">watch</span><span class="p">([</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="p">()=&gt;</span><span class="w"> </span><span class="nx">y</span><span class="p">.</span><span class="nx">y</span><span class="p">],</span><span class="w"> </span><span class="p">([</span><span class="nx">newX</span><span class="p">,</span><span class="w"> </span><span class="nx">newY</span><span class="p">])=&gt;{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`x is </span><span class="si">${</span><span class="nx">newX</span><span class="si">}</span><span class="sb">, y is </span><span class="si">${</span><span class="nx">newY</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">// 5. async hook</span>
+<span class="nx">watch</span><span class="p">(()=&gt;</span><span class="w"> </span><span class="nx">y</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">newY</span><span class="p">,</span><span class="w"> </span><span class="nx">oldY</span><span class="p">)=&gt;{</span>
+<span class="w">    </span><span class="nx">x</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;loading&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">try</span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://yesno.wtf/api&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">x</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">()).</span><span class="nx">answer</span>
+<span class="w">    </span><span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+<span class="w">        </span><span class="nx">x</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello world&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">})</span>
+
+<span class="c1">// 6. 3rd arg: immediate</span>
+<span class="c1">//    by default, watch callback executes only when watched source changes, we can force callback to be executed right after the watched source is created in addition to when it changes by passing immediate</span>
+<span class="nx">watch</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">newX</span><span class="p">,</span><span class="w"> </span><span class="nx">oldX</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`newX: </span><span class="si">${</span><span class="nx">newX</span><span class="si">}</span><span class="sb">, oldX: </span><span class="si">${</span><span class="nx">oldX</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">immediate</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">})</span>
+
+<span class="c1">// 7. 3rd arg: once</span>
+<span class="c1">//   make watch callback executes only once when watched souce changes</span>
+<span class="nx">watch</span><span class="p">(</span><span class="nx">x</span><span class="p">,(</span><span class="nx">newValue</span><span class="p">,</span><span class="w"> </span><span class="nx">oldValue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="p">},{</span><span class="w"> </span><span class="nx">once</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">})</span>
+
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><code>watchEffect</code>: automatically track callback dependencies instead of having to explicily maintain in <code>watch</code>. It's equivalent to pass <code>{immediate: true}</code> into <code>watch</code>. It can be more efficient then <code>watch</code> when there are multiple dependency variables and we track properties within these variables.
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="c1">// can track state variables/props/computed variables</span>
+<span class="nx">watchEffect</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`https://jsonplaceholder.typicode.com/todos/</span><span class="si">${</span><span class="nx">y</span><span class="p">.</span><span class="nx">y</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="w">    </span><span class="nx">x</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h4 id="324-usetemplateref">3.2.4 useTemplateRef<a class="headerlink" href="#324-usetemplateref" title="Permanent link">&para;</a></h4>
+<p><code>useTemplateRef</code> allows us to reference a specific element within the current component in javascript. We can only use this reference variable after the component is mounted(i.e: we can use it in <code>onMount</code> or callbacks in <code>watch</code>)</p>
+<p>Reference element within current component:
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useTemplateRef</span><span class="p">,</span><span class="w"> </span><span class="nx">onMounted</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+
+<span class="c1">// 2. reference the element through reference name in useTemplateRef</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useTemplateRef</span><span class="p">(</span><span class="s1">&#39;my-input&#39;</span><span class="p">)</span>
+
+<span class="nx">onMounted</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// 3. Use the reference in onMounted hook</span>
+<span class="w">  </span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">focus</span><span class="p">()</span>
+<span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- 1. define the reference name within the ref attribute --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">ref</span><span class="o">=</span><span class="s">&quot;my-input&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<p>Reference element within child component(use <code>defineExpose</code>):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">ChildComponent.vue</label><label for="__tabbed_1_2">ParentComponent.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useTemplateRef</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+
+<span class="c1">// 2. reference the element through reference name in useTemplateRef</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">myInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useTemplateRef</span><span class="p">(</span><span class="s1">&#39;my-input&#39;</span><span class="p">)</span>
+
+<span class="c1">// 3. Expose the ref</span>
+<span class="nx">defineExpose</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">myInput</span>
+<span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- 1. define the reference name within the ref attribute --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">ref</span><span class="o">=</span><span class="s">&quot;my-input&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useTemplateRef</span><span class="p">,</span><span class="w"> </span><span class="nx">onMounted</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+
+<span class="c1">// 5. reference the element through reference name in useTemplateRef</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">childRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useTemplateRef</span><span class="p">(</span><span class="s1">&#39;child-ref&#39;</span><span class="p">)</span>
+
+<span class="c1">// 6. Use the childcomponent input reference in onMount</span>
+<span class="nx">onMounted</span><span class="p">(()=&gt;{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">childComponentInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">childRef</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">myInput</span>
+<span class="w">    </span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">focus</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- 4. define the reference name within the ref attribute --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ChildComponent</span> <span class="na">ref</span><span class="o">=</span><span class="s">&quot;child-ref&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Reference element within parent component: impossible with <code>useTemplateRef</code></p>
+<h3 id="33-special-components">3.3 Special components<a class="headerlink" href="#33-special-components" title="Permanent link">&para;</a></h3>
+<h4 id="331-components-with-async-setup">3.3.1 Components with async setup<a class="headerlink" href="#331-components-with-async-setup" title="Permanent link">&para;</a></h4>
+<p>We can await an async function in <code>&lt;script setup&gt;</code> before rendering a component. To ensure an async operation is waited before rendering, we need to ensure <code>&lt;Suspense&gt;</code> exists in the parent chain of this component. </p>
+<p>Ex:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MyAsyncComponent.vue</label><label for="__tabbed_2_2">App.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tenplate</span><span class="p">&gt;</span>
+    <span class="cp">{{</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="cp">}}</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">MyAsyncComponent</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="332-async-component">3.3.2 Async Component<a class="headerlink" href="#332-async-component" title="Permanent link">&para;</a></h4>
+<p>When we use <code>defineAsyncComponent</code>, we typically use it with <code>import()</code> function to lazy load heavy components. <code>import()</code>makes network request to retrieve the components' javascript bundle when the component is rendered combining with <code>v-if</code>(when condition of <code>v-if</code> is true). On the other hand, if we use <code>import ... from '...'</code> to load the component, we always load the heavy components eagerly when the page is loading. Some use cases of <code>AsyncComponent</code>:</p>
+<ul>
+<li>heavy components with <code>v-if</code> condition to be false or not immediately visible when loading the page</li>
+<li>router page that is not loaded.</li>
+</ul>
+<p>Use Case 1(defer loading heavy):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">AsyncComponent.vue</label><label for="__tabbed_3_2">LoadingComponent.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;vue&quot;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">LoadingComponent</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./Components/LoadingComponent&quot;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">loadingStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateloadingStatus</span><span class="p">(){</span>
+<span class="w">    </span><span class="nx">loadingStatus</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">loadingStatus</span><span class="p">.</span><span class="nx">value</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">HeavyComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineAsyncComponent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">import</span><span class="p">(</span><span class="s2">&quot;./Components/HeavyComponent&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">loadingComponent</span><span class="o">:</span><span class="w"> </span><span class="nx">LoadingComponent</span>
+<span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">HeavyComponent</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">loadingStatus</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">loadingStatus</span><span class="s">&quot;</span><span class="p">&gt;</span>Load<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;loading-overlay&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;loader&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">scoped</span><span class="p">&gt;</span>
+<span class="p">.</span><span class="nc">loading-overlay</span><span class="w"> </span><span class="p">{</span>
+<span class="c">/* Position the overlay fixed to cover the entire viewport */</span>
+<span class="w">    </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">fixed</span><span class="p">;</span>
+<span class="w">    </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">    </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="w"> </span><span class="c">/* Set background color to gray with some opacity */</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span><span class="w"> </span><span class="c">/* Gray with 50% opacity */</span>
+<span class="w"> </span><span class="c">/* Ensure it is on top of all other content */</span>
+<span class="w">    </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">;</span>
+<span class="w"> </span><span class="c">/* Center the loader within the overlay */</span>
+<span class="w">    </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">flex</span><span class="p">;</span>
+<span class="w">    </span><span class="k">justify-content</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="k">align-items</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c">/* Optional: Add a simple CSS spinner */</span>
+<span class="p">.</span><span class="nc">loader</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#f3f3f3</span><span class="p">;</span><span class="w"> </span><span class="c">/* Light gray border */</span>
+<span class="w">  </span><span class="k">border-top</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="mh">#3498db</span><span class="p">;</span><span class="w"> </span><span class="c">/* Blue border for the spinner effect */</span>
+<span class="w">  </span><span class="k">border-radius</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+<span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">  </span><span class="k">animation</span><span class="p">:</span><span class="w"> </span><span class="n">spin</span><span class="w"> </span><span class="mi">1</span><span class="kt">s</span><span class="w"> </span><span class="kc">linear</span><span class="w"> </span><span class="kc">infinite</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="k">keyframes</span><span class="w"> </span><span class="nt">spin</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">0</span><span class="o">%</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">rotate</span><span class="p">(</span><span class="mi">0</span><span class="kt">deg</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">100</span><span class="o">%</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">transform</span><span class="p">:</span><span class="w"> </span><span class="nb">rotate</span><span class="p">(</span><span class="mi">360</span><span class="kt">deg</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>use case 2(router):
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">defineAsyncComponent</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">AsyncAbout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineAsyncComponent</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">import</span><span class="p">(</span><span class="s1">&#39;./views/About.vue&#39;</span><span class="p">),</span>
+<span class="w">  </span><span class="nx">loadingComponent</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&lt;div&gt;Loading About...&lt;/div&gt;&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Optional loading component</span>
+<span class="w">  </span><span class="nx">errorComponent</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">template</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&lt;div&gt;Error loading About!&lt;/div&gt;&#39;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Optional error component</span>
+<span class="w">  </span><span class="nx">delay</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="c1">// Optional delay before showing loading component (ms)</span>
+<span class="w">  </span><span class="nx">timeout</span><span class="o">:</span><span class="w"> </span><span class="mf">3000</span><span class="w"> </span><span class="c1">// Optional timeout for loading (ms)</span>
+<span class="p">});</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createRouter</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">history</span><span class="o">:</span><span class="w"> </span><span class="nx">createWebHistory</span><span class="p">(),</span>
+<span class="w">  </span><span class="nx">routes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Home&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">import</span><span class="p">(</span><span class="s1">&#39;./views/Home.vue&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/about&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;About&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">component</span><span class="o">:</span><span class="w"> </span><span class="nx">AsyncAbout</span><span class="w"> </span><span class="c1">// Using the defined async component</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">});</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">router</span><span class="p">;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<p>Use case 3(use with <code>&lt;Suspense&gt;</code>):
+Suppose we have a component nested with different async components or components with async setup. Without Suspense, we will see each components loading spinner at a time when each of them handle their loaded state. The <code>&lt;Suspense&gt;</code> component gives us the ability to display top-level loading / error states while we wait on these nested async dependencies to be resolved.
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">AsyncSetUpComponent</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./Components/AsyncSetUpComponent&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">HeavyComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineAsyncComponent</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">import</span><span class="p">(</span><span class="s2">&quot;./Components/HeavyComponent&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">loadingComponent</span><span class="o">:</span><span class="w"> </span><span class="nx">LoadingComponent</span>
+<span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">Suspense</span><span class="p">&gt;</span>
+        <span class="cm">&lt;!-- below elements go to default slot of Suspense --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">AsyncSetUpComponent</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">HeavyComponent</span> <span class="p">/&gt;</span>
+
+        <span class="cm">&lt;!-- loading go to fallback slot of Suspense--&gt;</span>
+        <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">fallback</span><span class="p">&gt;</span> Loading... <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">Suspense</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div></p>
+<h4 id="333-component">3.3.3 <code>&lt;Component&gt;</code><a class="headerlink" href="#333-component" title="Permanent link">&para;</a></h4>
+<h4 id="334-suspense">3.3.4 <code>&lt;Suspense&gt;</code><a class="headerlink" href="#334-suspense" title="Permanent link">&para;</a></h4>
+<h3 id="34-common-patterns">3.4 Common patterns<a class="headerlink" href="#34-common-patterns" title="Permanent link">&para;</a></h3>
+<h4 id="341-props-expose">3.4.1 Props &amp; Expose<a class="headerlink" href="#341-props-expose" title="Permanent link">&para;</a></h4>
+<p>When we pass parameters from parent to child:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Parent.vue</label><label for="__tabbed_4_2">Child.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildComponent</span> <span class="p">:</span><span class="na">foo</span><span class="o">=</span><span class="s">&quot;</span><span class="s1">&#39;hello world&#39;</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineProps</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">])</span>
+<span class="nx">watch</span><span class="p">(()=&gt;</span><span class="w"> </span><span class="nx">props</span><span class="p">.</span><span class="nx">foo</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">newFoo</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newFoo</span><span class="p">))</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>When we pass parameters from chilld to parent:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Child.vue</label><label for="__tabbed_5_2">Parent.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="nx">defineExpose</span><span class="p">({</span><span class="w"> </span><span class="nx">msg</span><span class="w"> </span><span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useTemplateRef</span><span class="p">,</span><span class="w"> </span><span class="nx">onMounted</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">childRef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useTemplateRef</span><span class="p">(</span><span class="s1">&#39;child-ref&#39;</span><span class="p">)</span>
+<span class="nx">onMounted</span><span class="p">(()=&gt;{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">childRef</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">msg</span>
+<span class="p">})</span>
+
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ChildComponent</span> <span class="na">ref</span><span class="o">=</span><span class="s">&quot;child-ref&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="342-event-emit">3.4.2 Event emit<a class="headerlink" href="#342-event-emit" title="Permanent link">&para;</a></h4>
+<p>In order to control the parent component behavior from child component or set the state of parent component or let parent component execute something, we can create an event on child component and bind the event with a function from parent component. Then we control when to emit events inside child component to trigger.</p>
+<p>Example: we want to create a toggle button that can control the theme of the layout</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Child.vue</label><label for="__tabbed_6_2">Parent.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">emit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineEmits</span><span class="p">([</span><span class="s1">&#39;colorToggle&#39;</span><span class="p">])</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">toggleColor</span><span class="p">(){</span>
+<span class="w">    </span><span class="nx">emit</span><span class="p">(</span><span class="s2">&quot;colorToggle&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">toggleColor</span><span class="s">&quot;</span><span class="p">&gt;</span>
+        Enable Night Mode
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">isNightMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">enableNightMode</span><span class="p">(){</span>
+<span class="w">    </span><span class="nx">isNightMode</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="nx">isNightMode</span><span class="p">.</span><span class="nx">value</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="cp">{{</span><span class="w"> </span><span class="nx">isNightMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;Night&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Day&quot;</span><span class="w"> </span><span class="cp">}}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ToggleButton</span> <span class="p">@</span><span class="na">colorToggle</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">enableNightMode</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>pass arguments to events:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Child.vue</label><label for="__tabbed_7_2">Parent.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">emit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">defineEmits</span><span class="p">([</span><span class="s1">&#39;my-custom-event&#39;</span><span class="p">])</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">emitEvent</span><span class="p">(){</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">payload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">msg</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">emit</span><span class="p">(</span><span class="s2">&quot;my-custom-event&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">payload</span><span class="w"> </span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">emitEvent</span><span class="s">&quot;</span><span class="p">&gt;</span>Emit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">eventHandler</span><span class="p">(</span><span class="nx">payload</span><span class="p">){</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">payload</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="cp">{{</span><span class="w"> </span><span class="nx">isNightMode</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">&quot;Night&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Day&quot;</span><span class="w"> </span><span class="cp">}}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildComponent</span> <span class="p">@</span><span class="na">my-custom-event</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">eventHandler</span><span class="s">&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="343-provideinject">3.4.3 provide/inject<a class="headerlink" href="#343-provideinject" title="Permanent link">&para;</a></h4>
+<p>provide/inject is the way to set shared data for all of its descendant components(not just parent/child) to access. It saves the need to pass props when there is a long chain between an ancestor and descendant.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Ancestor.vue</label><label for="__tabbed_8_2">Descendant.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">provide</span><span class="p">,</span><span class="w"> </span><span class="nx">ref</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+<span class="c1">// use provide() to provide data to all its descendant</span>
+<span class="c1">// first arg is key to retrieve in descendant, second arg is value</span>
+<span class="nx">provide</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span><span class="s1">&#39;hello!&#39;</span><span class="p">)</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateCounter</span><span class="p">(){</span>
+<span class="w">    </span><span class="nx">counter</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span>
+<span class="p">}</span>
+<span class="c1">// classic use</span>
+<span class="nx">provide</span><span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">counter</span><span class="p">,</span><span class="w"> </span><span class="nx">updateCounter</span><span class="p">})</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">inject</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+
+<span class="c1">// use inject to retrieve the keys from `provide`</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">counter</span><span class="p">,</span><span class="w"> </span><span class="nx">updateCounter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">updateCounter</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">counter</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="344-slot">3.4.4 Slot<a class="headerlink" href="#344-slot" title="Permanent link">&para;</a></h4>
+<p>Parents can pass html elements into children components for rendering through slots.</p>
+<p>Basic:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Child.vue</label><label for="__tabbed_9_2">Parent.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- slot pair will be replaced by html elements passed by parent--&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span><span class="p">&gt;&lt;</span><span class="nt">slot</span><span class="p">&gt;</span>defalt content<span class="p">&lt;/</span><span class="nt">slot</span><span class="p">&gt;&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- pass msg value--&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildComponent</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">msg</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">ChildComponent</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- pass Html --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildComponent</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">span</span><span class="p">&gt;</span>Hello world<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildCompnent</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- when pass nothing, anything appears inside slot will appear--&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildComponent</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Multiple slots:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Children.vue</label><label for="__tabbed_10_2">Parent.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">$slots</span><span class="p">.</span><span class="nx">header</span><span class="s">&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-header&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;header&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">$slots</span><span class="p">.</span><span class="k">default</span><span class="s">&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-content&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">slot</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">v-if</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">$slots</span><span class="p">.</span><span class="nx">footer</span><span class="s">&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;card-footer&quot;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">slot</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;footer&quot;</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildrenComponent</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">template</span> <span class="na">v-slot:header</span><span class="p">&gt;</span>
+            <span class="cm">&lt;!-- Content for header slot --&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ChildrenComponent</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildrenComponent</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">header</span><span class="p">&gt;</span>
+            <span class="cm">&lt;!-- Content for header slot --&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ChildrenComponent</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ChildrenComponent</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">header</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Here might be a page title<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+
+      <span class="cm">&lt;!-- implicit default slot --&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A paragraph for the main content.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>And another one.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+      <span class="p">&lt;</span><span class="nt">template</span> <span class="err">#</span><span class="na">footer</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Here&#39;s some contact info<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ChildrenComponent</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="345-life-hook">3.4.5 Life hook<a class="headerlink" href="#345-life-hook" title="Permanent link">&para;</a></h4>
+<ul>
+<li>onMounted: hook after the the vue component is mounted, can take sync/async hook, commonly used to fetch api for data when page is loading, add event listener to window</li>
+<li>onUnmounted: hook after the vue component is unmounted</li>
+<li>onUpdated: hook after state change but before DOM updates on page in browser</li>
+<li>nextTick: hook after the DOM updates on page in browser</li>
+</ul>
+<p>order of hook:
+onMounted(parent) -&gt; onMounted(children)</p>
+<h2 id="4-optimization">4. Optimization<a class="headerlink" href="#4-optimization" title="Permanent link">&para;</a></h2>
+<h2 id="5-other-classes">5. Other classes<a class="headerlink" href="#5-other-classes" title="Permanent link">&para;</a></h2>
+<h3 id="51-composable-function">5.1 Composable function<a class="headerlink" href="#51-composable-function" title="Permanent link">&para;</a></h3>
+<p>Composable functions can encapsulate anything you defined in vue <code>&lt;script setup&gt;</code>, including state variables, computed properties, ref elements, prop variable, lifecycle hook, watched callback, customized functions. And they can return state variables &amp; customized functions.</p>
+<p>Commonly, we create composable functions to take a state variable as input and use watch method to watch that input variable. Examples like fetching data from a url below:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Composable.vue</label><label for="__tabbed_11_2">App.vue</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="p">,</span><span class="w"> </span><span class="nx">watchEffect</span><span class="p">,</span><span class="w"> </span><span class="nx">toValue</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">useFetch</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// reset state before fetching..</span>
+<span class="w">    </span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="nx">error</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
+
+<span class="w">    </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">toValue</span><span class="p">(</span><span class="nx">url</span><span class="p">))</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">json</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">json</span><span class="p">))</span>
+<span class="w">      </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">err</span><span class="p">))</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">watchEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fetchData</span><span class="p">()</span>
+<span class="w">  </span><span class="p">})</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;/initial-url&#39;</span><span class="p">)</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useFetch</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+
+<span class="c1">// this should trigger a re-fetch due to watchEffect inside</span>
+<span class="nx">url</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/new-url&#39;</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="52-custom-directive">5.2 Custom directive<a class="headerlink" href="#52-custom-directive" title="Permanent link">&para;</a></h3>
+<p>We create custom directive when we want to manipulate a specific DOM directly. We typically define it to focus on an element, integrate with a library that manipulates DOM(charting lib, make an element drag and drop), add event handling.</p>
+<p>More: https://vuejs.org/guide/reusability/custom-directives.html</p>
+<h2 id="6-vue-router">6. Vue Router<a class="headerlink" href="#6-vue-router" title="Permanent link">&para;</a></h2>
+<h3 id="61-navigate-to-a-url">6.1 Navigate to a URL<a class="headerlink" href="#61-navigate-to-a-url" title="Permanent link">&para;</a></h3>
+<h3 id="62-back-and-refresh">6.2 Back and refresh<a class="headerlink" href="#62-back-and-refresh" title="Permanent link">&para;</a></h3>
+<h2 id="7-pinia">7. Pinia<a class="headerlink" href="#7-pinia" title="Permanent link">&para;</a></h2>
+<p>Pinia is the newest library that has replaced Vuex. Pinia can implement a global store across the entire application where every components can access. Without Pinia, we can still implement this global store, but it may not work in SSR environment.</p>
+<h2 id="8-default-config">8. Default Config<a class="headerlink" href="#8-default-config" title="Permanent link">&para;</a></h2>
+<h3 id="81-fallthrough-attributes">8.1 Fallthrough attributes<a class="headerlink" href="#81-fallthrough-attributes" title="Permanent link">&para;</a></h3>
+<h2 id="9-popular-libraries">9. Popular libraries<a class="headerlink" href="#9-popular-libraries" title="Permanent link">&para;</a></h2>
+<ul>
+<li>element UI</li>
+<li>Vuetify</li>
+</ul>
+<div style="text-align: center; margin-top: 20px;">
+<h2>Share this post:</h2>
+</div>
+<p><a class="md-button" href="https://x.com/intent/tweet?text=Vue%0A&amp;url=https://juniorxyz.github.io/myCMS/2025/12/01/vue/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></span></a>
+<a class="md-button" href="https://www.facebook.com/sharer/sharer.php?u=https://juniorxyz.github.io/myCMS/2025/12/01/vue/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036 27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></span></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="junior-stack/myCMS"
+        data-repo-id="R_kgDOQG1r4Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOQG1r4c4Cxs-G"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant.preview"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascript/mathjax.js"></script>
+      
+        <script src="../../../../javascript/collapseCodeblock.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

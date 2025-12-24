@@ -1,0 +1,1457 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://juniorxyz.github.io/myCMS/2025/10/10/typescrpt/">
+      
+      
+        <link rel="prev" href="../../../05/01/flutter/">
+      
+      
+        <link rel="next" href="../programmingnote/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Typescrpt - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/collapseCodeblock.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Typescrpt
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/junior-stack/myCMS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    junior-stack/myCMS
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Archive
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../archive/2025/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一. 基本
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一. 基本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tsjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. TS与JS的区别与联系:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 开发环境搭建
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 创建一个typescript应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 声明变量类型:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. TS编译选项
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-webpackts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Webpack编译ts文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 关键字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 语法糖
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二. 类型大全
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三. 类型操作: 交叉与联合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classinterfacetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三. 定义Class和interface和type
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四. 各种声明类型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五. 关键字大全
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六. 泛型初步声明
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        七. 泛型约束
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        八. 泛型工具类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八. 泛型工具类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-partial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Partial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-readonly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Readonly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Pick
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Record
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        八. Namespace
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../.." class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-10-10 00:00:00+00:00" class="md-ellipsis">October 10, 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              4 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../../tags/#tag:programming" class="md-tag">Programming</a>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+  <h1>Typescrpt</h1>
+
+<p>This is my typescript note.</p>
+<!-- more -->
+<p><a href="http://ts.xcatliu.com/basics/union-types.html">resource</a></p>
+<h2 id="_1">一. 基本<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="1-tsjs">1. TS与JS的区别与联系:<a class="headerlink" href="#1-tsjs" title="Permanent link">&para;</a></h3>
+<p>ts增加了:</p>
+<ul>
+<li>类型</li>
+<li>ES新特性和ES不具备的特性</li>
+</ul>
+<p>联系:</p>
+<ul>
+<li>所有js代码可被ts解析, ts是js的超集</li>
+</ul>
+<h3 id="2">2. 开发环境搭建<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>使用npm安装Typescript: 一下依赖:</li>
+<li><code>npm i -g typescript ts-loader</code>(用于将typescript编译成js)</li>
+<li><code>npm i -g ts-node</code>可以跳过编译阶段直接执行ts代码(可独立与上面的依赖, 即不装上面以来只装ts-node)</li>
+<li>(*可能)若在powershell里使用<code>tsc -v</code>出现在<code>在此系统上禁用脚本</code>, 先<code>get-ExecutionPolicy</code>查看是否为restricted, 再以管理员身份<code>set-ExecutionPolicy RemoteSigned</code>并敲y或a,解决该问题</li>
+</ol>
+<h3 id="3-typescript">3. 创建一个typescript应用<a class="headerlink" href="#3-typescript" title="Permanent link">&para;</a></h3>
+<p>运行ts文件方式一:</p>
+<ol>
+<li>创建一个.ts的文件</li>
+<li>进入所在文件夹，使用 <code>tsc 文件名.ts</code>编译就会生成.js文件</li>
+<li>再用node运行那个js文件即可</li>
+</ol>
+<p>运行ts文件方式二:</p>
+<ol>
+<li>直接<code>ts-node 文件名.ts</code>即可不用编译生成js文件，直接运行ts文件</li>
+</ol>
+<h3 id="4">4. 语法<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. 声明变量类型:<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p><strong>变量类型:</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>number</td>
+<td>1, 2</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>boolean</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>literal</td>
+<td>1， "a", 1 | "a"</td>
+<td>代码里给变量赋的任何值，被赋值的变量为常量</td>
+</tr>
+<tr>
+<td>any</td>
+<td>*</td>
+<td>任意类型</td>
+</tr>
+<tr>
+<td>unknown</td>
+<td>*</td>
+<td>类型安全的any</td>
+</tr>
+<tr>
+<td>void</td>
+<td>空值(undefined)</td>
+<td>没有值(或undefined)</td>
+</tr>
+<tr>
+<td>never</td>
+<td>没有值</td>
+<td>不能是值</td>
+</tr>
+<tr>
+<td>object</td>
+<td>{a: 'a'}</td>
+<td>任意的js对象</td>
+</tr>
+<tr>
+<td>array</td>
+<td>[1,2]</td>
+<td>列表</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>[4,3]</td>
+<td>固定长度的列表</td>
+</tr>
+<tr>
+<td>enum</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>（参数名:参数类型...）=&gt;返回值类型</td>
+<td></td>
+<td>表示一个该函数签名的函数类型</td>
+</tr>
+<tr>
+<td>class</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>联合类型</strong>:</p>
+<p>变量声明时使用 <code>|</code> 分隔两个不同的类型: A和B，表示该变量为A类型或B类型</p>
+<p><strong>如何声明</strong></p>
+<div class="highlight"><pre><span></span><code><span class="cm">/*变量名: 变量类型, 示例如下:*/</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">sum</span><span class="p">(</span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">{...}</span>
+</code></pre></div>
+<p><strong>如何声明一个class</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">类名</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">属性名</span><span class="o">:</span><span class="w"> </span><span class="kt">类型</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="nx">属性名</span><span class="o">:</span><span class="w"> </span><span class="kt">类型</span><span class="w"> </span><span class="cm">/*表示静态属性*/</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">参数</span><span class="o">:</span><span class="w"> </span><span class="kt">类型</span><span class="p">){</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">属性名</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">参数</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">方法名</span><span class="p">(){...}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>获取一个对象的类型,并赋给一个变量</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">myType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">}</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">myType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sb&#39;</span><span class="p">}</span>
+</code></pre></div>
+<p><strong>定义并使用接口</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">A</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">sayhello</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<span class="p">};</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">sayhi</span><span class="p">(</span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<span class="p">}</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">1</span><span class="p">,</span><span class="w"> </span><span class="nx">sayhello</span><span class="o">:</span><span class="w"> </span><span class="p">()=&gt;{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)}}</span><span class="w"> </span>
+</code></pre></div>
+<p><strong>如何使用泛型</strong>:</p>
+<p>1 <strong>泛型定义</strong>：先在变量名右边用一个尖括号囊括用到的泛型字母以此做到声明，然后可以在变量右边的赋值表达式或类体或函数体里像使用类型一样直接使用,</p>
+<p>示例一(赋值表达式):</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">IsExactlyAny</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">S</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="p">(</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">S</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">true</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">;</span>
+</code></pre></div>
+<p>示例二(函数体):</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">f</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="p">}</span>
+</code></pre></div>
+<p>示例三(类体):</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">Component</span><span class="o">&lt;</span><span class="nx">P</span><span class="p">,</span><span class="w"> </span><span class="nx">S</span><span class="o">&gt;</span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="kt">T</span><span class="p">}</span>
+</code></pre></div>
+<p>限定泛型必须包含C的属性和方法:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">C</span><span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">};</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">IsExactlyAny</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">C</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>2 <strong>引用由泛型定义的变量</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">IsExactlyAny</span><span class="o">&lt;</span><span class="nx">son</span><span class="p">,</span><span class="w"> </span><span class="nx">father</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="nx">f</span><span class="p">(</span><span class="mf">10</span><span class="p">);</span><span class="w">                  </span><span class="cm">/*不指定泛型引用*/</span>
+<span class="nx">f</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span><span class="w">      </span><span class="cm">/*指定泛型引用*/</span><span class="w">   </span>
+</code></pre></div>
+<h4 id="2-ts">2. TS编译选项<a class="headerlink" href="#2-ts" title="Permanent link">&para;</a></h4>
+<ul>
+<li>监测到ts文件变化后自动化重新编译: <code>tsc 文件名.ts -w</code></li>
+<li>使用配置文件(tsconfig.json)编译:</li>
+<li>创建tsconfig.json(示例如下):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="cm">/**/</span>
+<span class="w">    </span><span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;commonjs&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;es5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sourceMap&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="cm">/*表示希望哪个目录下的.ts文件不被编译*/</span>
+<span class="w">    </span><span class="nt">&quot;exclude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">          </span>
+<span class="w">        </span><span class="s2">&quot;node_module&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="cm">/*表示希望那个目录下的.ts文件被编译*/</span>
+<span class="w">    </span><span class="nt">&quot;include&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./src/**/*&quot;</span><span class="p">],</span><span class="w">  </span><span class="cm">/*&quot;**&quot;表示任意目录, *表示任意文件*/</span>
+<span class="w">    </span><span class="cm">/*表示希望该文件从底下的哪个文件继承*/</span>
+<span class="w">    </span><span class="nt">&quot;extends&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./config/base&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="cm">/*表示指定被编译文件列表*/</span>
+<span class="w">    </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;core.ts&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="cm">/*compilerOptions子选项如下*/</span>
+<span class="w">    </span><span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ES6&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;lib&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ES6&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DOM&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="err">...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>可选值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target: string</td>
+<td>"es3"(默认)，"es5", "es6"</td>
+<td>ts代码被编译后的目标版本</td>
+</tr>
+<tr>
+<td>lib: array[string]</td>
+<td></td>
+<td>指定代码运行时所包含的库</td>
+</tr>
+<tr>
+<td>module: string</td>
+<td>"es5", "commonjs"</td>
+<td>编译后代码所使用的模块化系统</td>
+</tr>
+<tr>
+<td>outdir: string</td>
+<td>示例: "./dist"</td>
+<td>输出目录(默认tsconfig所在目录)</td>
+</tr>
+<tr>
+<td>outfile: string(常用webpack代替)</td>
+<td>"./dist/app.js"</td>
+<td>将所有代码合并到同一文件</td>
+</tr>
+<tr>
+<td>allowJs: boolean</td>
+<td></td>
+<td>是否将js和ts一起编译</td>
+</tr>
+<tr>
+<td>removeComments: boolean</td>
+<td></td>
+<td>是否移除注释</td>
+</tr>
+<tr>
+<td>noEmitOnError: boolean</td>
+<td></td>
+<td>报错时是否继续编译</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>再到.json所在目录使用<code>tsc</code></li>
+</ol>
+<h4 id="3-webpackts">3. Webpack编译ts文件<a class="headerlink" href="#3-webpackts" title="Permanent link">&para;</a></h4>
+<h4 id="4_1">4. 关键字<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>static</th>
+<th>export</th>
+<th>export default</th>
+<th>import</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>declare</td>
+<td>extends</td>
+<td>super</td>
+<td>abstract</td>
+</tr>
+<tr>
+<td>const</td>
+<td>let</td>
+<td>type</td>
+<td>interface</td>
+</tr>
+<tr>
+<td>public</td>
+<td>private</td>
+<td>declare namespace</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>declare module</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>extends:</p>
+</li>
+<li>
+<p>表示继承</p>
+</li>
+<li>
+<p>表示约束泛型：当extends前面是一个泛型的时候,表示该泛型必须包含extends后的类型的所有属性:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">getcnames</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="p">{</span><span class="nx">cname</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">}</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">entities</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">[])</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">[]{}</span>
+</code></pre></div>
+</li>
+</ul>
+<h4 id="5">5. 语法糖<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>变量后?的使用:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">box</span><span class="o">?</span><span class="p">.</span><span class="nx">addeventlistener</span><span class="p">(</span><span class="s2">&quot;js&quot;</span><span class="p">)</span><span class="w">  </span><span class="cm">/*表示若box不为null执行addeventlistener,否则，不执行*/</span>
+</code></pre></div>
+<ul>
+<li>变量后!的使用(非空断言操作符: 从变量的值域去除null和undefined)</li>
+</ul>
+<h2 id="_2">二. 类型大全<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>number</li>
+<li>string</li>
+<li>Function</li>
+<li>any</li>
+<li>class</li>
+<li>List</li>
+</ul>
+<p>高级类型:</p>
+<ul>
+<li>class类</li>
+<li>类型兼容性</li>
+<li>交叉类型</li>
+<li>泛型和keyof</li>
+<li>索引签名类型和索引查询类型</li>
+<li>映射类型</li>
+</ul>
+<h2 id="_3">三. 类型操作: 交叉与联合<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>联合: 用于表示一个类型是多个类型的其中某一个, 多个类型间用<code>|</code>连接:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">};</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">Contact</span><span class="w"> </span><span class="p">{</span><span class="nx">phone</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">}</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">Contact</span>
+</code></pre></div>
+<ul>
+<li>交叉: 用于组合多个类型为一个类型, 多个类型间用<code>&amp;</code>连接(当<code>&amp;</code>前后两个类型出现同名属性但属性类型冲突时, <code>&amp;</code>产生的新类型的那个同名属性会是<code>&amp;</code>前后两个类型联合类型):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="kt">string</span><span class="p">};</span>
+<span class="kd">interface</span><span class="w"> </span><span class="nx">Contact</span><span class="w"> </span><span class="p">{</span><span class="nx">phone</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">}</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Person</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">Contact</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;hi&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">phone</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="classinterfacetype">三. 定义Class和interface和type<a class="headerlink" href="#classinterfacetype" title="Permanent link">&para;</a></h2>
+<p>interface示例:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">};</span>
+</code></pre></div>
+<p>interface和type大多数情况下一样, 可混用:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">Foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">bar</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>interface与type关键字的差别:</p>
+<ul>
+<li>interface可使用extends表示继承,出现子类与父类有同名属性但属性类型冲突时会报错</li>
+<li>type声明的类型可以用<code>&amp;</code>, <code>|</code>类型符号, 交叉两个类型时, 当<code>&amp;</code>前后两个类型出现同名属性但属性类型冲突时, <code>&amp;</code>产生的新类型的那个同名属性会是<code>&amp;</code>前后两个类型联合类型</li>
+<li>interface只能为对象指定类型, 而type可以为任意类型指定别名</li>
+</ul>
+<h2 id="_4">四. 各种声明类型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>方式一(示例):</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p>方式二(推荐):</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 声明一个对象</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">}</span>
+
+<span class="c1">// 声明一个函数:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="p">()=&gt;</span><span class="kt">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">}</span>
+
+<span class="c1">// 声明一个混合类型数组:</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="p">)[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">d</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">}[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;d&quot;</span><span class="p">}]</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">E</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">};</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">e</span><span class="o">:</span><span class="w"> </span><span class="kt">E</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;e&quot;</span><span class="p">}]</span>
+
+<span class="c1">//声明元组: 元组里的每个位置只能是某个特定类型</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="p">[</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hello1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;hello2&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="_5">五. 关键字大全<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>type, 使用示例:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">E</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">}</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">e</span><span class="o">:</span><span class="kt">E</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">}]</span>
+</code></pre></div>
+<h2 id="_6">六. 泛型初步声明<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>声明一个泛型:</p>
+<ol>
+<li>在interface名或class名或函数名旁使用尖括号,尖括号里使用任意的variableName作为泛型名即可声明泛型</li>
+<li>在使用函数或创建实例时通过尖括号给泛型传入真实类型,</li>
+</ol>
+<p>上述步骤的demo:</p>
+<p><strong>给函数声明泛型一:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// step 1:</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">join</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">first</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="nx">second</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">first</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">second</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// step 2</span>
+<span class="nx">join</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>给函数声明泛型二:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">getParam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">param1</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="o">:</span><span class="w"> </span><span class="nx">param2</span><span class="o">:</span><span class="w"> </span><span class="kt">U</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">U</span><span class="p">][]</span>
+</code></pre></div>
+<p><strong>给接口声明泛型:</strong>(注意: 需要显式为泛型指定类型)</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">IdFunc</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">T</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">ids</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">T</span><span class="p">[]</span>
+<span class="p">}</span>
+
+<span class="c1">// 显式为泛型指定number类型</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">IdFunc</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">value</span>
+<span class="w">    </span><span class="nx">ids</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>给数组声明泛型：</strong>(注意: 数组其实就是泛型接口，及等同于为接口声明泛型)</p>
+<p><strong>给class声明泛型:</strong> (注意: 形似给接口声明泛型, 不同的是显式为泛型指定类型在这里不是必须的)</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">A</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">){</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">A</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">100</span><span class="p">);</span><span class="w"> </span><span class="c1">//这里&lt;number&gt;可以省略，因为有constructor带入T类型</span>
+</code></pre></div>
+<h2 id="_7">七. 泛型约束<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>当我们在上个section步骤一中声明一个泛型时, 我们在尖括号里除了单纯的传入一个泛型变量,还可以通过一个关键字对泛型变量进行操作,这些统称为泛型约束:</p>
+<ul>
+<li><code>T extends type</code>(用于表明该泛型必须拥有extends后class或interface或泛型的所有属性和方法):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">AClass</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">A</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="k">private</span><span class="w"> </span><span class="nx">params</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">[]){}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>[k: string]</code>索引签名类型(用于表示只要是string的属性名称都可以出现在该对象里):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">k</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="c1">//表示A类型的key是一个number类型，值为string类型，且k可以被动态生成</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">o</span><span class="o">:</span><span class="w"> </span><span class="kt">Symbol</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span>
+<span class="w">    </span><span class="c1">// js对象的键名属性只能是字符串或数字或Symbol对象的其中一种</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>readonly</code>只读属性:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">readonly</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>K extends keyof T</code>: 获取所有T的属性名字符串，并将它们结构出来作为联合类型返回</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">IPerson</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">sex</span><span class="o">:</span><span class="w"> </span><span class="kt">0</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mf">1</span>
+<span class="p">}</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">P1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">keyof</span><span class="w"> </span><span class="nx">IPerson</span><span class="p">;</span>
+
+<span class="kd">interface</span><span class="w"> </span><span class="nx">ITest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">P1</span><span class="w"> </span><span class="c1">// key的值只能是&quot;name&quot;, &quot;age&quot;, &quot;sex&quot;三者中的其中一个字符串</span>
+<span class="p">}</span>
+
+<span class="kd">let</span><span class="w"> </span><span class="nx">test</span><span class="o">:</span><span class="w"> </span><span class="kt">ITest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="w">  </span><span class="c1">// 可以还可以被赋值为&quot;age&quot;或&quot;sex&quot;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">getProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">K</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">keyof</span><span class="w"> </span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">object</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="nx">propName</span><span class="o">:</span><span class="w"> </span><span class="kt">K</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">object</span><span class="p">[</span><span class="nx">propName</span><span class="p">]</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// K类型只能是T的键名称字符串, 即propName的值只能是object的键名称的字符串,</span>
+<span class="w">    </span><span class="c1">//因而当T为IPerson类型时, K extends keyof T被转换为了&quot;name&quot; | &quot;age&quot; | &quot;sex&quot;,</span>
+<span class="w">    </span><span class="c1">// 所以,函数里的propName: K即为propName: &quot;name&quot; | &quot;age&quot; | &quot;sex&quot;</span>
+<span class="p">}</span>
+
+<span class="nx">getProps</span><span class="p">(</span><span class="nx">test</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><code>[k in PropKeys]</code>映射类型:</li>
+</ul>
+<p>(其中in后面跟的PropKeys表示一个联合类型, 用于表示键名称从PropKey中筛选):</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">PropKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="p">;</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{[</span><span class="nx">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">PropKeys</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>[k in keyof T]</code>映射类型:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">Props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">};</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{[</span><span class="nx">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">keyof</span><span class="w"> </span><span class="nx">Props</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>T[P]</code>索引查询(访问)类型: </li>
+</ul>
+<p>当<code>T[P]</code>与type关键字结合时, 则表示获取T类型中键为P的属性值类型,出现的场景可以在<code>Partial&lt;T&gt;</code>的实现中看到</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Partial的实现:</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">Partial</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">P</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">keyof</span><span class="w"> </span><span class="nx">T</span><span class="p">]</span><span class="nx">?</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">[</span><span class="nx">P</span><span class="p">]</span>
+<span class="w">    </span><span class="c1">//这里T[P]表示的是获取T[P]属性所对应的类型，而不是T[P]的对象属性值</span>
+<span class="p">}</span>
+
+<span class="c1">//基本使用:</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">Props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">}</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">TypeA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Props</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="c1">//注意: 必须要有type关键字, Props[&quot;a&quot;]才表示访问a属性的类型，否则会被解释为js中访问a属性的值</span>
+</code></pre></div>
+<ul>
+<li><code>T[A | B]</code>索引查询多个类型:</li>
+</ul>
+<p>当方括号里是一个联合类型时,表示属性名为A的类型联合属性为B的类型,示例:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">Props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">};</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">typeA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Props</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="c1">// 等同于 typeA = number | string | boolean</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">typeA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Props</span><span class="p">[</span><span class="nx">keyof</span><span class="w"> </span><span class="nx">Props</span><span class="p">]</span>
+</code></pre></div>
+<p>https://wenku.baidu.com/view/29b29d1664ec102de2bd960590c69ec3d4bbdb43.html</p>
+<p>https://blog.csdn.net/web15117716165/article/details/123080349</p>
+<h2 id="_8">八. 泛型工具类<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>泛型工具类型是基于泛型实现的类，用于操作泛型的关系,且是ts内置的</p>
+</blockquote>
+<h3 id="1-partial">1. Partial<a class="headerlink" href="#1-partial" title="Permanent link">&para;</a></h3>
+<p><code>Partial&lt;T&gt;</code>用于创建一个新类型,这个新类型将原有的T类型设置为可选, 示例:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Props</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span>
+<span class="p">}</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">partialProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Partial</span><span class="o">&lt;</span><span class="nx">Props</span><span class="o">&gt;</span>
+</code></pre></div>
+<h3 id="2-readonly">2. Readonly<a class="headerlink" href="#2-readonly" title="Permanent link">&para;</a></h3>
+<p><code>Readonly&lt;T&gt;</code>用于将原有T类型的所有属性设置为只可读:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Props</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span>
+<span class="p">}</span>
+
+<span class="kr">type</span><span class="w"> </span><span class="nx">partialProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Readonly</span><span class="o">&lt;</span><span class="nx">Props</span><span class="o">&gt;</span>
+</code></pre></div>
+<h3 id="3-pick">3. Pick<a class="headerlink" href="#3-pick" title="Permanent link">&para;</a></h3>
+<p><code>Pick&lt;T, K&gt;</code>表示从T类型中选择一组由K指定的属性来构造新类型,示例:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">Props</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">children</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span>
+<span class="p">}</span>
+<span class="kr">type</span><span class="w"> </span><span class="nx">PickProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Pick</span><span class="o">&lt;</span><span class="nx">Props</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;id&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s2">&quot;title&quot;</span><span class="o">&gt;</span>
+</code></pre></div>
+<h3 id="4-record">4. Record<a class="headerlink" href="#4-record" title="Permanent link">&para;</a></h3>
+<p><code>Record&lt;K, T&gt;</code>构造一个对象类型, K为属性键, T为属性值且类型为type, 示例:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">RecordObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Record</span><span class="o">&lt;</span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="p">[]</span><span class="o">&gt;</span>
+<span class="c1">// 上面创建了RecordObj类型，该类型由a, b, c三个属性，且这三个属性的类型为string[]</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">RecordObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;3&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>https://blog.csdn.net/weixin_44828005/article/details/119720185</p>
+<h2 id="namespace">八. Namespace<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h2>
+<p>将一些class或variable或函数模块化，可以将它们放在一个namespace里，要创建一个namespace,可以用namespace关键字创建, 示例:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">namespace</span><span class="w"> </span><span class="nx">alpha</span><span class="p">{</span>
+<span class="w">    </span><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">A</span><span class="p">{</span>
+<span class="w">        </span><span class="kr">constructor</span><span class="p">(){}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">alpha</span><span class="p">.</span><span class="nx">A</span><span class="p">();</span>
+</code></pre></div>
+<p>对于namespace的操作: namespace还可以嵌套,示例:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">namespace</span><span class="w"> </span><span class="nx">alpha</span><span class="p">{</span>
+<span class="w">    </span><span class="k">export</span><span class="w"> </span><span class="nx">namespace</span><span class="w"> </span><span class="nx">alpha1</span><span class="p">{</span>
+<span class="w">       </span><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">A</span><span class="p">{</span>
+<span class="w">        </span><span class="kr">constructor</span><span class="p">(){}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">alpha</span><span class="p">.</span><span class="nx">alpha1</span><span class="p">.</span><span class="nx">A</span><span class="p">()</span>
+</code></pre></div>
+<div style="text-align: center; margin-top: 20px;">
+<h2>Share this post:</h2>
+</div>
+<p><a class="md-button" href="https://x.com/intent/tweet?text=Typescrpt%0A&amp;url=https://juniorxyz.github.io/myCMS/2025/10/10/typescrpt/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg></span></a>
+<a class="md-button" href="https://www.facebook.com/sharer/sharer.php?u=https://juniorxyz.github.io/myCMS/2025/10/10/typescrpt/">Share on <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036 27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/></svg></span></a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="junior-stack/myCMS"
+        data-repo-id="R_kgDOQG1r4Q"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOQG1r4c4Cxs-G"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "navigation.instant.preview"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascript/mathjax.js"></script>
+      
+        <script src="../../../../javascript/collapseCodeblock.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
