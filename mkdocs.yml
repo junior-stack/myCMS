@@ -8,6 +8,7 @@ theme:
   features:
     - content.code.copy
     - content.code.annotate
+    - navigation.instant.preview
 
 repo_url: https://github.com/junior-stack/myCMS
 

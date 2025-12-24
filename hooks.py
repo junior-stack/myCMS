@@ -26,6 +26,27 @@ TABS_PATTERN = re.compile(r"~~~tabs\s*(.*?)~~~", re.DOTALL)
 
 TAB_PATTERN = r"---\s*tab\s*"
 
+BACKLINK_PATTERN = re.compile(r"\[\[([^\]]+)\]\]", re.DOTALL)
+
+def transform_backlinks(content: str) -> str:
+    PAGELINK_PATTERN = re.compile(r"([^#]*)#(.*)")
+    """
+    Convert Obsidian-style backlinks [[Page Name]] to MkDocs-style links [Page Name](Page-Name.md)
+    """
+    def repl(match):
+        pagelink = match.group(1).strip()
+
+        match2 = PAGELINK_PATTERN.match(pagelink)
+
+        filename = match2.group(1).strip() if match2 else ""
+        section = match2.group(2).strip() if match2 else ""
+        formattedSection = section.replace(" ", "-").replace(".", "").lower() if section else "" 
+        link = filename + ".md#" + formattedSection if filename != "" else ("#" + formattedSection)
+
+        return f'[{section}]({link}){{ data-preview }}'
+    
+    return BACKLINK_PATTERN.sub(repl, content)
+
 
 def transform_group_tabs(content: str) -> str:
     """
@@ -119,6 +140,7 @@ def parse_callouts(content: str) -> str:
 
 def transform(content: str) -> str:
     content = transform_Bullet_start(content)
+    content = transform_backlinks(content)
     content = parse_callouts(content)
     content = convert_tabs_block(content)
     content = transform_group_tabs(content)
