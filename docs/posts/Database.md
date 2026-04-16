@@ -26,6 +26,7 @@ useful commands
 | `set search_path to <schema_name>` | switch current schema to `<schema_name>`  |
 | \dt                                | list all tables under current schema      |
 | `\dt <schema_name>.*`              | list all tables under `<schema_name>`     |
+db connection string:
 
 
 ## 1.2 Create tables

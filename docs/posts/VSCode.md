@@ -1,6 +1,7 @@
 ---
 date:
     created: 2025-02-01
+draft: true
 tags:
   - Tool
 ---
@@ -112,3 +113,9 @@ This plugin allows you to open github repo without cloning
 
 Once success,
 1. ctrl+shift+p, select **show sync data**, will open **manage sync data** on left side pannel
+
+# 4. Debug
+## 4.1 React
+React: 
+- react dev tool:https://www.youtube.com/watch?v=l8knG0BPr-o
+- debugger: https://www.youtube.com/watch?v=l8pe_MSX4Lc

@@ -17,12 +17,14 @@ tags:
 - Windows IIS
 - Apache
 - Niginx
+- Uvicorn(ASGI server specifically for python application)
 
 ## 2.2 Dynamic web server
 
 ## 2.3 Web build system
 - vite
 - webpack
+- RScore
 
 ## 2.4 How to debug Nodejs
 
@@ -68,16 +70,67 @@ function Toolbar(){
 
 # 5. Common error
 ## 5.1 CORS error
-Cors error is the error arised by browser's CORS policies.
-### 5.1.1 Frontend proxy
-When your frontend makes a request to a relative URL, the proxy intercepts it and forwards it to the specified target server (e.g., `http://localhost:8080/api/data`).
+Cors error is the error arised by browser's CORS policies.  Browsers enforce a security measure called the Same-Origin Policy. This policy prevents a web page from making requests to a different domain, port, or protocol than the one it originated from, leading to Cross-Origin Resource Sharing (CORS) errors. 
 
-How does this work:
-browsers enforce a security measure called the Same-Origin Policy. This policy prevents a web page from making requests to a different domain, port, or protocol than the one it originated from, leading to Cross-Origin Resource Sharing (CORS) errors. 
-Package.json(react):
-```json
-"proxy": 8080
+To summarize, when the web page downloaded from the web page server requests an api url that does not target to web page server, you will see a COR error message in the console `Access to fetch at 'http://localhost:58058/Admin/User/Login' from origin 'http://localhost:3000' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
+### 5.1.1 Frontend proxy
+When your frontend makes a request to a relative URL, the proxy intercepts it and forwards it to the specified target server (e.g., `http://localhost:8080/api/data`). Here are the proxy config for different build tools:
+
+```Javascript group:5.1.1 file:Webpack
+// config/index.js
+module.exports = {
+	dev: {
+		proxyTable: {
+			'/api': {
+				target: '<backend_api_url>',
+				changeOrigin: true,
+				pathRewrite: { '^/api': '' },
+			}
+		}
+	}
+}
+
+// config/dev.env.js
+const merge = require('webpack-merge')
+const prodEnv = require('./prod.env')
+
+module.exports = merge(prodEnv, {
+	NODE_ENV: '"development"',
+	// process.env.BASE_API becomes "/api/", when you call fetch, it will send request to "/api/<module_name>/<API>"
+	BASE_API: '"/api/"'
+})
+
+// direct webpack config: build/webpack.dev.conf.js
+const config = require('../config')
+const devWebpackConfig = merge(baseWebpackConfig,{
+	devServer: {
+		proxy: config.dev.proxyTable
+	},
+	plugins: [
+		new webpack.DefinePlugin({
+	      'process.env': require('../config/dev.env')
+	    }),
+	]
+}
 ```
+```Javascript group:5.1.1 file:Vite
+// vite.config.js
+export default defineConfig({
+	server: {
+		port: 3000,
+		open: true,
+		proxy: {
+			'/': {
+				target: '<backend_url>',
+				changeOrigin: true,
+				// rewrite: (path) => path.replace(/^\/api/, ''),
+			}
+		}
+	}
+})
+```
+
+
 When you set the proxy server, browser sees the request as being made to the same origin(your frontend's development server) and there is no Same-Origin Policy on the proxy server on that port
 
 This method is primarily for development and may not be suitable for production environments without a proper reverse proxy setup.
@@ -89,29 +142,21 @@ expressjs:
 app.use(cors())
 ```
 
-### 5.1.3 CORS error from oidc
-A CORS (Cross-Origin Resource Sharing) error with an OIDC (OpenID Connect) client typically occurs when a web application hosted on one domain attempts to communicate with an OIDC Identity Provider (IdP) or an API on a different domain, and the browser's security policy, known as the Same-Origin Policy, blocks the request. This happens because the server (IdP or API) has not explicitly granted permission for the client's origin to access its resources.
 
-Common Scenarios and Solutions:
 
-- **IdP Configuration Issues:**
-    - **Incorrect Redirect URIs:** Ensure the `redirect_uri` configured in your OIDC client matches exactly (including scheme, host, and port) with what is registered on the OIDC IdP. Mismatches are a frequent cause of CORS-related issues during the authentication flow.
-    - **Missing or Incorrect CORS Headers on IdP:** The IdP's `/authorize` or token endpoints might not be sending the necessary `Access-Control-Allow-Origin` header in their responses, or the value in the header might not include the client's origin. The IdP's configuration needs to be adjusted to allow requests from your client's domain.
-    
-- **API Access Issues:**
-    
-    - **Backend API CORS Configuration:** If your OIDC client is making calls to a separate backend API after authentication, that API also needs to be configured for CORS. The API server must include the `Access-Control-Allow-Origin` header (and potentially `Access-Control-Allow-Methods` for preflight requests) in its responses to allow your client's origin.
-    - **Preflight Requests (OPTIONS):** For certain HTTP methods (e.g., PUT, DELETE, POST with specific content types), browsers send a preflight `OPTIONS` request before the actual request. The API server must handle these `OPTIONS` requests and respond with the appropriate CORS headers.
+# 5. SEO
+## 5.1 How to find SEO score
+https://www.youtube.com/watch?v=8OcWDOpkb7U
 
-# 5. Defend search engine Crawler
+# 6. Defend search engine Crawler
 
 
 
 
 
-# 6. Authentication
+# 7. Authentication
 
-## 6.1 Authenticate with firebase
+## 7.1 Authenticate with firebase
 
 1. Go to Firebase console > create new project
 

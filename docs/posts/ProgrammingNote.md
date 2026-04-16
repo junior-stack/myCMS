@@ -1012,6 +1012,61 @@ Native:
 ~~~
 
 
+Maven:
+**multi-module project directory:**
+> [project_name]/
+> > [module_1]/
+> > > src/
+> > > > main/java/[groupID]/
+> > > > test/java/com.example/
+> > > target/
+> > > pom.xml
+> > [module_2]/
+> > > src/
+> > > > main/java/com.example/
+> > > > test/java/com.example
+> > > target/
+> > > pom.xml
+> > shared/
+> > > src/
+> > > > main/java/com.example/
+> > > > test/java/com.example
+> > > target/
+> > > pom.xml
+> > src/
+> > > main/
+> > > test/
+> > pom.xml
+
+**How to initialize maven project:**
+1. use `mvn archetype:generate` to create pom.xml and initialize a maven project folder structure
+2. to add new module to existing maven project:
+	1. in root folder, type `mvn archetype:generate -DgroupId=com.mycompany.mymodule -DartifactId=mymodule -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+		- `-DarchetypeArtifactId=maven-archetype-quickstart`: use `quickstart` template project structure which contains`src/` and `test/`
+		- `-DgroupId / -DartifactId`: specify group Id or artifact ID
+	2.  In parent pom.xml, add `<modules><module>child_module<module></modules>`, in child pom.xml, make sure `<parent>` tag appears
+3. Use `mvn clean install` to install dependencies
+
+**How to import classes from parent module:**
+> Maven does not support importing classes from parent module. Therefore, a good pratice or an alternative is to create a module that exposes shared classes or methods as below operation. Parent module is just used to orchestrate building process of children modules
+
+**How to import classes from shared module:** say we want `module_1` import `shared`,
+1.  For the java class inside `shared` module:
+	- if the class is just under the `[groupID]/` like `org.example`, add the line `package org.example` as the first line; 
+	- if the class is under a subdirectory (e.g: `org.example.messages`), add `package org.example.messages` 
+	(the rule of the package is that the name must adhere to the path of the java class under `src/main/java/`)
+2.  add the `shared` module in the `module_1` pom.xml
+3. In the importing class, import the class through `import org.example.<class_name>` or `import org.example.messages.<class_name>`
+
+
+**Dependency management:**
+
+**Module package(fat jar)**
+
+**Module package(thin jar)**
+`
+
+
 ## 4.2 Relative import
 Relative import is generally the way of importing another file in various programming language
 ~~~tabs
@@ -1022,7 +1077,8 @@ How does Python resolve the relative path:
 
 
 ~~~
-
+Java:
+package statement rule: the name after package statement must adhere to the path of parent directory of the class file
 ## 4.3 Build Library & App
 ~~~tabs
 ---tab Python

@@ -10,9 +10,9 @@ My notes about common backend framework, libraries and microservices
 Communication:
 - gRPC
 - HTTP/HTTPS rest
-- graphQL
+- graphQL(not a network protocol, can be based on websocket or Http)
 - websocket
-- server-sent events
+- server-sent events(not a network protocol, is based only on Http)
 
 # 1. Kafka
 Go: https://www.youtube.com/watch?v=j6bqJKxb2w0
@@ -137,3 +137,37 @@ for message in consumer:
 When you config load balancer, the load balancer may distribute user's requests into different server IPs. For ex, load balancer first direct user to Server A, then the next request to server B. server B does not have session infor from server A. That's when we need to share user's session in redis.
 
 # 4. Payment
+
+
+# 5. Prometheus
+What is it:
+> Application service monitor. To use it, you need to:
+> 1. Integrate with client library or use exporter for the application to be scraped
+> 2. set up Promethius server, Grafa dashboard
+
+1. Integrate the application with client library in corresponding languages:
+- Jmx exporter: https://www.openlogic.com/blog/prometheus-java-monitoring-and-gathering-data
+- process exporter/node exporter(C++): https://medium.com/coxit/how-to-set-up-monitoring-of-cpu-and-memory-usage-for-c-multithreaded-application-with-prometheus-ea296290f7bf
+
+
+1. Start the Promethius server with `docker run -d --name my-prometheus -p 9090:9090 -v ${PWD}/prometheus.yaml:/etc/prometheus/prometheus.yaml prom/prometheus --config.file=/etc/prometheus/prometheus.yaml`, `prometheus.yaml` as following:
+```yaml
+global:
+  scrape_interval: 15s # Scrape targets every 15 seconds by default.
+  external_labels:
+    monitor: 'codelab-monitor'
+
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+
+  - job_name: "kvstore"
+    metrics_path: "/actuator/prometheus"
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+      # Prometheus runs in Docker, so "localhost" would refer to the Prometheus container itself.
+      # On Docker Desktop (Windows/macOS), use host.docker.internal to reach services on the host.
+      - targets: ["host.docker.internal:8080"]
+```
+

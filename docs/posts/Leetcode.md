@@ -350,7 +350,11 @@ def dfs(graph, r):
 	        if vertexState[graph[v][curr_child_index]] == 0:
 		        stack[-1][1] = curr_child_index + 1
 		        stack.append((graph[v][curr_child_index], 0))
-		        continue
+			    continue
+			# for bidirected graph, prevent the rest of the vertex to be ignored
+			elif vertexState[graph[v][curr_child_index]] == 1:
+				stack[-1][1] = curr_child_index + 1
+				continue
 
         vertexState[v] = 2
               
@@ -1111,7 +1115,7 @@ def heappush(arr, item):
 
 def heappop(arr):
 	tailItem = arr.pop()
-	if len(heap) == 0:
+	if len(arr) == 0:
 		return tailItem	
 	headItem = arr[0]
 	
@@ -1299,7 +1303,7 @@ class Trie:
         """
         rt= self  #相当于c++的this指针！！！
         for w in word:
-            if w not in self.child:     #没有，就新建
+            if w not in rt.child:     #没有，就新建
                 self.child[w] = Trie()
             rt = rt.child[w]          #往下走
         rt.isword = True        #标记位
@@ -1724,3 +1728,44 @@ Q:
 - Kth smallest element in a sorted matrix (leetcode #378)
 
 # 21. String Matching
+
+## 21.1 Rolling Hash
+Problem statement:
+> We are given a long string `text` of length `N`, we want to find the occurrence of a substring `word` of length `n`. A naive way is to loop through the text, for each loop, we compare `n` characters from `text` with `word`. This can be `O(n * N)`. A good solution is to use Rolling Hash algorithm(also Rabin-Karp algorithm), which takes O(N)
+
+General thought of rolling hash(Rabin-Karp):
+> We first introduce the hash algorithm:
+> let `s` be a substring of length `n`,
+> hash(s) = $c_1 * a^{(n-1)} + c_2 * a^{(n-2)} + \cdots + c_n * a^0$, where:
+> - $c_i$: ascii value of characters in s
+> - a: a constant prime number, typically choose 31
+> - m: If `n` is large enough to make hash overflow in bits, we will let `hash(s) % m` at the end to let the entire hash be within integer range, m is a large constant prime, usually $10^9 + 7$
+> Then the rolling hash algorithm:
+> 1. we calculate hash(word)
+> 2. for each iteration i from 0 to N - n, :
+> 	1. we calculate H(i) = hash(`text[i:i+n]`) and compare with hash(word). When we calculate hash H(i), H(i+1), there is a recurrence relationship that can save us from having to hashing from each character of `text[i"i+n]`: $H(i+1) = (H(i) - c_1 * a^{n-1}) * a + c_{i+1}$ . In this way, we make hash algorithm runtime be O(1)
+
+Template:
+```python
+def rolling_hash(text, word, base=31, m=10**9+7):
+	N = len(text)
+	n = len(word)
+	a = [1] * n
+	hashes = [0] * (N - n + 1)
+	
+	# calculate a0, ... a^(n-1)
+	for i in range(1, n + 1):
+		a[i] = (a[i - 1] * base) % m
+	
+	# hash(0)
+	curr_hash = 0
+	for i in range(n):
+		curr_hash = (curr_hash * base + ord(text[i])) % m
+	hashes[0] = curr_hash
+	
+	# compute H(i)
+	for i in range(1, N - n  + 1):
+		curr_hash = (hashes[i - 1] - a[n - 1] * ord(text[i - 1])) % m
+		hashes[i] = (curr_hash * base + ord(s[i + n - 1])) % m
+	return hashes
+```
