@@ -103,6 +103,16 @@ link to buy cheap oem key: https://ca.vip-urcdkey.com/software/p2017101808565561
 1. disconnect from the Internet
 2. System > activation > Change product key, enter the generic product key in this link(https://learn.microsoft.com/en-us/answers/questions/4199508/upgrade-windows-10-home-(digital-license)-to-windo?forum=windows-all&referrer=answers)
 
+## 3.5 Reroll restoration point
+Reroll to restoration point will change the following:
+- windows registry
+- `C:\Windows`
+- `C:\Program Files`
+- `C:\Program Files (x86)`
+- `C:\ProgramData`
+The following won't change:
+- `C:\Users\[Username]\`: including its desktop, Documents, Pictures, downloads, videos
+
 
 # 4. Directory System
 
