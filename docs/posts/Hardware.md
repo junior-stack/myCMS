@@ -96,12 +96,26 @@ Feature: reset C: drive but leave other drive unchanged and won't re-allocate di
 ## 3.4 Upgrade Edition
 Assume we want to upgrade from windows home to Pro, we need to purchase a new activation key. There are 2 types of windows keys: Retail key and OEM keys. OEM keys can be reused on the same machine when reinstalling the system, while retail key can be reused on another machine when installing systems.
 
-In addition, upgrading edition will not delete your files
+In addition, upgrading edition will not delete your files or uninstall any program.
+
 tutorial: https://www.youtube.com/watch?v=5oRARXEqrJY
 link to buy cheap oem key: https://ca.vip-urcdkey.com/software/p201710180856556150.html?urd=TS10
 
 1. disconnect from the Internet
-2. System > activation > Change product key, enter the generic product key in this link(https://learn.microsoft.com/en-us/answers/questions/4199508/upgrade-windows-10-home-(digital-license)-to-windo?forum=windows-all&referrer=answers)
+2. System > activation > Change product key, enter the generic product key in this link(https://learn.microsoft.com/en-us/answers/questions/4199508/upgrade-windows-10-home-(digital-license)-to-windo?forum=windows-all&referrer=answers), this will restart the laptop
+3. After restarting the laptop, connect to the wifi
+4. Go to Setting > activation,  it will show Windows 10 Pro but not activated
+5. Click Change product key, this time enter the oem key you purchase, it will show activated
+
+## 3.5 Reroll restoration point
+Reroll to restoration point will change the following:
+- windows registry
+- `C:\Windows`
+- `C:\Program Files`
+- `C:\Program Files (x86)`
+- `C:\ProgramData`
+The following won't change:
+- `C:\Users\[Username]\`: including its desktop, Documents, Pictures, downloads, videos
 
 
 # 4. Directory System
